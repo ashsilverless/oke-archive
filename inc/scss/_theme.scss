@@ -487,6 +487,153 @@ a.control_prev {
     }
 }
 
+.filter-wrapper {
+    position: relative;
+    .mix {
+        display: none;
+    }
+    .fail-message{
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        text-align: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: 150ms;
+        &:before{
+            content: '';
+            display: inline-block;
+            vertical-align: middle;
+            height: 100%;
+        }
+        span{
+            display: inline-block;
+        }
+    }
+    &.fail .fail-message{
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+
+.filter-group {
+    border:none;
+    margin:0;
+    padding:0;
+}
+
+.filter-header {
+    form {
+        @include brandBorder;
+        background:white;
+    }
+    &__item {
+        @include brandBorderRight;
+        padding:1em 2em;
+        color:$brand-primary;
+        .heading {
+            margin-bottom: 1em;
+        }
+        .checkbox {
+            display: block;
+            position: relative;
+            cursor: pointer;
+            user-select: none;
+            padding-left:3em;
+            margin-bottom: 1em;
+            line-height: 2em;
+            input {
+                position: absolute;
+                opacity: 0;
+                cursor: pointer;
+                height: 0;
+                width: 0;
+                &:checked ~ .checkmark {
+                    background:$brand-primary;
+                }
+                &:hover ~ .checkmark {
+                    box-shadow: inset 0 0 0 2px $brand-primary;
+                }
+            }
+            .checkmark {
+                @include brandBorder;
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 2em;
+                width: 2em;
+                border-radius: 50px;
+                transition: all 0.5s ease;
+            }
+        }
+    }
+    .button {
+        display: inline-block;
+        background: $brand-primary;
+        color: white;
+        margin: 1em 0;
+        padding: 1em 5em 1em 1em;
+        font-style: italic;
+    }
+}
+
+.safari-options {
+    @include brandBorder;
+    margin-bottom: 3em;
+    background:white;
+    .image {
+        @include backgroundCover;
+        display: grid;
+        height:100%;
+        align-items: center;
+        text-align: center;;
+    }
+    .meta {
+        display: flex;
+        .item {
+            @include brandBorderBottom;
+            width:50%;
+            padding: 1em 3em;
+            &:first-of-type {
+                @include brandBorderRight;
+            }
+        }
+        i {
+            margin-right: 1em;
+            color: $brand-primary;
+        }
+    }
+    .camps {
+        @include brandBorderBottom;
+        padding: 1em 3em;
+        span {
+            @include brandBorderRight;
+            white-space: nowrap;
+            padding-right: 0.5em;
+            margin-right: 0.5em;
+            &:last-of-type {
+                border-right: none;
+            }
+        }
+    }
+    .description {
+        padding:1em 3em;
+    }
+
+    a.button {
+        display: inline-block;
+        margin: 0 3em 2em;
+        padding: 1em 5em 1em 1em;
+        background: $brand-primary;
+        color: white;
+        font-style: italic;
+    }
+}
+
+
+
 /*==== SIDEBAR====*/
 
 .sidebar {
