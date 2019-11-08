@@ -76,8 +76,6 @@ jQuery(document).ready(function( $ ) {
 
 // GLOBAL OWL CAROUSEL SETTINGS
 
-
-
 /* CLASS AND FOCUS ON CLICK */
 
     $(".menu-trigger").click(function() {
@@ -105,6 +103,51 @@ jQuery(document).ready(function( $ ) {
 	    $(this).closest('.safari-itinerary__item').toggleClass("open");
     });
     $(".safari-itinerary__item:first-child").addClass("open");
+
+    $('.checkbox input:checkbox').click(function(){
+        if($('input[value="' + this.value + '"]:checkbox').prop('checked', this.checked)) {
+            $('button.filter-reset').addClass("visible");
+            $('div.filtered-result').addClass("visible");
+            $('div.filter-header').addClass("filter-active");
+        }
+    });
+
+    $('.checkbox input:checkbox').click(function(){
+        var textinputs = document.querySelectorAll('.checkbox input[type=checkbox]');
+        var empty = [].filter.call( textinputs, function( el ) {
+           return !el.checked
+        });
+        if (textinputs.length == empty.length) {
+            $('button.filter-reset').removeClass("visible");
+            $('div.filtered-result').removeClass("visible");
+            $('div.filter-header').removeClass("filter-active");
+        }
+    });
+
+    $('input[type="checkbox"]').click(function() {
+      $('input[value="' + this.value + '"]:checkbox').prop('checked', this.checked)
+      });
+
+// ========== Count filter results
+/*
+$('.checkbox input:checkbox').click(function() {
+    var isvis = $('div.mix').css('display');
+    if($(isvis)) {
+        console.log('yep');
+        $(this).addClass('aaaa');
+    } else {
+        //$('div.mix').removeClass("ewrewrwerewr");
+    }
+});*/
+
+/*$('.checkbox input:checkbox').click(function() {
+    $('div.mix').addClass(function(){
+            var floated = $(this).css('display');
+            return floated ? 'display-' + floated : '';
+        });
+        var n = $('div.mix.display-block').length;
+        $( "span#filter-count" ).text(n);
+});*/
 
 // ========== Add class if in viewport on page load
 
@@ -234,7 +277,7 @@ var multiFilter = {
     var self = this; // As a best practice, in each method we will asign "this" to the variable "self" so that it remains scope-agnostic. We will use it to refer to the parent "checkboxFilter" object so that we can share methods and properties between all parts of the object.
     self.$filterUi = $('#Filters');
     self.$filterGroups = $('.filter-group');
-    self.$reset = $('#Reset');
+    self.$reset = $('#reset');
     self.$container = $('#Container');
     self.$filterGroups.each(function(){
       self.groups.push({
@@ -358,7 +401,7 @@ $(function(){
       enable: false // we won't be needing these
     },
     animation: {
-      easing: 'cubic-bezier(0.86, 0, 0.07, 1)',
+      easing: 'cubic-bezier(0.86, 0, 0.87, 1)',
       queueLimit: 3,
       duration: 500
     }

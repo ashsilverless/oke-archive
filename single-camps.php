@@ -53,7 +53,7 @@ $the_query = new WP_Query( $args );?>
             <div class="nights"><i class="fas fa-moon"></i><?php the_field('number_of_nights'); ?> Nights</div>
             <div class="cost"><i class="fas fa-credit-card"></i>From $<?php the_field('cost'); ?></div>
         </div><!--meta-->
-        <div class="camps">
+        <!--<div class="camps">
             <?php $safari_id = get_the_ID();
             if( get_field('daily_activity', $safari_id) ) { while(has_sub_field('daily_activity', $safari_id)) {
                 $post_objects = get_sub_field('daily_camp', $safari_id);
@@ -63,7 +63,7 @@ $the_query = new WP_Query( $args );?>
                     <div class="camps__item"><?php the_title(); ?></div>
                 <?php wp_reset_postdata();
             endif; }} ?>
-        </div>
+        </div>-->
         <a href="<?php the_permalink($safari_id); ?>" class="button">View Safari</a>
     </div>
 <?php endwhile; endif;

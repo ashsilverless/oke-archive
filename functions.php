@@ -41,14 +41,14 @@ add_action('wp_before_admin_bar_render', 'oke_manage_admin_bar');
 
 function oke_scripts() {
 	wp_enqueue_style( 'oke-style', get_stylesheet_uri() );
-	wp_enqueue_script( 'oke-core-js', get_template_directory_uri() . '/inc/js/compiled.js', array('jquery'), true); 
+	wp_enqueue_script( 'oke-core-js', get_template_directory_uri() . '/inc/js/compiled.js', array('jquery'), true);
 }
 
 function oke_custom_menu() {
 	register_nav_menus(array(
 		'main-menu' => __( 'Main Menu' )
 	));
-	
+
 	register_nav_menus(array(
 		'secondary-menu' => __( 'Secondary Menu' )
 	));
@@ -75,8 +75,15 @@ if(function_exists('acf_add_options_page')) {
 		'capability'	=> 'edit_posts',
 		'redirect'		=> false
 	));
+	acf_add_options_page(array(
+		'page_title' 	=> 'Site-Wide CTA',
+		'menu_title'	=> 'Site-Wide CTA',
+		'menu_slug' 	=> 'site-wide-cta',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));
 }
- 
+
 function oke_remove_menus(){
 	remove_menu_page( 'edit-comments.php' ); //Comments
 }
@@ -99,7 +106,7 @@ function oke_reorder_menu() {
 		'users.php',                        // Users
 		'tools.php',                        // Tools
 		'options-general.php',              // Settings
-		'wpcf7',                            // Contact Form 7 
+		'wpcf7',                            // Contact Form 7
    );
 }
 
@@ -141,10 +148,10 @@ add_filter('wp_calculate_image_sizes', 'aw_custom_responsive_image_sizes', 10 , 
  // only edit the columns on the current taxonomy
  if ( !isset($_GET['taxonomy']) || $_GET['taxonomy'] != 'category' )
  return $columns;
- 
+
  // unset the description columns
  if ( $posts = $columns['description'] ){ unset($columns['description']); }
- 
+
  return $columns;
 }
 add_filter('manage_edit-category_columns','manage_my_category_columns');

@@ -525,9 +525,15 @@ a.control_prev {
 }
 
 .filter-header {
-    form {
+    &__wrapper {
         @include brandBorder;
         background:white;
+    }
+    overflow:hidden;
+    max-height: 75vh;
+    transition: all 1s ease;
+    form {
+
     }
     &__item {
         @include brandBorderRight;
@@ -543,7 +549,7 @@ a.control_prev {
             user-select: none;
             padding-left:3em;
             margin-bottom: 1em;
-            line-height: 2em;
+            line-height: 1.5em;
             input {
                 position: absolute;
                 opacity: 0;
@@ -562,22 +568,137 @@ a.control_prev {
                 position: absolute;
                 top: 0;
                 left: 0;
-                height: 2em;
-                width: 2em;
+                height: 1.5em;
+                width: 1.5em;
                 border-radius: 50px;
                 transition: all 0.5s ease;
             }
         }
     }
-    .button {
+    .filter-reset {
         display: inline-block;
         background: $brand-primary;
         color: white;
         margin: 1em 0;
         padding: 1em 5em 1em 1em;
+        font-family: $brand-font;
         font-style: italic;
+        margin-left:-100%;
+        transition:all 0.5s ease;
+        &:hover {
+            cursor:pointer;
+        }
+        &.visible {
+            margin-left:0;
+        }
     }
 }
+
+.scrolled-filter {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background:darken( $brand-secondary, 5% );
+    z-index: 500;
+    .container {
+        overflow:hidden;
+    }
+    .filter-header {
+        position: relative;
+        width: 100%;
+        padding:1em 0;
+        overflow:visible;
+        transition: width 0.5s ease;
+        &__wrapper {
+            background:darken( $brand-secondary, 5% );
+            border:none;
+        }
+    }
+    .filter-header__item .heading {
+        margin-bottom: 0.5em;
+        font-size: .85em;
+        border-bottom: 1px solid hsla(0, 0%, 100%, 0.2);
+        padding-bottom: 0.5em;
+        letter-spacing: 0.1em;
+    }
+    .checkboxes-wrapper {
+        text-align: center;
+    }
+    .filter-header__item .checkbox {
+        display: inline-block;
+        padding-left: 1.5em;
+        margin-bottom: 5px;
+        line-height: 1em;
+        margin-right:1.5em;
+        .checkmark {
+            height: 1em;
+            width: 1em;
+        }
+    }
+    .filter-reset {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: -10%;
+        width: 0;
+        overflow: hidden;
+        &.visible {
+            width:10%
+        }
+    }
+    .controls {
+        background: $brand-secondary;
+        border:none;
+    }
+    .heading,
+    .filter-header__item {
+        color: white;
+        padding: 0 1em;
+    }
+    .heading {
+        padding:0;
+    }
+    .filter-header__item:last-of-type {
+        border:none;
+    }
+    .filter-header__item {
+        border: none;
+    }
+    .filter-active {
+        &.filter-header {
+            width:90%;
+            transition: width 0.5s ease;
+        }
+    }
+}
+
+.scrolled .scrolled-filter {
+    top:5em;
+    transition: top 1s ease;
+}
+.scrolled .hero__content .filter-header {
+    opacity: 0;
+}
+
+.filtered-result {
+    max-height: 0;
+    overflow: hidden;
+    background: $brand-secondary;
+    transition: max-height 0.5s ease;
+    &.visible {
+        max-height: 10em;
+    }
+    .heading {
+        padding:0.5em;
+        color: white;
+    }
+    span {
+        margin-right: 0.25em;
+        font-size: 1.4em;
+        line-height: 2em;
+    }
+}
+
 
 .safari-options {
     @include brandBorder;
@@ -632,7 +753,95 @@ a.control_prev {
     }
 }
 
+a.image-leader {
+    display: block;
+    height: 100%;
+    width: 100%;
+    .image {
+        @include backgroundCover;
+        height:15em;
+        display: grid;
+        padding:1em;
+        align-items: center;
+        text-align: center;
+    }
+}
 
+.tax-type .cta {
+    @include backgroundCover;
+    padding:5em 5em 3em;
+    p {
+        margin:1em 5em 2em;
+        color: white;
+    }
+    form {
+        width:60%;
+        margin:0 auto;
+    }
+}
+
+main form.wpcf7-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    text-align: left;
+    span:first-of-type {
+        text-transform: uppercase;
+        background:$brand-primary;
+        color: white;
+        padding:1em 3em;
+        border:none;
+    }
+    .form-field {
+        @include brandBorder;
+        border-bottom:none;
+        border-color:white;
+        display: grid;
+        grid-template-columns: 40% 60%;
+        &.text-area {
+            grid-template-columns: 1fr;
+            border:none;
+            span {
+                @include brandBorder;
+                border-bottom:none;
+                border-color:white;
+            }
+        }
+        &.name {
+            span:last-of-type {
+                border-bottom:1px solid $brand-primary;
+            }
+        }
+    }
+    input, textarea {
+        border:none;
+        width:100%;
+        height: 100%;
+        padding:1em 2em;
+        font-size: 1em;
+        &:focus {
+            outline:none;
+        }
+    }
+    textarea {
+        height: 10em;
+    }
+    .form-button {
+        @include brandBorder;
+        border-color: white;
+        margin-top:1em;
+        background: transparent;
+        input {
+            background-color: transparent;
+            font-family: $brand-font;
+            font-style: italic;
+            font-size: 1.2em;
+            color: white;
+        }
+    }
+    .ajax-loader {
+        position: absolute;
+    }
+}
 
 /*==== SIDEBAR====*/
 

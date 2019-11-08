@@ -10,9 +10,9 @@ $term = get_queried_object();?>
 <!--HERO-->
 
 <?php get_template_part("template-parts/filter-hero-type"); ?>
-<div class="align-center">
-<h3 class="heading heading__md heading__caps mt2 mb2">Your Safari Options</h3>
-</div>
+
+<h3 class="heading heading__md heading__caps mt2 mb2 align-center">Your Safari Options</h3>
+
 <div id="Container" class="filter-wrapper">
   <div class="fail-message"><span>No items were found matching the selected filters</span></div>
 <div class="container">
@@ -60,7 +60,7 @@ $term = get_queried_object();?>
                 <div class="container cols-12">
                     <div class="col">
                         <div class="image" style="background:url(<?php echo $safariImage['url']; ?>);">
-                            <h2 class="heading heading__md heading__light heading__emphasis"><?php the_title(); ?>
+                            <h2 class="heading heading__md heading__light heading__emphasis"><?php the_title(); ?></h2>
                         </div>
                     </div>
                     <div class="col">
@@ -83,5 +83,63 @@ $term = get_queried_object();?>
         <?php endwhile; endif;?>
     </div>
 </div>
+
+<h3 class="heading heading__md heading__caps mt2 mb2 align-center">Other Safari Types</h3>
+
+<div class="container grid-gap cols-auto mb5">
+
+    <?php
+    $typeterms = get_terms( array(
+        'taxonomy' => 'type',
+        'hide_empty' => false,
+    ) );
+    foreach ($typeterms as $typeterm):?>
+    <div class="col">
+        <?php $typeImage = get_field('banner_image', $typeterm);?>
+        <a href="<?php echo get_term_link($typeterm->slug, $typeterm->taxonomy);?>" class="image-leader">
+            <div class="image" style="background:url(<?php echo $typeImage['url']; ?>);">
+                <h2 class="heading heading__md heading__light heading__emphasis">
+                    <?php echo $typeterm->name;?> Safaris
+                </h2>
+            </div>
+        </a>
+    </div>
+    <?php endforeach;?>
+</div>
+
+<h3 class="heading heading__md heading__caps mt2 mb2 align-center">Overview</h3>
+<div class="container cols-offset3-18 mb5">
+    <div class="col description multi-col">
+        <?php the_field('overview', $term);?>
+    </div>
+</div>
+
+<div class="container cols-offset3-18 mb5">
+    <div class="col">
+        <?php
+        if( have_rows('safari_type_cta', 'options') ):
+        while( have_rows('safari_type_cta', 'options') ): the_row();
+        $ctaImage = get_sub_field('background_image');?>
+        <div class="cta align-center" style="background:url(<?php echo $ctaImage['url']; ?>);">
+            <h4 class="heading heading__md heading__light heading__caps"><?php the_sub_field('heading');?></h4>
+            <?php the_sub_field('copy');?>
+            <?php $ctaform = get_sub_field('form');
+               if( $ctaform ):
+                 foreach( $ctaform as $p ): // variable must NOT be called $post (IMPORTANT)
+                   $cf7_id= $p->ID;
+                   echo do_shortcode( '[contact-form-7 id="'.$cf7_id.'" ]' );
+                 endforeach;
+               endif; ?>
+
+            <?php endwhile; endif; ?>
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
 
 <?php get_footer();?>
