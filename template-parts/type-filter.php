@@ -7,13 +7,13 @@
                         <h4 class="heading heading__sm heading__caps align-center">COST</h4>
                         <div class="checkboxes-wrapper">
                             <label class="checkbox"><input type="checkbox" value=".low"/>
-                                Low<span class="checkmark"></span>
+                                $<span class="checkmark"></span>
                             </label>
                             <label class="checkbox"><input type="checkbox" value=".medium"/>
-                                Medium<span class="checkmark"></span>
+                                $$<span class="checkmark"></span>
                             </label>
                             <label class="checkbox"><input type="checkbox" value=".high"/>
-                                High<span class="checkmark"></span>
+                                $$$<span class="checkmark"></span>
                             </label>
                         </div>
                     </fieldset>
