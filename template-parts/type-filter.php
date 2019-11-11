@@ -1,5 +1,6 @@
 <div class="filter-header">
     <form class="controls" id="Filters">
+        <div class="rotated-label">Filter</div>
         <div class="filter-header__wrapper">
             <div class="container cols-8">
                 <div class="col filter-header__item">

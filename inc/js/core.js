@@ -248,9 +248,9 @@ function moveLeft() {
     });
 };
 function moveRight() {
-    $('#slider ul').animate({
-        left: - slideWidth
-    }, 500, function () {
+    $('#slider ul').animate(
+        {left: - slideWidth },
+        500, function () {
         $('#slider ul li:first-child').appendTo('#slider ul');
         $('#slider ul').css('left', '');
     });
@@ -407,5 +407,15 @@ $(function(){
     }
   });
 });
+
+// call this once after DOM ready and once if DOM inside hideables changed
+Array.prototype.forEach.call(document.querySelectorAll(".hideable"), function(hideable) {
+  hideable.style.maxHeight = hideable.scrollHeight +  "px";
+});
+Array.prototype.forEach.call(document.querySelectorAll(".toggle"), function(toggle) {
+  toggle.checked = true;
+});
+
+
 
 });//Don't remove ---- end of jQuery wrapper

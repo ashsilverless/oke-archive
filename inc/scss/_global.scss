@@ -130,22 +130,15 @@ ul {
     font-family: $brand-font;
     font-weight: 300;
     color: $brand-primary;
-    &__alt {
-        font-family: $supporting-font;
-    }
-
     &__body {
         font-family: $body-font;
     }
-
     &__caps {
         text-transform: uppercase;
     }
-
     &__light {
         color: white;
     }
-
     &__alt-color {
       color: $brand-primary-light;
     }

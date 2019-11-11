@@ -525,6 +525,9 @@ a.control_prev {
 }
 
 .filter-header {
+    .rotated-label {
+        display: none;
+    }
     &__wrapper {
         @include brandBorder;
         background:white;
@@ -609,6 +612,22 @@ a.control_prev {
         padding:1em 0;
         overflow:visible;
         transition: width 0.5s ease;
+        .rotated-label {
+            display: inline-block;
+            writing-mode: vertical-lr;
+            text-orientation: upright;
+            position: absolute;
+            top: 0;
+            left: 0em;
+            background: #8a8f74;
+            height: 100%;
+            font-size: 10px;
+            letter-spacing: -6px;
+            text-transform: uppercase;
+            color: white;
+            text-align: center;
+            padding: 4px;
+        }
         &__wrapper {
             background:darken( $brand-secondary, 5% );
             border:none;
@@ -842,6 +861,22 @@ main form.wpcf7-form {
         position: absolute;
     }
 }
+
+.leading-copy {
+    margin-bottom: 1em;
+    font-style:italic;
+    font-family: $brand-font;
+    font-size: 1.4em;
+    color:$brand-primary;
+}
+
+.two-columns {
+    column-count: 2;
+    p:first-of-type {
+        margin-top: 0;
+    }
+}
+
 
 /*==== SIDEBAR====*/
 
@@ -1113,7 +1148,50 @@ main form.wpcf7-form {
     }
 }
 
-
+.company-summary {
+    &__item {
+        .header {
+            @include brandBorder;
+            position: relative;
+            margin-bottom: 1em;
+            padding:0.5em 2em;
+            background:white;
+            svg {
+                position: absolute;
+                    right: 3em;
+                    top: 0.25em;
+                    height: 2em;
+                    transform: rotate(90deg);
+                    transition: all 0.5s ease;
+                    path {
+                        fill:$brand-primary;
+                    }
+            }
+        }
+        .body {
+            .image {
+                @include backgroundCover;
+                height: 15em;
+            }
+            p {
+                padding: 0.5em 2em;
+            }
+            .button {
+                margin-bottom: 2em;
+                padding:1em;
+                text-align: center;;
+                font-family: $brand-font;
+                background:$brand-secondary;
+                color: white;
+                span {
+                    display: block;
+                    margin-bottom: 0.5em;
+                    font-style: italic;
+                }
+            }
+        }
+    }
+}
 /*===========FOOTER==========*/
 
 footer {

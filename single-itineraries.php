@@ -30,10 +30,10 @@ while ( have_posts() ): the_post(); ?>
             </div>
             <div class="camp-summary">
             <?php if( have_rows('daily_activity') ): while( have_rows('daily_activity') ): the_row(); $post_object = get_sub_field('daily_camp');
-            if( $post_object ): 
+            if( $post_object ):
             	// override $post
             	$post = $post_object;
-            	setup_postdata( $post ); 
+            	setup_postdata( $post );
             	$campImage = get_field('banner_image'); ?>
                 	<div class="camp-summary__item">
                         <div class="image" style="background:url(<?php echo $campImage['url']; ?>);">
@@ -45,11 +45,11 @@ while ( have_posts() ): the_post(); ?>
                             <a href="<?php the_permalink(); ?>" class="button">View <?php the_title(); ?></a>
                     	</div>
                 	</div>
-                <?php wp_reset_postdata(); endif; 
-            endwhile; endif;?>    
+                <?php wp_reset_postdata(); endif;
+            endwhile; endif;?>
             </div><!--camp-summary-->
         </div><!--sidebar-->
-        </div>        
+        </div>
 
     <div class="col">
         <div class="description safari mb3">
@@ -57,27 +57,24 @@ while ( have_posts() ): the_post(); ?>
         </div>
         <div class="safari-itinerary">
         <!--DAILY REPEATER-->
-        <?php if( have_rows('daily_activity') ): while( have_rows('daily_activity') ): the_row(); 
+        <?php if( have_rows('daily_activity') ): while( have_rows('daily_activity') ): the_row();
             $post_object = get_sub_field('daily_camp');
-            if( $post_object ): 
+            if( $post_object ):
             	$post = $post_object;
             	setup_postdata( $post ); ?>
                     <div class="safari-itinerary__item">
                     	<p class="heading"><?php the_sub_field('heading');?> - <?php the_title(); ?>
-                        	<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-    	 viewBox="0 0 19.5 40" style="enable-background:new 0 0 19.5 40;" xml:space="preserve">
-    <path class="st0" d="M19.5,20L0,0c0,0,6,11,6,20S0,40,0,40L19.5,20z"/>
-    </svg>
+                            <?php get_template_part("template-parts/arrow-large"); ?>
                     	</p>
                     	<div class="content">
                         	<?php the_sub_field('description');?>
                     	</div>
                     </div>
-            <?php wp_reset_postdata(); 
-            endif; 
-        endwhile; endif;?>   
+            <?php wp_reset_postdata();
+            endif;
+        endwhile; endif;?>
     </div><!--main-->
 </div>
 
-<?php endwhile; 
+<?php endwhile;
 get_footer();?>
