@@ -786,7 +786,7 @@ a.image-leader {
     }
 }
 
-.tax-type .cta {
+.cta.bespoke {
     @include backgroundCover;
     padding:5em 5em 3em;
     p {
@@ -904,6 +904,24 @@ main form.wpcf7-form {
         font-family: $brand-font;
         background:white;
         color: $brand-primary;
+    }
+}
+
+.map-cta {
+    min-height: 25vh;
+    display: grid;
+    padding:5em;
+    margin-bottom: 5em;
+    align-content: center;
+    text-align: center;
+    a {
+        display: inline-block;
+        padding:1em 3em;
+        font-family: $brand-font;
+        font-style: italic;;
+        font-size: 1.5em;
+        border:1px solid white;
+        color: white;
     }
 }
 

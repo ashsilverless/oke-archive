@@ -120,7 +120,7 @@ $term = get_queried_object();?>
         if( have_rows('safari_type_cta', 'options') ):
         while( have_rows('safari_type_cta', 'options') ): the_row();
         $ctaImage = get_sub_field('background_image');?>
-        <div class="cta align-center" style="background:url(<?php echo $ctaImage['url']; ?>);">
+        <div class="cta bespoke align-center" style="background:url(<?php echo $ctaImage['url']; ?>);">
             <h4 class="heading heading__md heading__light heading__caps"><?php the_sub_field('heading');?></h4>
             <?php the_sub_field('copy');?>
             <?php $ctaform = get_sub_field('form');

@@ -7,14 +7,14 @@
 get_header();?>
 
 <!--HERO-->
-
+<?php $postid = get_the_ID(); ?>
 <?php get_template_part("template-parts/filter-hero-find"); ?>
 
 <h3 class="heading heading__md heading__caps mt2 mb2 align-center">Your Safari Options</h3>
 
 <div id="Container" class="filter-wrapper">
   <div class="fail-message"><span>No items were found matching the selected filters</span></div>
-<!--<div class="container">
+<div class="container">
   <?php
       $args = array(
           'post_type' => 'itineraries',
@@ -81,20 +81,44 @@ get_header();?>
         </div>
         <?php endwhile; endif;?>
     </div>
-</div>-->
+</div>
 <div class="filter-footer fullwidth">
     <h3 class="heading heading__md heading__caps heading__light">X Safaris Match Your Criteria</h3>
     <a href="">Adjust my filter</a>
 </div>
-<div class="map-cta">
-    <?php if( have_rows('view_map_cta') ): ?>
-        <?php while( have_rows('view_map_cta') ): the_row(); ?>
 
-fdtyryrt
-            <?php the_sub_field('text'); ?>
-        <?php endwhile; ?>
-    <?php endif; ?>
-</div>
+    <?php if( have_rows('view_map_cta', $postid) ): ?>
+        <?php while( have_rows('view_map_cta', $postid) ): the_row();
+        $mapcatImage = get_sub_field('background_image'); ?>
+        <div class="map-cta" style="background-image: url(<?php echo $mapcatImage['url']; ?>);">
+            <div>
+                <a href=""><?php the_sub_field('text'); ?></a>
+            </div>
+        </div>
+        <?php endwhile; endif; ?>
 
+        <div class="container cols-offset3-18 mb5">
+            <div class="col">
+                <?php
+                if( have_rows('safari_type_cta', 'options') ):
+                while( have_rows('safari_type_cta', 'options') ): the_row();
+                $ctaImage = get_sub_field('background_image');?>
+                <div class="cta bespoke align-center" style="background:url(<?php echo $ctaImage['url']; ?>);">
+                    <h4 class="heading heading__md heading__light heading__caps"><?php the_sub_field('heading');?></h4>
+                    <?php the_sub_field('copy');?>
+                    <?php $ctaform = get_sub_field('form');
+                       if( $ctaform ):
+                         foreach( $ctaform as $p ): // variable must NOT be called $post (IMPORTANT)
+                           $cf7_id= $p->ID;
+                           echo do_shortcode( '[contact-form-7 id="'.$cf7_id.'" ]' );
+                         endforeach;
+                       endif; ?>
+
+                    <?php endwhile; endif; ?>
+
+
+                </div>
+            </div>
+        </div>
 
 <?php get_footer();?>
