@@ -16,9 +16,19 @@ get_header();?>
 		<div class="leading-copy">
 			<?php the_field('leading_copy_paragraph');?>
 		</div>
-		<div class="two-columns">
+		<div class="two-columns mb3">
 			<?php the_field('page_copy');?>
 		</div>
+		<?php $ctaImage = get_field('background_image');?>
+			<div class="cta cta--focus" style="background-image: url(<?php echo $ctaImage['url']; ?>);">
+				<div class="content">
+					<h3 class="heading heading__lg heading__light">
+						<?php the_field('heading');?>
+					</h3>
+					<p><?php the_field('content');?></p>
+					<a href="<?php the_field('button_target');?>"><?php the_field('button_text');?></a>
+				</div>
+			</div><!--cta focus-->
 	</div>
 	<div class="col">
 		<h4 class="heading heading__md heading__caps heading__body mb1">Our Travel Partners</h4>
@@ -51,6 +61,7 @@ get_header();?>
 		</div><!--company-sidebar-->
 	</div>
 </div>
+
 
 
 

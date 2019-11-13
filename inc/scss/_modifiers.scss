@@ -114,11 +114,11 @@ $weight: (100, 200, 300, 400, 500, 600, 700, 800, 900); // Amount string.
 
     .hideable {
       overflow: hidden;
-      transition: 250ms ease-out;
+      transition: 500ms ease-out;
     }
     .hideable.hidden {
       max-height: 0 !important;
-      transition: 250ms ease-in;
+      transition: 500ms ease-in;
     }
 
     /* apply hideable to checkboxes */
@@ -126,7 +126,7 @@ $weight: (100, 200, 300, 400, 500, 600, 700, 800, 900); // Amount string.
     input:checked ~.hideable,
     input:checked ~* .hideable {
         max-height: 0 !important;
-        transition: 250ms ease-in;
+        transition: 500ms ease-in;
     }
 
     /* styling  */

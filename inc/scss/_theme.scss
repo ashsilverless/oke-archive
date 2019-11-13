@@ -877,6 +877,35 @@ main form.wpcf7-form {
     }
 }
 
+.filter-footer {
+    position: relative;
+    padding: 2em;
+    text-align: center;
+    background: $brand-primary;
+    color: white;
+    &:before {
+        content:'';
+        position: absolute;
+        left: 50%;
+        margin-left: -50px;
+        top: -20px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 50px 20px 50px;
+        border-color: transparent transparent $brand-primary transparent;
+    }
+    a {
+        display: inline-block;
+        margin-top: 1em;
+        padding:0.5em 2em;
+        border-radius: 3px;
+        font-style: italic;
+        font-family: $brand-font;
+        background:white;
+        color: $brand-primary;
+    }
+}
 
 /*==== SIDEBAR====*/
 
@@ -1187,6 +1216,20 @@ main form.wpcf7-form {
                     display: block;
                     margin-bottom: 0.5em;
                     font-style: italic;
+                }
+            }
+        }
+        &.visible {
+            .header {
+                background: $brand-primary;
+                .heading {
+                    color: white;
+                }
+            }
+            svg {
+                transform:rotate(270deg);
+                path {
+                    fill:white;
                 }
             }
         }

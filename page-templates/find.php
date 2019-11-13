@@ -14,7 +14,7 @@ get_header();?>
 
 <div id="Container" class="filter-wrapper">
   <div class="fail-message"><span>No items were found matching the selected filters</span></div>
-<div class="container">
+<!--<div class="container">
   <?php
       $args = array(
           'post_type' => 'itineraries',
@@ -81,6 +81,20 @@ get_header();?>
         </div>
         <?php endwhile; endif;?>
     </div>
+</div>-->
+<div class="filter-footer fullwidth">
+    <h3 class="heading heading__md heading__caps heading__light">X Safaris Match Your Criteria</h3>
+    <a href="">Adjust my filter</a>
 </div>
+<div class="map-cta">
+    <?php if( have_rows('view_map_cta') ): ?>
+        <?php while( have_rows('view_map_cta') ): the_row(); ?>
+
+fdtyryrt
+            <?php the_sub_field('text'); ?>
+        <?php endwhile; ?>
+    <?php endif; ?>
+</div>
+
 
 <?php get_footer();?>

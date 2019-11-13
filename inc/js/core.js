@@ -128,6 +128,9 @@ jQuery(document).ready(function( $ ) {
       $('input[value="' + this.value + '"]:checkbox').prop('checked', this.checked)
       });
 
+    $('input:checkbox.toggle ').click(function(){
+        $(this).closest('.company-summary__item').toggleClass('visible');
+      });
 // ========== Count filter results
 /*
 $('.checkbox input:checkbox').click(function() {
