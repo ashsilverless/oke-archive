@@ -76,6 +76,18 @@ jQuery(document).ready(function( $ ) {
 
 // GLOBAL OWL CAROUSEL SETTINGS
 
+$('.carousel_module').owlCarousel({
+    loop:true,
+    nav:true,
+    navClass: ['owl-prev', 'owl-next'],
+    dots:false,
+    responsive:{
+        0:{ items:1},
+        600:{ items:1},
+        1000:{ items:1}
+    }
+});
+
 /* CLASS AND FOCUS ON CLICK */
 
     $(".menu-trigger").click(function() {
@@ -97,12 +109,25 @@ jQuery(document).ready(function( $ ) {
     $(".see-more").click(function() {
 	    $(this).closest('.camp-summary__item').toggleClass("open");
     });
-
+/*
     $(".safari-itinerary__item p.heading").click(function() {
         $(".safari-itinerary__item.open").removeClass("open");
 	    $(this).closest('.safari-itinerary__item').toggleClass("open");
     });
     $(".safari-itinerary__item:first-child").addClass("open");
+*/
+
+    $(".safari-itinerary__item p.heading").click(function() {
+	    //$(this).next().slideToggle();
+	    $(this).parent().toggleClass("open");
+	    $(this).parent().siblings().removeClass("open");
+    });
+
+    $(".toggle__item p.heading").click(function() {
+	    //$(this).next().slideToggle();
+	    $(this).parent().toggleClass("open");
+	    $(this).parent().siblings().removeClass("open");
+    });
 
     $('.checkbox input:checkbox').click(function(){
         if($('input[value="' + this.value + '"]:checkbox').prop('checked', this.checked)) {
@@ -131,6 +156,18 @@ jQuery(document).ready(function( $ ) {
     $('input:checkbox.toggle ').click(function(){
         $(this).closest('.company-summary__item').toggleClass('visible');
       });
+
+      $(".search-trigger").click(function() {
+        $('#search-overlay').addClass("open");
+        //$('body').css({'max-height':'100vh', 'overflow':'hidden'});
+        //$('html').css({'overflow-y':'scroll'});
+        $( "#search-input" ).focus();
+      });
+
+      $(".close-search, .search-submit").click(function() {
+        $('#search-overlay').removeClass("open");
+        //$('body').css({'max-height':'none', 'overflow':'hidden'});
+    });
 // ========== Count filter results
 /*
 $('.checkbox input:checkbox').click(function() {

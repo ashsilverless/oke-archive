@@ -8,7 +8,7 @@
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
-    
+
 <head>
 
 <meta charset="UTF-8">
@@ -28,14 +28,10 @@
 
 </head>
 
-<body <?php body_class(); ?>>
-
-	<div id="page" class="site-wrapper">
-
-        <header>
-        
-            <div class="container cols-3-12-6-3">
-            
+<body id="body" <?php body_class(); ?>>
+    <div id="search-overlay" class="search-wrapper">
+        <div>
+            <div class="container cols-8">
                 <div class="col">
                     <div class="logo">
                         <a href="<?php echo get_home_url(); ?>">
@@ -43,8 +39,41 @@
                             <?php get_template_part('inc/img/ode', 'logo-bottom');?>
                         </a>
                     </div>
-                </div>    
-                
+                    <div class="search-nav">
+                        <?php wp_nav_menu(array(
+                        'theme_location'  => 'main-menu',
+                        'container_class' => 'mainMenu'
+                        ));?>
+                    </div>
+                </div>
+                <div class="col">
+                    <form role="search" method="get" class="main-search-form" action="<?php echo home_url('/'); ?>">
+                        <input id="search-input" name="s" type="search" value="<?php echo get_search_query(); ?>"
+                               placeholder="<?php echo esc_attr_x('Search', 'placeholder'); ?>" />
+                        <input type="submit" class="search-submit" value="&#xf002;" />
+                    </form>
+                </div>
+                <div class="col">
+                    <div class="close-search"><i class="fas fa-window-close"></i>Close</div>
+                </div>
+            </div>
+        </div>
+    </div><!--search-wrapper-->
+	<div id="page" class="site-wrapper">
+
+        <header>
+
+            <div class="container cols-3-12-6-3">
+
+                <div class="col">
+                    <div class="logo">
+                        <a href="<?php echo get_home_url(); ?>">
+                            <?php get_template_part('inc/img/ode', 'logo-top');?>
+                            <?php get_template_part('inc/img/ode', 'logo-bottom');?>
+                        </a>
+                    </div>
+                </div>
+
                 <div class="col">
                     <nav id="nav">
                         <?php
@@ -52,7 +81,7 @@
                             'theme_location'  => 'secondary-menu',
                             'container_class' => 'secondaryMenu'
                             ));
-                            
+
                             wp_nav_menu(array(
                             'theme_location'  => 'main-menu',
                             'container_class' => 'mainMenu'
@@ -60,26 +89,25 @@
                         ?>
                     </nav>
                 </div>
-                
+
                  <div class="col">
                     <div class="contact">
-                        <?php if( have_rows('contact_info', 'options') ): 
+                        <?php if( have_rows('contact_info', 'options') ):
                             while( have_rows('contact_info', 'options') ): the_row(); ?>
                          <a href="mailto:<?php the_sub_field("email"); ?>"><?php the_sub_field("email"); ?></a>
                          <a href="tel:<?php the_sub_field("phone"); ?>"><?php the_sub_field("phone"); ?></a>
                          <?php endwhile; endif;?>
-                    </div> 
+                    </div>
                  </div>
-                
+
                 <div class="col">
-                    <div class="search">
-                       <i class="fas fa-search"></i> 
+                    <div class="search-trigger">
+                       <i class="fas fa-search"></i>
                     </div>
                 </div>
-                    
+
             </div>
-            
+
         </header>
-	
+
 		<main><!--closes in footer.php-->
-	

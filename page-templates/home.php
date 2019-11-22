@@ -157,7 +157,6 @@ get_header();?>
     <?php endwhile; endif;?><!--safari options block-->
 </div><!--safari options block-->
 
-
 <?php if( have_rows('fullwidth_info_block') ):
 while( have_rows('fullwidth_info_block') ): the_row();
 $fullwidthImage = get_sub_field('background_image');?>
@@ -186,9 +185,8 @@ $fullwidthImage = get_sub_field('background_image');?>
         </div>
     </div>
     </div>
-
 </div><!--fullwidth-info-block-->
-<?php endwhile; endif;?><!--fullwidth-info-block-->
+<?php endwhile; endif;?>
 
 <!--Accommodation-->
 

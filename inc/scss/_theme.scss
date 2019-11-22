@@ -21,6 +21,10 @@
     }
 }*/
 
+.lg-narrow {
+    padding: 0 20%;
+}
+
 .heading {
     &.inline-icon {
         position: relative;
@@ -31,6 +35,102 @@
             top: 0;
             fill:silver;
         }
+    }
+}
+.outer-wrapper {
+    padding:0 2em;
+}
+.container.fullwidth {
+    max-width:none;
+}
+.search-wrapper {
+    position: fixed;
+    top:-100vh;
+    left:0;
+    width:100%;
+    height:100vh;
+    display: flex;
+    flex-direction:column;
+    align-content: center;
+    justify-content: center;
+    background:$brand-dark-grey;
+    z-index: 9999;
+    transition:top 0.5s ease-in-out;
+    &.open {
+        top:0;
+    }
+    .close-search {
+        vertical-align: middle;
+        line-height: 3em;
+        font-size: 1em;
+        text-transform: uppercase;
+        text-align: right;
+        transition: color 0.5s ease;
+        i {
+            font-size: 3em;
+            line-height: 1em;
+            vertical-align: middle;
+            margin-right: 0.25em;
+        }
+        &:hover {
+            color:white;
+            cursor:pointer;
+        }
+    }
+    form {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-gap:0.5em;
+    }
+    input[type="search"] {
+        border:none;
+        border-radius:0;
+        padding:0.25em 1em;
+        font-size: 1.25em;
+
+    }
+    input::-webkit-input-placeholder {
+        opacity:0.35;
+    }
+    input[type="submit"] {
+        padding: 1em;
+        width:4em;
+        height: 100%;
+        border:none;
+        border-radius:0;
+        font-family: "Font Awesome 5 Free";
+        font-size: 1em;
+        font-weight: 900;
+        background:$brand-primary;
+        color: white;
+    }
+    .logo {
+        margin-bottom: 2em;
+        svg {
+            display: block;
+            height: 2em;
+            path {
+                fill:white;
+            }
+        }
+    }
+    .mainMenu {
+        text-align: left;
+        a {
+            font-size: 1.2em;
+            padding-bottom: 0.5em;
+            color: white;
+            transition:all 0.5s ease;
+            &:hover {
+                color:$brand-primary;
+            }
+        }
+    }
+    .container {
+        border-bottom:1px solid white;
+    }
+    .container > .col {
+        align-self:center;
     }
 }
 /*===========HEADER==========*/
@@ -204,6 +304,19 @@
 .cta {
     &--fullwidth {
         @include backgroundCover;
+        .content {
+            p {
+                color: white;
+            }
+            .button__ghost {
+                display: inline-block;
+                padding:1em 5em;
+                font-style: italic;
+                border:1px solid white;
+                background: transparent;
+                color: white;
+            }
+        }
     }
     &--focus {
         @include backgroundCover;
@@ -440,6 +553,33 @@ a.control_prev {
             background:$brand-primary;
             color: white;
         }
+    }
+}
+
+.hero-leader {
+
+    &__item {
+        @include brandBorder;
+        background:white;
+        color: $brand-primary;
+        .image {
+            @include backgroundCover;
+            height: 10em;
+        }
+        svg {
+            path{
+                fill:$brand-primary;
+            }
+        }
+        .content {
+            padding:2em 3em;
+        }
+    }
+}
+
+.hero.standard {
+    .container {
+        align-content: center;
     }
 }
 
@@ -925,6 +1065,166 @@ main form.wpcf7-form {
     }
 }
 
+.image-panels {
+    align-items: center;
+    .image {
+        @include backgroundCover;
+        height: 25em;
+    }
+    .content {
+        padding:1em 5em;
+    }
+    &.right {
+        .col:nth-of-type(1){
+            order:2;
+        }
+        .col:nth-of-type(2){
+            order:1;
+        }
+    }
+}
+
+.text-module {
+    p {
+        &:first-of-type {
+            margin-bottom: 1em;
+            font-style:italic;
+            font-family: $brand-font;
+            font-size: 1.4em;
+            color:$brand-primary;
+        }
+    }
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    a {
+        @include backgroundCover;
+        position: relative;
+        display: block;
+        min-height: 12em;
+        transition: box-shadow 0.3s ease;
+        margin-top: 5px;
+        &:hover {
+            position: relative;
+            z-index: 13;
+            box-shadow: inset 0 0 0px 5px rgb(245, 245, 245);
+        }
+        &:nth-of-type(8n - 7){
+            flex: calc(25% - 5px);
+            margin-right: 5px;
+        }
+        &:nth-of-type(8n - 6){
+            flex: calc(40% - 5px);
+            margin-right: 5px;
+        }
+        &:nth-of-type(8n - 5){
+            flex: calc(20% - 5px);
+            margin-right: 5px;
+        }
+        &:nth-of-type(8n - 4) {
+	        flex: 15%;
+        }
+        &:nth-of-type(8n - 3) {
+	        flex: calc(15% - 5px);
+	        margin-right: 5px;
+	    }
+        &:nth-of-type(8n - 2) {
+           flex: calc(20% - 5px);
+           margin-right: 5px;
+        }
+        &:nth-of-type(8n - 1) {
+           flex: calc(40% - 5px);
+           margin-right: 5px;
+        }
+        &:nth-of-type(8n) {
+           flex: 25%;
+        }
+    }
+}
+
+.carousel_module {
+    .owl-item {
+        height:25em;
+    }
+    &__item {
+        @include backgroundCover;
+        height: 100%;
+    }
+    .owl-prev, .owl-next {
+		&:before {
+			background: url("inc/img/slider-arrow-white.svg");
+        }
+    }
+    .owl-nav .owl-prev:before {
+        right: -3em;
+        transform:rotate(180deg);
+    }
+    .owl-nav .owl-next:before {
+        left: -3em;
+        transform:rotate(0deg);
+        filter:brightness(500%);
+    }
+    svg path {
+        fill:white;
+    }
+}
+
+.post-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: left;
+    div:first-of-type i {
+        margin-right: 1em;
+    }
+    div:last-of-type {
+        text-align: right;
+        i {
+            margin-left: 1em;
+        }
+    }
+    a {
+        @include brandBorder;
+        display: inline-block;
+        padding:1em 3em;
+    }
+}
+
+.wrapper-news {
+    .item {
+        @include brandBorder;
+        display: grid;
+        grid-template-columns: 30% 70%;
+        margin-bottom: 2em;
+        background:white;
+        .image {
+            @include backgroundCover;
+            a {
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .content {
+            padding:1em 2em;
+        }
+        .date {
+            font-size: 0.75em;
+        }
+        p span {
+            display: inline-block;
+            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 50%);
+            width: 10em;
+            height: 2em;
+            line-height: 2em;
+            margin-left: -9em;
+            top: 8px;
+            position: relative;
+        }
+    }
+}
+
 /*==== SIDEBAR====*/
 
 .sidebar {
@@ -1024,6 +1324,9 @@ main form.wpcf7-form {
         @include brandBorder;
         overflow: hidden;
         margin-bottom: 2em;
+        a {
+            display: block;
+        }
         .image {
             @include backgroundCover;
             display: grid;
@@ -1107,9 +1410,29 @@ main form.wpcf7-form {
             }
         }
     }
+    &.featured_property {
+        background:white;
+        .image {
+            height: 15em;
+        }
+        .location {
+            @include brandBorderBottom;
+            padding:0.5em 2em;
+            i {
+                margin-right: 1em;
+            }
+            a{
+                display: inline-block;
+            }
+        }
+        .description {
+            padding:1em 2em;
+        }
+    }
 }
 
-.safari-itinerary {
+.safari-itinerary,
+.toggle {
     &__item {
         margin-bottom: 1em;
         @include brandBorder;
@@ -1164,6 +1487,31 @@ main form.wpcf7-form {
                     margin-bottom: 1em;
                 }
             }
+        }
+    }
+}
+
+.toggle {
+    &__item {
+        padding-bottom: 1px; /*Stops bottom border being clipped by overflow value*/
+        border:none;
+        background:none;
+    }
+    .heading {
+        @include brandBorder;
+        @include brandBorderBottom;
+        background: white;
+    }
+    .content {
+        padding:0;
+        &.has-image {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr;
+        }
+        .image {
+            @include backgroundCover;
+            margin-right: 2em;
         }
     }
 }
@@ -1253,6 +1601,37 @@ main form.wpcf7-form {
         }
     }
 }
+
+.side-panel {
+    @include brandBorder
+    background:white;
+    .image {
+        @include backgroundCover;
+        height: 15em;
+        display: grid;
+        align-content: center;
+        text-align: center;
+        color: white;
+    }
+    .content {
+        padding: 1em 2em;
+    }
+}
+
+.page-template-news {
+    .safari-summary {
+        span a{
+            display: block;
+            width:60%;
+            margin:0.5em auto 0;
+        }
+        a {
+            text-align: center;
+            color: white;
+        }
+    }
+}
+
 /*===========FOOTER==========*/
 
 footer {

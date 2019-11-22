@@ -11,7 +11,7 @@ get_header();?>
 <?php get_template_part("template-parts/filter-hero-find"); ?>
 
 <h3 class="heading heading__md heading__caps mt2 mb2 align-center">Your Safari Options</h3>
-
+<div class="outer-wrapper">
 <div id="Container" class="filter-wrapper">
   <div class="fail-message"><span>No items were found matching the selected filters</span></div>
 <div class="container">
@@ -82,6 +82,7 @@ get_header();?>
         <?php endwhile; endif;?>
     </div>
 </div>
+</div><!--outer wrapper-->
 <div class="filter-footer fullwidth">
     <h3 class="heading heading__md heading__caps heading__light">X Safaris Match Your Criteria</h3>
     <a href="">Adjust my filter</a>
@@ -92,11 +93,10 @@ get_header();?>
         $mapcatImage = get_sub_field('background_image'); ?>
         <div class="map-cta" style="background-image: url(<?php echo $mapcatImage['url']; ?>);">
             <div>
-                <a href=""><?php the_sub_field('text'); ?></a>
+                <a href="/accommodation"><?php the_sub_field('text'); ?></a>
             </div>
         </div>
         <?php endwhile; endif; ?>
-
         <div class="container cols-offset3-18 mb5">
             <div class="col">
                 <?php
@@ -120,5 +120,4 @@ get_header();?>
                 </div>
             </div>
         </div>
-
 <?php get_footer();?>

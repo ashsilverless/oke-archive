@@ -8,9 +8,10 @@ get_header();?>
 
 <!-- ******************* Hero ******************* -->
 
-<div class="hero h75" style="background-image: url(<?php echo $heroImage['url']; ?>); background-color: green;">
-	MAP</div>
-
+<div class="hero h75" style="background-image: url(<?php echo $heroImage['url']; ?>); background-color: #adbcad; display:flex; flex-direction:column; align-items:center;justify-content:center;">
+	<p>MAP</p>
+</div>
+<div class="outer-wrapper">
 <div class="container grid-gap cols-16-8 pt3">
 	<div class="col">
 		<div class="leading-copy">
@@ -61,9 +62,5 @@ get_header();?>
 		</div><!--company-sidebar-->
 	</div>
 </div>
-
-
-
-
-
+</div><!--outer wrapper-->
 <?php get_footer();?>

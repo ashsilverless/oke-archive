@@ -12,7 +12,7 @@ $term = get_queried_object();?>
 <?php get_template_part("template-parts/filter-hero-type"); ?>
 
 <h3 class="heading heading__md heading__caps mt2 mb2 align-center">Your Safari Options</h3>
-
+<div class="outer-wrapper">
 <div id="Container" class="filter-wrapper">
   <div class="fail-message"><span>No items were found matching the selected filters</span></div>
 <div class="container">
@@ -137,9 +137,5 @@ $term = get_queried_object();?>
         </div>
     </div>
 </div>
-
-
-
-
-
+</div><!-- outer wrapper-->
 <?php get_footer();?>

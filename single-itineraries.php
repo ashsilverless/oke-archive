@@ -9,8 +9,7 @@ while ( have_posts() ): the_post(); ?>
 
 <!--HERO-->
 <?php get_template_part("template-parts/carousel-hero"); ?>
-<!--BODY-->
-
+<div class="outer-wrapper">
 <div class="container grid-gap cols-8-16">
     <div class="col">
         <div class="sidebar mb5">
@@ -76,5 +75,6 @@ while ( have_posts() ): the_post(); ?>
     </div><!--main-->
 </div>
 
-<?php endwhile;
-get_footer();?>
+<?php endwhile;?>
+</div><!--outer-wrapper-->
+<?php get_footer();?>
