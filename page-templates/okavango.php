@@ -11,7 +11,7 @@ get_header();?>
  $heroImage = get_sub_field('background_image');?>
 <div class="hero hero__section-lead h100" style="background-image: url(<?php echo $heroImage['url']; ?>);">
     <div class="above-leader">
-        <h3 class="heading heading__xl heading__caps heading__light">
+        <h3 class="heading heading__lg heading__caps heading__light">
             <?php the_sub_field('heading');?>
         </h3>
         <h2 class="heading heading__sm heading__light heading__alt">

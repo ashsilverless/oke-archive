@@ -583,6 +583,127 @@ a.control_prev {
     }
 }
 
+.hero__section-lead {
+    .above-leader {
+        max-width: 60em;
+        margin: 0 auto;
+        align-self:flex-end;
+        text-align: center;
+    }
+}
+
+.map-outer-wrapper {
+    padding-top:7em;
+}
+
+.camp-map {
+    position: relative;
+    &__card {
+        position: absolute;
+        width: 20em;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        background: white;
+        text-align: center;
+        &:after {
+            content:'';
+            position:absolute;
+            left: 50%;
+            margin-left: -20px;
+            bottom: -10px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 10px 20px 0 20px;
+            border-color: $brand-primary transparent transparent transparent;
+            opacity:0;
+            transition: opacity 0.5s 0.2s ease;
+        }
+        .inner {
+            @include brandBorder;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            max-height:0;
+            overflow:hidden;
+            background:transparent;
+            border-color: transparent;
+            transition: all 0.5s ease-in-out;
+        }
+        .marker {
+            content:'';
+            position: absolute;
+            left:50%;
+            margin-left:-0.75em;
+            bottom:calc(-12px - 1.5em);
+            height:1.5em;
+            width:1.5em;
+            border-radius:50px;
+            background:$brand-mid-grey;
+            transition: background 0.5s 0.2s ease;
+            &:hover {
+                cursor:pointer;
+            }
+        }
+        .image {
+            @include backgroundCover;
+            height:5em;
+        }
+        .heading {
+            @include brandBorderBottom;
+            padding:0.5em;
+        }
+        .meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            span {
+                @include brandBorderRight;
+                padding:0.5em;
+                &:last-of-type {
+                    border-right:none;
+                }
+            }
+            font-size: 0.8em;
+        }
+        a {
+            display: block;
+            padding:0.5em 2em;
+            font-family: $brand-font;
+            font-style: italic;
+            text-align: center;
+            background:$brand-primary;
+            color: white;
+        }
+        &.high {
+            .inner {
+                bottom:initial;
+                top:3em;
+            }
+            &:after {
+                bottom:initial;
+                top:calc(12px - -1.5em);
+                transform:rotate(180deg);
+            }
+        }
+
+
+
+
+        &.open {
+            &:after{
+                opacity: 1;
+            }
+            .inner {
+                max-height: 20em;
+                border-color: $brand-primary;
+                background:white;
+            }
+            .marker {
+                background:white;
+            }
+        }
+    }
+}
+
 .leader-card {
     @include brandBorder;
     display: flex;

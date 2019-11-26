@@ -7,10 +7,45 @@
 get_header();?>
 
 <!-- ******************* Hero ******************* -->
+<div class="map-outer-wrapper">
+	<div class="hero h75 camp-map" style="background-image: url(<?php echo $heroImage['url']; ?>); background-color: #adbcad;">
+		<?php
+		$args = array(
+		  'post_type'   => 'camps',
+		 );
+		$camps = new WP_Query( $args );
+		if( $camps->have_posts() ) :
+		while( $camps->have_posts() ) :
+	    $camps->the_post();
+		$mapImage = get_field('banner_image');
+		?>
+		<?php if( have_rows('map_marker') ):
+		while ( have_rows('map_marker') ) : the_row();
+$markerPosition = get_sub_field('distance_from_top');
 
-<div class="hero h75" style="background-image: url(<?php echo $heroImage['url']; ?>); background-color: #adbcad; display:flex; flex-direction:column; align-items:center;justify-content:center;">
-	<p>MAP</p>
+		?>
+			<div class="camp-map__card <?php if ( $markerPosition < 25 ) {echo 'high';};?>" style="top:<?php the_sub_field('distance_from_top');?>%; left: <?php the_sub_field('distance_from_left');?>%;">
+				<div class="inner">
+					<?php echo $markerHigh;?>
+					<div class="image" style="background-image: url(<?php echo $mapImage['url']; ?>);"></div>
+					<h2 class="heading heading__sm"><?php the_title();?></h2>
+					<div class="meta">
+						<span>Family Safari</span>
+						<span><i class="fas fa-credit-card"></i>From $<?php the_field('cost'); ?></span>
+					</div>
+					<a href="<?php the_permalink();?>">Learn more</a>
+				</div>
+				<div class="marker"></div>
+			</div>
+
+		<?php endwhile; endif;?>
+
+		<?php
+		wp_reset_postdata();
+		endwhile; endif;?>
+	</div><!--hero-->
 </div>
+
 <div class="outer-wrapper">
 <div class="container grid-gap cols-16-8 pt3">
 	<div class="col">

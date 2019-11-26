@@ -129,6 +129,12 @@ $('.carousel_module').owlCarousel({
 	    $(this).parent().siblings().removeClass("open");
     });
 
+    $(".camp-map__card .marker").click(function() {
+	    //$(this).next().slideToggle();
+	    $(this).parent().toggleClass("open");
+	    $(this).parent().siblings().removeClass("open");
+    });
+
     $('.checkbox input:checkbox').click(function(){
         if($('input[value="' + this.value + '"]:checkbox').prop('checked', this.checked)) {
             $('button.filter-reset').addClass("visible");
@@ -168,6 +174,8 @@ $('.carousel_module').owlCarousel({
         $('#search-overlay').removeClass("open");
         //$('body').css({'max-height':'none', 'overflow':'hidden'});
     });
+
+
 // ========== Count filter results
 /*
 $('.checkbox input:checkbox').click(function() {

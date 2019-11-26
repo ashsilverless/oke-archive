@@ -55,7 +55,7 @@ $term = get_queried_object();?>
                 <div class="toggle mb3">
                     <?php if( have_rows('items') ):
                     while ( have_rows('items') ) : the_row();?>
-                        <div class="toggle__item">
+                        <div class="toggle__item <?php the_sub_field('open');?>">
                             <p class="heading"><?php the_sub_field('heading');?>
                                 <?php get_template_part("template-parts/arrow-large");?>
                             </p>
