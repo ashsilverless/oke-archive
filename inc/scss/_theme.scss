@@ -593,23 +593,53 @@ a.control_prev {
 }
 
 .map-outer-wrapper {
-    padding-top:7em;
+    position: relative;
+    overflow:hidden;
 }
 
 .camp-map {
     position: relative;
+    .positioning-wrapper {
+        position: relative;
+    }
+    img {
+        display: block;
+        min-width: 100% !important;
+        width:100% !important;
+        max-width:100% !important;
+    }
+    .marker {
+        content:'';
+        position: absolute;
+        left:50%;
+        margin-left:-0.75em;
+        bottom:calc(-12px - 1.5em);
+        height:1.5em;
+        width:1.5em;
+        display: none;
+        border-radius:50px;
+        background:$brand-mid-grey;
+        transition: background 0.5s 0.2s ease;
+        &:hover {
+            cursor:pointer;
+        }
+        &.live {
+            background:white;
+            box-shadow: 0 0 0 2px $brand-primary;
+        }
+    }
     &__card {
         position: absolute;
         width: 20em;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
         background: white;
         text-align: center;
+
         &:after {
             content:'';
             position:absolute;
-            left: 50%;
+            left: 0.75em;
             margin-left: -20px;
-            bottom: -10px;
+            bottom: 4px;
             width: 0;
             height: 0;
             border-style: solid;
@@ -621,29 +651,18 @@ a.control_prev {
         .inner {
             @include brandBorder;
             position: absolute;
-            bottom: 0;
+            left: -50%;
+            margin-left: 0.75em;
+            bottom: 1em;
             width: 100%;
             max-height:0;
             overflow:hidden;
             background:transparent;
             border-color: transparent;
             transition: all 0.5s ease-in-out;
+            z-index: 999;
         }
-        .marker {
-            content:'';
-            position: absolute;
-            left:50%;
-            margin-left:-0.75em;
-            bottom:calc(-12px - 1.5em);
-            height:1.5em;
-            width:1.5em;
-            border-radius:50px;
-            background:$brand-mid-grey;
-            transition: background 0.5s 0.2s ease;
-            &:hover {
-                cursor:pointer;
-            }
-        }
+
         .image {
             @include backgroundCover;
             height:5em;
@@ -684,9 +703,50 @@ a.control_prev {
                 transform:rotate(180deg);
             }
         }
-
-
-
+        &.left {
+            &:after {
+                left:2.5em;
+                bottom:-1em;
+                transform:rotate(90deg);
+            }
+            .inner {
+                left: 2em;
+                margin-left: 0.75em;
+                bottom: -3em;
+            }
+        }
+        &.right {
+            &:after {
+                left: -1em;
+                bottom: -1em;
+                transform: rotate(270deg);
+                top: initial;
+            }
+            .inner {
+                left: calc(-100% - 2em);
+                margin-left: 0.75em;
+                bottom: -3em;
+                top: initial;
+            }
+        }
+        &.high.left {
+            &:after {
+                top:0.5em;
+            }
+            .inner {
+                top:-1em;
+                bottom:initial;
+            }
+        }
+        &.high.right {
+            &:after {
+                top:0.5em;
+            }
+            .inner {
+                top:-1em;
+                bottom:initial;
+            }
+        }
 
         &.open {
             &:after{
@@ -696,11 +756,96 @@ a.control_prev {
                 max-height: 20em;
                 border-color: $brand-primary;
                 background:white;
-            }
-            .marker {
-                background:white;
+                box-shadow: 0 0 5px hsla(0, 0%, 0%, 0.5);
             }
         }
+    }
+}
+
+.map-outer-wrapper {
+
+    .filter-wrapper {
+        position: absolute;
+        top:0;
+        left:-15em;
+        height: 100%;
+        width:15em;
+        display: grid;
+        align-items: center;
+        background:$brand-secondary;
+        transition: left 0.5s ease;
+        &__trigger {
+            position: absolute;
+            top:50%;
+            right:-5em;
+            width:5em;
+            padding:0.5em;
+            border-radius: 0 5px 5px 0;
+            background:$brand-secondary;
+            color: white;
+            text-align: center;
+            span {
+                font-size: 0.8em;
+                text-transform: uppercase;
+                transition: all 0.3s ease;
+                i {
+                    display: block;
+                }
+            }
+            span:last-of-type {
+                display: none;
+                i {
+                    margin-bottom: 5px;
+                }
+            }
+            #Reset {
+                max-height: 0;
+                overflow:hidden;
+                transition: max-height 0.3s ease;
+                background-color: $brand-secondary;
+                padding:0;
+                display: inherit;
+                margin-top: 0.5em;
+                &.visible {
+                    max-height: 5em;
+                    background-color: $brand-primary;
+                }
+            }
+        }
+        &.open {
+            left:0;
+            .filter-wrapper__trigger {
+                span:first-of-type {
+                    display: none;
+                }
+                span:last-of-type {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+.map-outer-wrapper {
+    .filter-header__wrapper {
+        border: none;
+        background: $brand-secondary;
+    }
+    .filter-header__item {
+        border-right: none;
+        color: #ffffff;
+        .checkbox .checkmark {
+            border-color: white;
+        }
+        .checkbox input:checked~.checkmark {
+            background:white;
+        }
+    }
+    .filter-group .heading {
+        margin-bottom: 0.5em;
+    }
+    .filter-header__item .checkbox {
+        margin-bottom: 0.5em;
     }
 }
 
@@ -1345,6 +1490,8 @@ main form.wpcf7-form {
         }
     }
 }
+
+
 
 /*==== SIDEBAR====*/
 

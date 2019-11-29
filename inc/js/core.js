@@ -10,6 +10,12 @@ jQuery(document).ready(function( $ ) {
         next();
     });
 
+//Offset to header height
+
+var navHeight = $('header').height();
+$(".page-template-accommodation .map-outer-wrapper").css({"padding-top": navHeight + 'px' });
+$(".page-template-accommodation .filter-wrapper").css({"padding-top": navHeight + 'px' });
+
 //Smooth Scroll
 
     $('nav a, a.button, a.next-section, a.explore').click(function(){
@@ -129,10 +135,16 @@ $('.carousel_module').owlCarousel({
 	    $(this).parent().siblings().removeClass("open");
     });
 
-    $(".camp-map__card .marker").click(function() {
+    $(".camp-map .marker").click(function() {
 	    //$(this).next().slideToggle();
-	    $(this).parent().toggleClass("open");
-	    $(this).parent().siblings().removeClass("open");
+        $(this).siblings().children('.camp-map__card').removeClass("open");
+	    $(this).children('.camp-map__card').toggleClass("open");
+        $(this).addClass('live');
+        $(this).siblings('.marker').removeClass('live');
+    });
+
+    $(".filter-wrapper__trigger").click(function() {
+        $(this).parent('.filter-wrapper').toggleClass('open');
     });
 
     $('.checkbox input:checkbox').click(function(){
