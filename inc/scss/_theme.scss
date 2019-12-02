@@ -763,7 +763,12 @@ a.control_prev {
 }
 
 .map-outer-wrapper {
-
+    .overlay-filter {
+        position: absolute;
+        z-index: 99;
+        bottom: 2em;
+        right: 2em;
+    }
     .filter-wrapper {
         position: absolute;
         top:0;
@@ -788,6 +793,9 @@ a.control_prev {
                 font-size: 0.8em;
                 text-transform: uppercase;
                 transition: all 0.3s ease;
+                &:hover {
+                    cursor: pointer;
+                }
                 i {
                     display: block;
                 }
@@ -809,6 +817,16 @@ a.control_prev {
                 &.visible {
                     max-height: 5em;
                     background-color: $brand-primary;
+                    color: white;
+                    padding: 3px;
+                    border: 1px solid white;
+                    font-style: italic;
+                    font-family: "mauritius", serif;
+                    margin-top: 1em;
+                    transition: background-color 0.5s 0.3s ease;
+                }
+                &:hover {
+                    cursor: pointer;
                 }
             }
         }
@@ -1121,6 +1139,29 @@ a.control_prev {
         margin-right: 0.25em;
         font-size: 1.4em;
         line-height: 2em;
+    }
+}
+
+.overlay-filter {
+    @include brandBorder;
+    display: grid;
+    grid-template-columns: 1fr;
+    padding:1em 2em;
+    background-color: $brand-secondary;
+    .layer-buttons {
+        margin-top:1em;
+        &__item {
+            @include brandBorder;
+            margin-bottom: 0.5em;
+            padding:0.5em;
+            text-align: center;
+            border-color: white;
+            background: $brand-primary;
+            color: white;
+            &:hover {
+                cursor: pointer;
+            }
+        }
     }
 }
 

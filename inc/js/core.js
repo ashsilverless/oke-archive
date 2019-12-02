@@ -456,13 +456,18 @@ $(function(){
   // Initialize multiFilter code
   multiFilter.init();
   // Instantiate MixItUp
-  $('#Container').mixItUp({
+  $('#Container.filter-wrapper').mixItUp({
     controls: {
       enable: false // we won't be needing these
     },
     animation: {
       easing: 'cubic-bezier(0.86, 0, 0.87, 1)',
-      queueLimit: 3,
+      //queueLimit: 3,
+      duration: 500
+    }
+  });
+  $('#Container.marker-wrapper').mixItUp({
+    animation: {
       duration: 500
     }
   });
