@@ -9,6 +9,7 @@ get_header();?>
 <!-- ******************* Hero ******************* -->
 <div class="map-outer-wrapper">
 	<?php get_template_part('template-parts/overlay-filter');?>
+	<?php get_template_part('template-parts/map-reveal');?>
 	<div class="camp-map">
 		<div class="positioning-wrapper">
 			<img src="<?php echo get_template_directory_uri(); ?>/inc/img/test-map.png"/>

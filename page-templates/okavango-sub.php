@@ -34,6 +34,37 @@ $term = get_queried_object();?>
                     </div>
                 <?php endif; ?>
 
+
+            <?php elseif( get_row_layout() == 'number_counters' ):
+
+                ?>
+                <?php if (get_sub_field('number_heading')):?>
+                    <h2 class="heading heading__md heading__caps mb1"><?php the_sub_field('number_heading');?></h2>
+                <?php endif;?>
+                <?php the_sub_field('number_copy');?>
+                <?php if( have_rows('number_counter_item') ):
+                while ( have_rows('number_counter_item') ) : the_row();?>
+                    <div class="number-counter">
+                        <div class="number_counter__number" data-count="<?php the_sub_field('total_number');?>">0</div>
+                        <div class="number-counter__text">
+                            <?php the_sub_field('number_text');?>
+                        </div>
+                    </div>
+                <?php endwhile; endif;?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             <?php elseif( get_row_layout() == 'carousel_module' ):?>
                 <div class="carousel_module owl-carousel owl-theme mb3">
                     <?php

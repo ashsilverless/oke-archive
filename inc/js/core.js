@@ -24,6 +24,31 @@ jQuery(document).ready(function($) {
     //"box-shadow": "inset 0 '. navHeight .' 10px -10px #090b13"
     //'box-shadow': "0px "+shadowHeight+"px " + "(-)10px"  +"#666"
   });
+  $(".page-template-accommodation .popup-image.wrapper").css({
+    top: navHeight + "px"
+  });
+
+  $(".number_counter__number").each(function() {
+    var $this = $(this),
+      countTo = $this.attr("data-count");
+
+    $({ countNum: $this.text() }).animate(
+      {
+        countNum: countTo
+      },
+      {
+        duration: 3000,
+        easing: "linear",
+        step: function() {
+          $this.text(Math.floor(this.countNum));
+        },
+        complete: function() {
+          $this.text(this.countNum);
+          //alert('finished');
+        }
+      }
+    );
+  });
 
   //Smooth Scroll
 
@@ -268,6 +293,15 @@ $('.checkbox input:checkbox').click(function() {
         var n = $('div.mix.display-block').length;
         $( "span#filter-count" ).text(n);
 });*/
+
+  $(".open").click(function(event) {
+    $(this).removeClass("visible");
+    $(".profile-image").addClass("reveal");
+  });
+  $(".close-trigger").click(function(event) {
+    $(".profile-image").removeClass("reveal");
+    $(".open").addClass("visible");
+  });
 
   // ========== Add class if in viewport on page load
 
