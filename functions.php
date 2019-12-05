@@ -82,6 +82,13 @@ if(function_exists('acf_add_options_page')) {
 		'capability'	=> 'edit_posts',
 		'redirect'		=> false
 	));
+	acf_add_options_page(array(
+		'page_title' 	=> 'Testimonials',
+		'menu_title'	=> 'Testimonials',
+		'menu_slug' 	=> 'testimonials',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));
 }
 
 function oke_remove_menus(){
