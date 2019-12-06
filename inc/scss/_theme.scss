@@ -1617,11 +1617,53 @@ main form.wpcf7-form {
       }
     }
   }
-  .area-in-detail {
-    position: absolute;
-    width: 5em;
-    height: 2em;
-    background: red;
+  svg {
+    height: 20em;
+    width: 20em;
+    margin-top: -2em;
+    text {
+      font-size: 5em;
+      fill: $brand-secondary;
+    }
+    #top,
+    #bottom,
+    #left,
+    #right {
+      stroke-width: 10px;
+      stroke: #404040;
+    }
+  }
+}
+
+.wrapper--number-counter {
+  display: flex;
+
+  .number-counter {
+    @include brandBorder;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    margin: 0 2em;
+    background: white;
+    text-align: center;
+    &:first-of-type {
+      margin-left: 0;
+    }
+    &:last-of-type {
+      margin-right: 0;
+    }
+    &__number {
+      margin-bottom: 0.25em;
+      padding: 1rem;
+      font-size: 3em;
+      line-height: 1em;
+    }
+    &__text {
+      padding: 0.25rem;
+      background: $brand-primary;
+      color: white;
+      flex-grow: 1;
+    }
   }
 }
 

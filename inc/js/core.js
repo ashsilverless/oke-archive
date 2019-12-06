@@ -28,7 +28,7 @@ jQuery(document).ready(function($) {
     top: navHeight + "px"
   });
 
-  $(".number_counter__number").each(function() {
+  $(".number-counter__number").each(function() {
     var $this = $(this),
       countTo = $this.attr("data-count");
 
@@ -198,7 +198,28 @@ jQuery(document).ready(function($) {
       .parent()
       .siblings()
       .removeClass("open");
+    var self = $(this);
+    $("html,body").animate({ scrollTop: $(self).offset().top - 200 }, 300);
   });
+
+  /*$(".toggle__item p.heading").click(function() {
+    var self = this;
+    $(this)
+      .parent()
+      .siblings(".toggle__item")
+      .slideUp(500);
+    $(this)
+      .parent()
+      .find(".toggle__item")
+      .slideToggle(500, function() {
+        $("html,body").animate(
+          {
+            scrollTop: $(self).offset().top - 30
+          },
+          500
+        );
+      });
+  });*/
 
   $(".camp-map .marker").click(function() {
     //$(this).next().slideToggle();
