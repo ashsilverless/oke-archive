@@ -9,8 +9,7 @@ get_header();?>
 <!--HERO-->
 <?php $postid = get_the_ID(); ?>
 <?php get_template_part("template-parts/filter-hero-find"); ?>
-
-<h3 class="heading heading__md heading__caps mt2 mb2 align-center">Your Safari Options</h3>
+<h3 class="heading heading__md heading__caps mt2 mb2 align-center options">Your Safari Options</h3>
 <div class="outer-wrapper">
 <div id="Container" class="filter-wrapper">
   <div class="fail-message"><span>No items were found matching the selected filters</span></div>
@@ -83,10 +82,10 @@ get_header();?>
     </div>
 </div>
 </div><!--outer wrapper-->
-<div class="filter-footer fullwidth">
+<!--<div class="filter-footer fullwidth">
     <h3 class="heading heading__md heading__caps heading__light">X Safaris Match Your Criteria</h3>
-    <a href="">Adjust my filter</a>
-</div>
+    <a href="#page">Adjust my filter</a>
+</div>-->
 
     <?php if( have_rows('view_map_cta', $postid) ): ?>
         <?php while( have_rows('view_map_cta', $postid) ): the_row();

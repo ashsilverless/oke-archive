@@ -1,9 +1,5 @@
 <svg version="1.1" id="overlay" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 3939.5 1883.2" style="enable-background:new 0 0 3939.5 1883.2;" xml:space="preserve">
-<style type="text/css">
-	.st0{display:none;fill:#B0CED8;}
-	.st1{fill:#739199;}
-</style>
 <path id="High_water_level" class="water-level high hide" d="M2210.3,795.8l10.1,1.4l10.2-1.8l10.2-3l10.2-3.8l10.2-4.1l10.3-4l10.4-3.4l10.5-2.4
 	l10.6-1.3l10.8-0.7l10.9-0.3l10.9,0l11,0.1l11,0.2l10.9,0.1l10.8-0.2l10.7-0.6l10.6-1.1l10.4-1.8l10.1-2.9l9.8-4.1l9.6-5l9.4-5.5
 	l9.3-5.6l9.3-5.4l11-6.1l11.8-7.2l5.7-5.2l-4.5-1.1l-10.4,1.3l-13.2,2l-12.9,1l-10.8-1.2l-10.6-2.8l-10.5-3.1l-10.5-2.2l-10.4,0.4

@@ -16,10 +16,10 @@ jQuery(document).ready(function($) {
   var navHeight = $("header").height();
   var shadowHeight = navHeight + 10;
   var negHeight = "-10px";
-  $(".page-template-accommodation .map-outer-wrapper").css({
+  $("#map-outer-wrapper").css({
     "padding-top": navHeight + "px"
   });
-  $(".page-template-accommodation .filter-wrapper").css({
+  $("#map-filter-wrapper").css({
     "padding-top": navHeight + "px"
     //"box-shadow": "inset 0 '. navHeight .' 10px -10px #090b13"
     //'box-shadow': "0px "+shadowHeight+"px " + "(-)10px"  +"#666"
@@ -334,16 +334,23 @@ jQuery(document).ready(function($) {
   });
 
   // ========== Count filter results
-  /*
-$('.checkbox input:checkbox').click(function() {
-    var isvis = $('div.mix').css('display');
-    if($(isvis)) {
-        console.log('yep');
-        $(this).addClass('aaaa');
-    } else {
-        //$('div.mix').removeClass("ewrewrwerewr");
-    }
-});*/
+
+  $(".checkbox input:checkbox").click(function() {
+    setTimeout(function() {
+      var allElems = $(".mix");
+      var count = 0;
+      for (var i = 0; i < allElems.length; i++) {
+        var thisElem = allElems[i];
+        if (thisElem.style.display == "inline-block") count++;
+      }
+      $("#filter-count").text(count);
+      if (count < 1) {
+        $(".options").addClass("empty");
+      } else if (count > 0) {
+        $(".options").removeClass("empty");
+      }
+    }, 800);
+  });
 
   /*$('.checkbox input:checkbox').click(function() {
     $('div.mix').addClass(function(){
@@ -615,7 +622,7 @@ $('.checkbox input:checkbox').click(function() {
     // Instantiate MixItUp
     $("#Container.filter-wrapper").mixItUp({
       controls: {
-        enable: false // we won't be needing these
+        enable: false
       },
       animation: {
         easing: "cubic-bezier(0.86, 0, 0.87, 1)",

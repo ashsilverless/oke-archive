@@ -1,7 +1,7 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 851.9 843.6" style="enable-background:new 0 0 851.9 843.6;" xml:space="preserve">
 <style type="text/css">
-	.st0{clip-path:url(#SVGID_2_);}
+	.map0{clip-path:url(#SVGID_2_);}
 	.st1{fill:#E5E6DF;}
 	.st2{fill:#646464;}
 	.st3{opacity:0.17;}
@@ -247,7 +247,7 @@
 			<clipPath id="SVGID_2_">
 				<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
 			</clipPath>
-			<g class="st0">
+			<g class="map0">
 				<g id="_1000-1200">
 					<g id="rect5">
 						<rect x="1.1" y="0.6" class="st1" width="850.8" height="843"/>
