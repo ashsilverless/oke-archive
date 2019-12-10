@@ -294,6 +294,45 @@ jQuery(document).ready(function($) {
     //$('body').css({'max-height':'none', 'overflow':'hidden'});
   });
 
+  $(".layer-buttons__item.off").click(function() {
+    $(this)
+      .siblings(".layer-buttons__item")
+      .removeClass("active");
+    $(this).addClass("active");
+    $("#overlay")
+      .find("#High_water_level")
+      .addClass("hide");
+    $("#overlay")
+      .find("#low_water_level")
+      .addClass("hide");
+  });
+
+  $(".layer-buttons__item.low").click(function() {
+    $(this)
+      .siblings(".layer-buttons__item")
+      .removeClass("active");
+    $(this).addClass("active");
+    $("#overlay")
+      .find("#High_water_level")
+      .addClass("hide");
+    $("#overlay")
+      .find("#low_water_level")
+      .removeClass("hide");
+  });
+
+  $(".layer-buttons__item.high").click(function() {
+    $(this)
+      .siblings(".layer-buttons__item")
+      .removeClass("active");
+    $(this).addClass("active");
+    $("#overlay")
+      .find("#low_water_level")
+      .addClass("hide");
+    $("#overlay")
+      .find("#High_water_level")
+      .removeClass("hide");
+  });
+
   // ========== Count filter results
   /*
 $('.checkbox input:checkbox').click(function() {

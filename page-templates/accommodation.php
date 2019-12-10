@@ -12,8 +12,9 @@ get_header();?>
 	<?php get_template_part('template-parts/map-reveal');?>
 	<div class="camp-map">
 		<div class="positioning-wrapper">
-			<img src="<?php echo get_template_directory_uri(); ?>/inc/img/test-map.png"/>
-			<!--<?php get_template_part('template-parts/test-overlay1');?>-->
+			<img src="<?php echo get_template_directory_uri(); ?>/inc/img/master-mapv1.jpg"/>
+			<?php get_template_part('template-parts/water-overlayv1');?>
+			<?php get_template_part('template-parts/labels-overlayv1');?>
 			<div id="Container" class="marker-wrapper">
 				<?php
 				$args = array(
@@ -75,11 +76,7 @@ get_header();?>
 				<button id="Reset" class="filter-reset">Clear Filters</button>
 			</form>
 		</div>
-
-<?php get_template_part("template-parts/filter-map-accom"); ?>
-
-
-
+		<?php get_template_part("template-parts/filter-map-accom"); ?>
 	</div>
 
 </div><!--outer-wrapper-->

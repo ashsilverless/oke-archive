@@ -605,6 +605,27 @@ a.control_prev {
     min-width: 100% !important;
     width: 100% !important;
     max-width: 100% !important;
+    opacity: 0.6;
+  }
+  svg#overlay,
+  svg#labels {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .water-level {
+    fill: #739199;
+    opacity: 0.5;
+    transition: opacity 1s ease;
+    &.high {
+    }
+    &.low {
+    }
+    &.hide {
+      opacity: 0;
+    }
   }
   .marker {
     content: "";
@@ -1155,8 +1176,12 @@ a.control_prev {
       border-color: white;
       background: $brand-primary;
       color: white;
+      transition: all 0.5s ease-in-out;
       &:hover {
         cursor: pointer;
+      }
+      &.active {
+        background: $brand-primary-dark;
       }
     }
   }
