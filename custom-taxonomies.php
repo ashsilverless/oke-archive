@@ -7,6 +7,7 @@ add_action( 'init', 'taxonomy_destination', 0 );
 add_action( 'init', 'taxonomy_type', 0 );
 add_action( 'init', 'taxonomy_focus', 0 );
 add_action( 'init', 'taxonomy_company', 0 );
+add_action( 'init', 'taxonomy_activity', 0 );
 
 // ====== Destination
 function taxonomy_destination() {
@@ -113,5 +114,32 @@ function taxonomy_company() {
         'show_admin_column' => true,
         'query_var'         => true,
         'rewrite'           => array( 'slug' => 'company', 'hierarchical' => false )
+    ));
+}
+
+// ====== Activity
+function taxonomy_activity() {
+
+    $labels = array(
+        'name'              => _x( 'Activity', 'taxonomy general name' ),
+        'singular_name'     => _x( 'Activity', 'taxonomy singular name' ),
+        'search_items'      => __( 'Search Activities'   ),
+        'all_items'         => __( 'All Activities'     ),
+        'parent_item'       => __( 'Parent Activity'   ),
+        'parent_item_colon' => __( 'Parent Activity:'  ),
+        'edit_item'         => __( 'Edit Activity'     ),
+        'update_item'       => __( 'Update Activity'   ),
+        'add_new_item'      => __( 'Add New Activity'  ),
+        'new_item_name'     => __( 'New Activity Name' ),
+        'menu_name'         => __( '- Activities'         )
+    );
+
+    register_taxonomy( 'activity', array( 'camps' ), array(
+        'hierarchical'      => true,
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => array( 'slug' => 'activity', 'hierarchical' => false )
     ));
 }

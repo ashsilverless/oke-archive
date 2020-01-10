@@ -20,6 +20,21 @@ while ( have_posts() ): the_post(); ?>
                 <li><span class="title">Location</span><span class="detail"><?php the_terms( $post->ID, 'destinations'); ?></span></li>
                 <li><span class="title">Parent Company</span><span class="detail"><?php the_terms( $post->ID, 'company'); ?></span></li>
                 <li><span class="title">Cost</span><span class="detail">From $<?php the_field('cost');?></span></li>
+                <li><span class="title">Rooms</span><span class="detail"><?php the_field('number_of_rooms');?></span></li>
+                <li><span class="title">Activities</span><span class="detail activities">
+                    <ul>
+                        <?php $campActivities = get_terms( 'activity' );
+                        foreach ( $campActivities as $campActivity ) {?>
+                          <li>
+                            <?php $activityicon = get_field( 'icon', $campActivity)["url"];
+                            $activityicon   = explode("/wp-content/", $activityicon)[1];?>
+                            <?php echo file_get_contents("./wp-content/" . $activityicon, FILE_USE_INCLUDE_PATH); ?>
+                            <?php echo $campActivity->name;?>
+                          </li>
+                        <?php }?>
+                    </ul>
+
+                </span></li>
             </ul>
         </div>
         <h4 class="heading heading__xs heading__light heading__caps mb1">Safaris Featuring This Property:</h4>
