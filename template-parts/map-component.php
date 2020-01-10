@@ -4,6 +4,7 @@
 	<div class="camp-map">
 		<div class="positioning-wrapper">
 			<img src="<?php echo get_template_directory_uri(); ?>/inc/img/master-mapv1.jpg"/>
+			<div id="wipe" class="wipe"></div>
 			<?php get_template_part('template-parts/water-overlayv1');?>
 			<?php get_template_part('template-parts/labels-overlayv1');?>
 			<div id="Container" class="marker-wrapper">

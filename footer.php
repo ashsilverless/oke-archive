@@ -38,7 +38,8 @@
                     </div>
                 </div>
                 <div class="col">
-                    <h3 class="heading heading__sm heading__caps heading__light mb1">Stay In Touch</h3>
+                    <h3 class="heading heading__sm heading__caps heading__light mb0">Stay In Touch</h3>
+                    <p class="mt0">for the latest news and specials</p>
                     <?php echo do_shortcode('[contact-form-7 id="11" title="Contact form 1"]');?>
                 </div>
             </div>

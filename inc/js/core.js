@@ -89,6 +89,21 @@ jQuery(document).ready(function($) {
       });
   });
 
+  $(".gallery").magnificPopup({
+    delegate: "a",
+    type: "image",
+    tLoading: "Loading image #%curr%...",
+    mainClass: "mfp-img-mobile",
+    gallery: {
+      enabled: true,
+      navigateByImgClick: true,
+      preload: [0, 1]
+    },
+    image: {
+      tError: '<a href="%url%">The image #%curr%</a> could not be loaded.'
+    }
+  });
+
   $(".single-image").magnificPopup({
     type: "image",
     closeOnContentClick: true,
@@ -267,6 +282,13 @@ jQuery(document).ready(function($) {
       $("div.filtered-result").removeClass("visible");
       $("div.filter-header").removeClass("filter-active");
     }
+  });
+
+  $(".checkbox input:checkbox").click(function() {
+    $("#wipe").addClass("right");
+    setTimeout(function() {
+      $("#wipe").removeClass("right");
+    }, 300);
   });
 
   $('input[type="checkbox"]').click(function() {

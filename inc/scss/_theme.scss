@@ -781,6 +781,27 @@ a.control_prev {
   }
 }
 
+#wipe {
+  position: absolute;
+  top: 0;
+  left:-100vw;
+  transition: all 0.42s ease;
+  border-right: 5px solid #1f253c;
+  width:100vw;
+  height:100%;
+  background: hsla(227, 30%, 18%, 0.3);
+  :after{
+    content:'';
+    position: absolute;
+    top: 0;
+    left: 0;
+
+  }
+  &.right{
+    left:100vw;
+  }
+}
+
 .map-outer-wrapper {
   .overlay-filter {
     position: absolute;

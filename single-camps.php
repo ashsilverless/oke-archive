@@ -73,6 +73,14 @@ $the_query = new WP_Query( $args );?>
     <div class="col">
         <div class="description camp pl2">
             <?php the_field('description');?>
+            <div class="gallery mt3 mb3">
+			    <?php $images = get_field('gallery');
+				    if( $images ):
+                    foreach( $images as $image ): $url = $image['url']; ?>
+	                   <a href="<?php echo $image['url']; ?>" style='background-image: url(<?php echo $url; ?>)'></a>
+			        <?php endforeach;
+                endif; ?>
+		    </div>
             <h4 class="heading heading__md heading__caps mt2 mb1">Other <?php the_terms( $post->ID, 'company'); ?> Properties</h4>
         </div>
 
