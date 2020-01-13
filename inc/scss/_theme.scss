@@ -805,8 +805,8 @@ a.control_prev {
   .overlay-filter {
     position: absolute;
     z-index: 99;
-    bottom: 2em;
-    right: 2em;
+    bottom: 1em;
+    left: 1em;
   }
   .filter-wrapper {
     position: absolute;
@@ -817,12 +817,13 @@ a.control_prev {
     display: grid;
     align-items: center;
     background: $brand-secondary;
-    transition: left 0.5s ease;
+    transition: all 0.5s ease;
+    z-index: 99;
     &__trigger {
       position: absolute;
       top: 50%;
-      right: -5em;
-      width: 5em;
+      right: -11em;
+      width: 11em;
       padding: 0.5em;
       border-radius: 0 5px 5px 0;
       background: $brand-secondary;
@@ -853,6 +854,7 @@ a.control_prev {
         padding: 0;
         display: inherit;
         margin-top: 0.5em;
+        width: 100%;
         &.visible {
           max-height: 5em;
           background-color: $brand-primary;
@@ -872,6 +874,8 @@ a.control_prev {
     &.open {
       left: 0;
       .filter-wrapper__trigger {
+        width: 5em;
+        right: -5em;
         span:first-of-type {
           display: none;
         }
@@ -1624,7 +1628,7 @@ main form.wpcf7-form {
   .trigger {
     position: absolute;
     top: 0;
-    right: 1em;
+    left: 1em;
     border-radius: 100em;
     font-size: 2.5em;
     line-height: 1em;
@@ -1644,11 +1648,9 @@ main form.wpcf7-form {
   .profile-image {
     position: absolute;
     top: 2em;
-    right: 0;
-    width: 20em;
-    height: 20em;
+    left: 0;
     transform: scale(0);
-    transform-origin: top right;
+    transform-origin: top left;
     transition: transform 0.3s cubic-bezier(0.66, 0, 0.28, 1.01);
     img {
       width: 100%;
@@ -1662,7 +1664,7 @@ main form.wpcf7-form {
     .close-trigger {
       position: absolute;
       top: -1em;
-      right: 0.75em;
+      right: 0;
       font-size: 2.5em;
       transition: transform 0.3s 0.5s ease;
       transform: scale(0);
@@ -1672,9 +1674,9 @@ main form.wpcf7-form {
     }
   }
   svg {
-    height: 20em;
-    width: 20em;
+    height: 30vh;
     margin-top: -2em;
+    filter: drop-shadow(2px 4px 30px black);
     text {
       font-size: 5em;
       fill: $brand-secondary;

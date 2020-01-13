@@ -162,3 +162,10 @@ add_filter('wp_calculate_image_sizes', 'aw_custom_responsive_image_sizes', 10 , 
  return $columns;
 }
 add_filter('manage_edit-category_columns','manage_my_category_columns');
+
+function is_post_type($type){
+    global $wp_query;
+    if($type == get_post_type($wp_query->post->ID))
+        return true;
+    return false;
+}

@@ -88,14 +88,66 @@ $the_query = new WP_Query( $args );?>
     <div class="col">
         <div class="description camp pl2">
             <?php the_field('description');?>
-            <div class="gallery mt3 mb3">
-			    <?php $images = get_field('gallery');
-				    if( $images ):
-                    foreach( $images as $image ): $url = $image['url']; ?>
-	                   <a href="<?php echo $image['url']; ?>" style='background-image: url(<?php echo $url; ?>)'></a>
-			        <?php endforeach;
-                endif; ?>
-		    </div>
+            <!--======= Gallery=====-->
+            <?php if( get_field('gallery') ): ?>
+                <div class="gallery mt3 mb3">
+                    <h4 class="heading heading__md heading__caps mb1">Gallery</h4>
+    			    <?php $images = get_field('gallery');
+    				    if( $images ):
+                        foreach( $images as $image ): $url = $image['url']; ?>
+    	                   <a href="<?php echo $image['url']; ?>" style='background-image: url(<?php echo $url; ?>)'></a>
+    			        <?php endforeach;
+                    endif; ?>
+    		    </div>
+            <?php endif; ?>
+            <!--=========== MAP =============-->
+            <h4 class="heading heading__md heading__caps mt2 mb1"> <?php the_title(); ?> On The Map</h4>
+            <div class="map-outer-wrapper">
+            	<?php get_template_part('template-parts/map-features');?>
+            	<div class="camp-map">
+            		<div class="positioning-wrapper">
+            			<img src="<?php echo get_template_directory_uri(); ?>/inc/img/master-mapv1.jpg"/>
+            			<div id="wipe" class="wipe"></div>
+            			<?php get_template_part('template-parts/water-overlayv1');?>
+            			<?php get_template_part('template-parts/labels-overlayv1');?>
+            			<div id="Container" class="marker-wrapper">
+
+            					<?php $mapImage = get_field('banner_image');
+            					//Show cost as class
+            					$safaricost = get_field('cost');
+            					if ($safaricost < '1000'){
+            					$safaricost = "low";
+            					} elseif ($safaricost > '1000' && $safaricost < '2000'){
+            					$safaricost = "medium";
+            					} elseif ($safaricost > '2000'){
+            					$safaricost = "high";
+            					}
+            					//Get focus as slug for class
+            					$focus = get_the_terms($post->ID,'focus');
+            					$focusslug = $focus[0];?>
+
+            					<?php if( have_rows('map_marker') ):
+            					while ( have_rows('map_marker') ) : the_row();
+            					$markerPositionVert = get_sub_field('distance_from_top');
+            					$markerPositionHoriz = get_sub_field('distance_from_left');?>
+
+                                <div class="marker mix <?php echo $focusslug->slug;?> <?php echo $safaricost;?>" style="top:<?php the_sub_field('distance_from_top');?>.000001%; left: <?php the_sub_field('distance_from_left');?>.000001%;">
+            						<div class="camp-map__card open <?php if ( $markerPositionVert < 35 ) {echo 'high';};?> <?php if ( $markerPositionHoriz < 10 ) {echo 'left';};?> <?php if ( $markerPositionHoriz > 89 ) {echo 'right';};?>">
+            							<div class="inner">
+            								<?php echo $markerHigh;?>
+            								<div class="image" style="background-image: url(<?php echo $mapImage['url']; ?>);"></div>
+            								<h2 class="heading heading__sm"><?php the_title();?></h2>
+            							</div>
+            						</div><!--card-->
+            					</div><!--marker-->
+            					<?php endwhile; endif;?>
+            			</div><!--marker-wrapper-->
+            		</div><!--posn-wrapper-->
+            	</div><!--camp-map-->
+
+            </div><!--outer-wrapper-->
+
+
             <h4 class="heading heading__md heading__caps mt2 mb1">Other <?php the_terms( $post->ID, 'company'); ?> Properties</h4>
         </div>
 
