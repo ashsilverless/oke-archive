@@ -164,7 +164,7 @@ $fullwidthImage = get_sub_field('background_image');?>
     <div class="container cols-offset3-18 last mb5 pt5">
     <div class="col">
         <div class="container boxed-content last cols-16-8">
-            <div class="col info-panel">
+            <div class="col info-panel vvvvvvv">
                 <!--<?php if( have_rows('info_panel') ):
                 while( have_rows('info_panel') ): the_row(); ?>-->
                     <div class="heading-wrapper">
