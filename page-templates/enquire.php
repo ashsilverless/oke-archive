@@ -55,16 +55,16 @@ $term = get_queried_object();?>
     </div>
 </div><!--outer-wrapper-->
 
-<?php if( have_rows('fullwidth_info_block') ):
-while( have_rows('fullwidth_info_block') ): the_row();
-$fullwidthImage = get_sub_field('background_image');?>
-<div class="fullwidth-info-block" style="background-image: url(<?php echo $fullwidthImage['url']; ?>);">
+<?php if( have_rows('fw_info_blocke') ):
+while( have_rows('fw_info_blocke') ): the_row();
+$fullwidthImage = get_sub_field('background_imagee');?>
+   <div class="fullwidth-info-block" style="background-image: url(<?php echo $fullwidthImage['url']; ?>);">
     <div class="container cols-offset3-18 last mb5 pt5">
     <div class="col">
         <div class="container boxed-content last cols-16-8">
-            <div class="col info-panel">
-                <?php if( have_rows('info_panel') ):
-                while( have_rows('info_panel') ): the_row(); ?>
+            <div class="col info-panel vvvvvvv">
+                <!--<?php if( have_rows('info_panel') ):
+                while( have_rows('info_panel') ): the_row(); ?>-->
                     <div class="heading-wrapper">
                         <?php get_template_part('template-parts/panel-icon');?>
                         <h3 class="heading heading__md">
@@ -77,7 +77,7 @@ $fullwidthImage = get_sub_field('background_image');?>
                            <?php the_sub_field('button_text');?>
                         </a>
                     </div>
-                <?php endwhile; endif;?>
+                <!--<?php endwhile; endif;?>-->
             </div>
 
         </div>

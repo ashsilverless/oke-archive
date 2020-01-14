@@ -56,7 +56,7 @@ function oke_custom_menu() {
 
 function oke_dashboard_widget() {
 	global $wp_meta_boxes;
-	wp_add_dashboard_widget('custom_help_widget', 'oke Support', 'oke_dashboard_help');
+	wp_add_dashboard_widget('custom_help_widget', 'Technical Support', 'oke_dashboard_help');
 }
 
 function oke_dashboard_help() {
