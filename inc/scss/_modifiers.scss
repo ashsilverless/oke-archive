@@ -11,21 +11,21 @@ $distance: (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20); // Amount string.
 $sides: (top, bottom, left, right); // Sides var
 
 @each $amount in $distance {
-    @each $side in $sides {
-        .m#{str-slice($side, 0, 1)}#{$amount} {
-            margin-#{$side}: #{$amount}em ;
-        }
-        .p#{str-slice($side, 0, 1)}#{$amount} {
-            padding-#{$side}: #{$amount}em;
-        }
+  @each $side in $sides {
+    .m#{str-slice($side, 0, 1)}#{$amount} {
+      margin-#{$side}: #{$amount}em;
     }
+    .p#{str-slice($side, 0, 1)}#{$amount} {
+      padding-#{$side}: #{$amount}em;
+    }
+  }
 }
 
 .sticky {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 12em;
-    margin-bottom: 2em;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 12em;
+  margin-bottom: 2em;
 }
 
 /* Height */
@@ -33,14 +33,14 @@ $sides: (top, bottom, left, right); // Sides var
 $height: (0, 25, 50, 75, 100); // Amount string.
 
 @each $amount in $height {
-    .h#{$amount} {
-        min-height: #{$amount}vh;
-    }
+  .h#{$amount} {
+    min-height: #{$amount}vh;
+  }
 }
 
 .h-auto {
-    height:auto; /*Required for CSS Grid elements*/
-    padding-bottom: 3em;
+  height: auto; /*Required for CSS Grid elements*/
+  padding-bottom: 3em;
 }
 
 /* Typography */
@@ -48,95 +48,104 @@ $height: (0, 25, 50, 75, 100); // Amount string.
 $weight: (100, 200, 300, 400, 500, 600, 700, 800, 900); // Amount string.
 
 @each $amount in $weight {
-    .font#{$amount} {
-        font-weight: #{$amount};
-    }
+  .font#{$amount} {
+    font-weight: #{$amount};
+  }
 }
 
 /* Animation */
 
 @-webkit-keyframes pulse {
-    0% {
-       opacity: 1.0;
-    }
-    50% {
-       opacity: 0.1;
-    }
-    100% {
-       opacity: 1.0;
-    }
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .slide-up {
-    transform: translateY(50px);
-    opacity: 0;
-    transition: all 1s ease;
+  transform: translateY(50px);
+  opacity: 0;
+  transition: all 1s ease;
 
-    &.active {
-        transform:translateY(0);
-        opacity: 1;
-    }
+  &.active {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .slide-down {
-    transform: translateY(-50px);
-    opacity: 0;
-    transition: all 1s ease;
+  transform: translateY(-50px);
+  opacity: 0;
+  transition: all 1s ease;
 
-    &.active {
-        transform:translateY(0);
-        opacity: 1;
-    }
+  &.active {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .slide-right {
-    transform: translate(-100px, 50px);
-    opacity: 0;
-    transition: all 2s ease;
+  transform: translate(-100px, 50px);
+  opacity: 0;
+  transition: all 2s ease;
 
-    &.active {
-        transform:translate(0, 0);
-        opacity: 1;
-    }
+  &.active {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
 }
 
 .slow-fade {
-    opacity:0;
-    transition:opacity 3s ease;
+  opacity: 0;
+  transition: opacity 3s ease;
 
-    &.active {
-        opacity:1;
-    }
+  &.active {
+    opacity: 1;
+  }
 }
+
+@keyframes shadow-pulse {
+  0% {
+    box-shadow: 0 0 0 5px hsla(228, 32%, 18%, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 10px hsla(228, 32%, 18%, 0);
+  }
+  100% {
+  }
+}
+
 /*TOGGLE*/
 
 .toggle-wrapper {
+  .hideable {
+    overflow: hidden;
+    transition: 500ms ease-out;
+  }
+  .hideable.hidden {
+    max-height: 0 !important;
+    transition: 500ms ease-in;
+  }
 
-    .hideable {
-      overflow: hidden;
-      transition: 500ms ease-out;
-    }
-    .hideable.hidden {
-      max-height: 0 !important;
-      transition: 500ms ease-in;
-    }
+  /* apply hideable to checkboxes */
 
-    /* apply hideable to checkboxes */
+  input:checked ~ .hideable,
+  input:checked ~ * .hideable {
+    max-height: 0 !important;
+    transition: 500ms ease-in;
+  }
 
-    input:checked ~.hideable,
-    input:checked ~* .hideable {
-        max-height: 0 !important;
-        transition: 500ms ease-in;
-    }
+  /* styling  */
 
-    /* styling  */
-
-    body {
-      font-family: "Segoe UI","Segoe",Tahoma,Helvetica,Arial,sans-serif;
-    }
-    .toggle {
-      display: none;
-    }
-
-
+  body {
+    font-family: "Segoe UI", "Segoe", Tahoma, Helvetica, Arial, sans-serif;
+  }
+  .toggle {
+    display: none;
+  }
 }

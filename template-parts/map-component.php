@@ -34,7 +34,7 @@
 					$markerPositionVert = get_sub_field('distance_from_top');
 					$markerPositionHoriz = get_sub_field('distance_from_left');?>
 
-                    <div class="marker mix <?php echo $focusslug->slug;?> <?php echo $safaricost;?>" style="top:<?php the_sub_field('distance_from_top');?>.000001%; left: <?php the_sub_field('distance_from_left');?>.000001%;">
+                    <div class="marker mix <?php echo $focusslug->slug;?> <?php echo $safaricost;?>" style="top:<?php the_sub_field('distance_from_top');?>.001%; left: <?php the_sub_field('distance_from_left');?>.001%;">
 						<div class="camp-map__card <?php if ( $markerPositionVert < 35 ) {echo 'high';};?> <?php if ( $markerPositionHoriz < 10 ) {echo 'left';};?> <?php if ( $markerPositionHoriz > 89 ) {echo 'right';};?>">
 							<div class="inner">
 								<?php echo $markerHigh;?>

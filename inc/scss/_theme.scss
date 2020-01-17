@@ -509,6 +509,7 @@ a.control_prev {
   @include brandBorder;
   display: flex;
   flex-direction: column;
+  width: 100%;
   .image {
     @include backgroundCover;
     display: grid;
@@ -637,8 +638,10 @@ a.control_prev {
     width: 1.5em;
     display: none;
     border-radius: 50px;
+    border: 1px solid $brand-primary;
     background: $brand-secondary;
     transition: background 0.5s 0.2s ease;
+    animation: shadow-pulse 3s infinite;
     &:hover {
       cursor: pointer;
     }
@@ -1759,6 +1762,17 @@ main form.wpcf7-form {
       padding: 0.5em 1em;
       display: grid;
       align-content: center;
+      a {
+        position: relative;
+        margin: 0 10px 3px 0;
+        padding-left: 10px;
+        &:before {
+          content: "\2022";
+          position: absolute;
+          left: 0;
+          display: inline-block;
+        }
+      }
       &.activities {
         text-align: left;
         li {

@@ -90,8 +90,9 @@ $the_query = new WP_Query( $args );?>
             <?php the_field('description');?>
             <!--======= Gallery=====-->
             <?php if( get_field('gallery') ): ?>
-                <div class="gallery mt3 mb3">
-                    <h4 class="heading heading__md heading__caps mb1">Gallery</h4>
+                <h4 class="heading heading__md heading__caps mt2">Gallery</h4>
+                <div class="gallery mt0 mb5">
+
     			    <?php $images = get_field('gallery');
     				    if( $images ):
                         foreach( $images as $image ): $url = $image['url']; ?>
@@ -132,7 +133,7 @@ $the_query = new WP_Query( $args );?>
             					$markerPositionHoriz = get_sub_field('distance_from_left');?>
 
                                 <div class="marker mix <?php echo $focusslug->slug;?> <?php echo $safaricost;?>" style="top:<?php the_sub_field('distance_from_top');?>.000001%; left: <?php the_sub_field('distance_from_left');?>.000001%;">
-            						<div class="camp-map__card open <?php if ( $markerPositionVert < 35 ) {echo 'high';};?> <?php if ( $markerPositionHoriz < 10 ) {echo 'left';};?> <?php if ( $markerPositionHoriz > 89 ) {echo 'right';};?>">
+            						<div class="camp-map__card <?php if ( $markerPositionVert < 35 ) {echo 'high';};?> <?php if ( $markerPositionHoriz < 10 ) {echo 'left';};?> <?php if ( $markerPositionHoriz > 89 ) {echo 'right';};?>">
             							<div class="inner">
             								<?php echo $markerHigh;?>
             								<div class="image" style="background-image: url(<?php echo $mapImage['url']; ?>);"></div>
@@ -147,53 +148,35 @@ $the_query = new WP_Query( $args );?>
 
             </div><!--outer-wrapper-->
 
-
-            <h4 class="heading heading__md heading__caps mt2 mb1">Other <?php the_terms( $post->ID, 'company'); ?> Properties</h4>
+            <?php if( get_field('combines_well_with') ): ?>
+            <h4 class="heading heading__md heading__caps mt2 mb1">Combines Well With</h4>
+        <?php endif;?>
         </div>
 
-        <div class="container grid-gap equal-height cols-12 mb5">
-        <?php if( $custom_terms ){
-        // going to hold our tax_query params
-        $tax_query = array();
-        // add the relationship parameter
-        if( $custom_terms )
-        $tax_query['relation'] = 'OR' ;
-        // loop through companies to build a tax query
-        foreach( $custom_terms as $custom_term ) {
-            $tax_query[] = array(
-                'taxonomy' => 'company',
-                'field' => 'slug',
-                'terms' => $custom_term->slug,
-            );
-        }
-        // put all the WP_Query args together
-        $currentID = get_the_ID();
-        $args = array( 'post_type' => 'camps',
-                        'posts_per_page' => -1,
-                        'tax_query' => $tax_query,
-                        'post__not_in' => array($currentID)
-                        );
-        // run the query
-        $loop = new WP_Query($args);
-        // loop output
-        if( $loop->have_posts() ) {
-        while( $loop->have_posts() ) : $loop->the_post();
-        $campImage = get_field('banner_image'); ?>
-            <div class="col">
-                <div class="listing-item">
-                    <div class="image" style="background:url(<?php echo $campImage['url']; ?>);">
-                        <h2 class="heading heading__sm heading__light"><?php the_title(); ?>
+        <?php $post_objects = get_field('combines_well_with');
+
+        if( $post_objects ): ?>
+            <div class="container grid-gap equal-height cols-12 mb5">
+            <?php foreach( $post_objects as $post): // variable must be called $post (IMPORTANT) ?>
+                <?php setup_postdata($post);
+
+                $campImage = get_field('banner_image'); ?>
+                    <div class="col">
+                        <div class="listing-item">
+                            <div class="image" style="background:url(<?php echo $campImage['url']; ?>);">
+                                <h2 class="heading heading__sm heading__light"><?php the_title(); ?>
+                            </div>
+                            <div class="item"><i class="fas fa-credit-card"></i>From $<?php the_field('cost');?></div>
+                            <div class="item"><i class="fas fa-map-marker-alt"></i><?php the_terms( $post->ID, 'destinations'); ?></div>
+                            <?php the_terms( $post->ID, 'company'); ?>
+                            <div class="item"><?php the_field('short_description');?></div>
+                            <a href="<?php the_permalink(); ?>">Learn More</a>
+                        </div>
                     </div>
-                    <div class="item"><i class="fas fa-credit-card"></i>From $<?php the_field('cost');?></div>
-                    <div class="item"><i class="fas fa-map-marker-alt"></i><?php the_terms( $post->ID, 'destinations'); ?></div>
-                    <!--<?php the_terms( $post->ID, 'company'); ?>-->
-                    <div class="item"><?php the_field('short_description');?></div>
-                    <a href="<?php the_permalink(); ?>">Learn More</a>
-                </div>
-            </div>
-        <?php endwhile;}
-        wp_reset_query();
-        }?>
+            <?php endforeach; ?>
+        </div>
+        <?php wp_reset_postdata();?>
+        <?php endif;?>
         </div>
     </div>
 </div>
