@@ -11,7 +11,7 @@ while ( have_posts() ): the_post(); ?>
 <div class="outer-wrapper">
     <div class="container grid-gap cols-8-16">
         <div class="col">
-            <div class="sidebar mb5">
+            <div class="sidebar">
                 <h4 class="heading heading__md heading__light heading__caps align-center">At A Glance</h4>
                 <div class="detail-wrapper">
                     <ul>
@@ -33,25 +33,25 @@ while ( have_posts() ): the_post(); ?>
                 </div>
                 <div class="camp-summary">
                     <?php if( have_rows('daily_activity') ): while( have_rows('daily_activity') ): the_row(); $post_object = get_sub_field('daily_camp');
-            if( $post_object ):
-                // override $post
-                $post = $post_object;
-                setup_postdata( $post );
-                $campImage = get_field('banner_image'); ?>
-                    <div class="camp-summary__item">
-                        <div class="image" style="background:url(<?php echo $campImage['url']; ?>);">
-                            <h2 class="heading heading__sm heading__light">
-                                <?php the_title(); ?>
-                        </div>
-                        <div class="see-more">See More</div>
-                        <div class="expanding-panel">
-                            <?php the_field('short_description');?>
-                            <a href="<?php the_permalink(); ?>" class="button">View
-                                <?php the_title(); ?></a>
-                        </div>
-                    </div>
-                    <?php wp_reset_postdata(); endif;
-            endwhile; endif;?>
+                    if( $post_object ):
+                        // override $post
+                        $post = $post_object;
+                        setup_postdata( $post );
+                        $campImage = get_field('banner_image'); ?>
+                            <div class="camp-summary__item">
+                                <div class="image" style="background:url(<?php echo $campImage['url']; ?>);">
+                                    <h2 class="heading heading__sm heading__light">
+                                        <?php the_title(); ?>
+                                </div>
+                                <div class="see-more">See More</div>
+                                <div class="expanding-panel">
+                                    <?php the_field('short_description');?>
+                                    <a href="<?php the_permalink(); ?>" class="button">View
+                                        <?php the_title(); ?></a>
+                                </div>
+                            </div>
+                            <?php wp_reset_postdata(); endif;
+                    endwhile; endif;?>
                 </div>
                 <!--camp-summary-->
             </div>
@@ -80,7 +80,8 @@ while ( have_posts() ): the_post(); ?>
                 </div>
                 <?php wp_reset_postdata();
             endif;
-        endwhile; endif;?>
+                endwhile; endif;?>
+                <h3 class="heading heading__md heading__caps mt3 mb1">Map View</h3>
                 <div class="map-outer-wrapper">
                     <?php get_template_part('template-parts/map-features');?>
                     <div class="camp-map">
@@ -116,8 +117,16 @@ while ( have_posts() ): the_post(); ?>
                 <!--outer-wrapper-->
             </div>
             <!--main-->
+            <div class="enquire-cta mt5">
+                <i class="fas fa-comments"></i>
+                <h3 class="heading heading__lg">Book This Safari</h3>
+                <p>At Okavango Delta Explorations we specialise in crafting safaris to this unique ecosystem.</p>
+                <p>Get in touch to begin your Okavango Delta Exploration</p>
+                <a href="" class="button button__large centered mt1">Enquire Now</a>
+            </div>
         </div>
         <?php endwhile;?>
+
     </div>
     <!--outer-wrapper-->
     <?php get_footer();?>

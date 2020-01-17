@@ -1726,6 +1726,18 @@ main form.wpcf7-form {
   }
 }
 
+.enquire-cta {
+  @include brandBorder;
+  border-color: $brand-secondary;
+  padding: 2em;
+  background: white;
+  text-align: center;
+  i {
+    margin-bottom: 1rem;
+    font-size: 3em;
+  }
+}
+
 /*==== SIDEBAR====*/
 
 .sidebar {
@@ -1776,6 +1788,7 @@ main form.wpcf7-form {
       &.activities {
         text-align: left;
         li {
+          margin-bottom: 3px;
           border: none;
           grid-template-columns: 3em auto;
         }
@@ -1843,9 +1856,10 @@ main form.wpcf7-form {
     @include brandBorder;
     overflow: hidden;
     margin-bottom: 2em;
-    a {
+
+    /*a {
       display: block;
-    }
+  }*/
     .image {
       @include backgroundCover;
       display: grid;

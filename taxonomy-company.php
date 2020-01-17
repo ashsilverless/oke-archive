@@ -160,7 +160,7 @@ $the_query = new WP_Query( $args );?>
                         <?php wp_reset_postdata();
                     endif; }} ?>
                 </div>
-                <div class="description"><?php the_field('short_description');?></div>
+                <div class="description"><?php the_field('short_description',  $safari_id);?></div>
                 <a href="<?php the_permalink($safari_id); ?>" class="button">Learn More</a>
             </div>
         </div>
