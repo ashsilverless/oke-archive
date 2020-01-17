@@ -17,7 +17,7 @@ while ( have_posts() ): the_post(); ?>
         <h4 class="heading heading__md heading__light heading__caps align-center">At A Glance</h4>
         <div class="detail-wrapper">
             <ul>
-                <li><span class="title">Location</span><span class="detail"><?php the_terms( $post->ID, 'destinations'); ?></span></li>
+                <li><span class="title">Location</span><span class="detail"><?php the_terms( $post->ID, 'destinations', '<div>','', '</div>'); ?></span></li>
                 <li><span class="title">Parent Company</span><span class="detail"><?php the_terms( $post->ID, 'company'); ?></span></li>
                 <li><span class="title">Cost</span><span class="detail">From $<?php the_field('cost');?></span></li>
                 <li><span class="title">Rooms</span><span class="detail"><?php the_field('number_of_rooms');?></span></li>

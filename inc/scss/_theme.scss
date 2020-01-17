@@ -1765,13 +1765,13 @@ main form.wpcf7-form {
       a {
         position: relative;
         margin: 0 10px 3px 0;
-        padding-left: 10px;
-        &:before {
+        /*padding-left: 10px;*/
+        /*&:before {
           content: "\2022";
           position: absolute;
           left: 0;
           display: inline-block;
-        }
+      }*/
       }
       &.activities {
         text-align: left;
