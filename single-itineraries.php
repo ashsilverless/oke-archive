@@ -124,9 +124,33 @@ while ( have_posts() ): the_post(); ?>
                 <p>Get in touch to begin your Okavango Delta Exploration</p>
                 <a href="" class="button button__large centered mt1">Enquire Now</a>
             </div>
+                <?php if( get_field('extensions') ): ?>
+                    <h3 class="heading heading__md heading__caps mt3 mb1">Extensions to this safari</h3>
+                <?php endif;?>
+                <?php $post_objects = get_field('extensions');
+                if( $post_objects ): ?>
+                    <div class="container grid-gap equal-height cols-12 mb5">
+                    <?php foreach( $post_objects as $post): // variable must be called $post (IMPORTANT) ?>
+                        <?php setup_postdata($post);
+                        $campImage = get_field('banner_image'); ?>
+                            <div class="col">
+                                <div class="listing-item">
+                                    <div class="image" style="background:url(<?php echo $campImage['url']; ?>);">
+                                        <h2 class="heading heading__sm heading__light"><?php the_title(); ?>
+                                    </div>
+                                    <div class="item"><i class="fas fa-credit-card"></i>From $<?php the_field('cost');?></div>
+                                    <div class="item"><i class="fas fa-map-marker-alt"></i><?php the_terms( $post->ID, 'destinations'); ?></div>
+                                    <?php the_terms( $post->ID, 'company'); ?>
+                                    <div class="item"><?php the_field('short_description');?></div>
+                                    <a href="<?php the_permalink(); ?>">Learn More</a>
+                                </div>
+                            </div>
+                    <?php endforeach; ?>
+                </div>
+                <?php wp_reset_postdata();?>
+                <?php endif;?>
         </div>
         <?php endwhile;?>
-
     </div>
     <!--outer-wrapper-->
     <?php get_footer();?>
