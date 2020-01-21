@@ -87,7 +87,8 @@ $the_query = new WP_Query( $args );?>
     </div>
     <div class="col">
         <div class="description camp pl2">
-            <?php the_field('description');?>
+            <?php the_field('short_description');?>
+            <a href="#full-descr" class="button button__standard button__standard--fixed-width">Learn More</a>
             <!--======= Gallery=====-->
             <?php if( get_field('gallery') ): ?>
                 <h4 class="heading heading__md heading__caps mt2">Gallery</h4>
@@ -147,6 +148,15 @@ $the_query = new WP_Query( $args );?>
             	</div><!--camp-map-->
 
             </div><!--outer-wrapper-->
+
+            <!--=========== FULL DESCRIPTION =============-->
+                <h2 id="full-descr" class="heading heading__md heading__caps mt2">About <?php the_title(); ?></h4>
+                    <?php the_field('description');?>
+
+
+
+
+
 
             <?php if( get_field('combines_well_with') ): ?>
             <h4 class="heading heading__md heading__caps mt2 mb1">Combines Well With</h4>
