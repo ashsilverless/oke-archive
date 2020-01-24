@@ -39,7 +39,7 @@ $term = get_queried_object();?>
 
                     <div class="col">
                        <div class="image" style="background:url(<?php echo $campImage['url']; ?>);">
-                            <h2 class="heading heading__sm heading__light">
+                            <h2 class="heading heading__md heading__light">
                                 <?php the_title(); ?>
                             </h2>
                         </div>

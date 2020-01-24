@@ -14,7 +14,9 @@ while ( have_posts() ): the_post(); ?>
     <div class="col">
         <div class="sidebar mb5">
             <?php $custom_terms = wp_get_post_terms($post->ID, 'company');?>
-        <h4 class="heading heading__md heading__light heading__caps align-center">At A Glance</h4>
+        <h4 class="heading heading__md heading__light heading__caps align-center">
+            <i class="fas fa-info info-panel"></i>
+            <?php the_title();?></h4>
         <div class="detail-wrapper">
             <ul>
                 <li><span class="title">Location</span><span class="detail"><?php the_terms( $post->ID, 'destinations', '<div>','', '</div>'); ?></span></li>

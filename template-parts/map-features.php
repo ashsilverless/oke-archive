@@ -9,10 +9,15 @@
 <?php } else {}?>
 
 <div class="overlay-filter">
-    <h4 class="heading heading__sm heading__light">Water State</h4>
+    <img src="/wp-content/themes/oke/inc/img/droplet.svg" />
+    <p class="heading heading__light heading__body heading__caps">Water State</p>
     <div class="layer-buttons">
         <div class="layer-buttons__item off active">Off</div>
         <div class="layer-buttons__item low">Low</div>
         <div class="layer-buttons__item high">High</div>
     </div>
+    <a href="/the-okavango/land/" class="button button__ghost mt1 info-link">
+<i class="fas fa-info"></i>
+        Learn About the Okavango Flood
+    </a>
 </div>

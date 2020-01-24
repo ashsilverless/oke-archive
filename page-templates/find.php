@@ -66,15 +66,26 @@ get_header();?>
                             <div class="item"><i class="fas fa-moon"></i><?php the_field('number_of_nights');?> Nights</div>
                             <div class="item"><i class="fas fa-credit-card"></i>From $<?php the_field('cost');?></div>
                         </div>
-                        <div class="camps">
-                            <?php if( have_rows('daily_activity') ): while( have_rows('daily_activity') ): the_row();
-                               $dailycamp = get_sub_field('daily_camp');?>
-                               <span><?php echo $dailycamp->post_title;?></span>
-                            <?php endwhile; endif;?>
-                        </div>
+
                         <div class="description"><?php the_field('short_description');?></div>
                         <a href="<?php the_permalink(); ?>" class="button">Learn More</a>
                     </div>
+
+
+
+
+
+                    <div class="camps">
+                        <span class="title">Includes:</span>
+                        <?php if( have_rows('daily_activity') ): while( have_rows('daily_activity') ): the_row();
+                           $dailycamp = get_sub_field('daily_camp');?>
+                           <span><?php echo $dailycamp->post_title;?></span>
+                        <?php endwhile; endif;?>
+                    </div>
+
+
+
+
                 </div>
             </div>
         </div>

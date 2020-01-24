@@ -825,15 +825,15 @@ a.control_prev {
     &__trigger {
       position: absolute;
       top: 50%;
-      right: -11em;
-      width: 11em;
+      right: -15em;
+      width: 15em;
       padding: 0.5em;
       border-radius: 0 5px 5px 0;
       background: $brand-secondary;
       color: white;
       text-align: center;
       span {
-        font-size: 0.8em;
+        /*font-size: 0.8em;*/
         text-transform: uppercase;
         transition: all 0.3s ease;
         &:hover {
@@ -849,6 +849,7 @@ a.control_prev {
           margin-bottom: 5px;
         }
       }
+
       #Reset {
         max-height: 0;
         overflow: hidden;
@@ -888,6 +889,11 @@ a.control_prev {
       }
     }
   }
+}
+
+a.info-link i {
+  display: block;
+  margin-bottom: 0.25rem;
 }
 
 .map-outer-wrapper {
@@ -1199,9 +1205,15 @@ a.control_prev {
 .overlay-filter {
   @include brandBorder;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-auto-columns: minmax(10px, 10em);
   padding: 1em 2em;
   background-color: $brand-secondary;
+  text-align: center;
+  img {
+    display: block;
+    margin: 0 auto;
+    width: 1em;
+  }
   .layer-buttons {
     margin-top: 1em;
     &__item {
@@ -1250,8 +1262,11 @@ a.control_prev {
     }
   }
   .camps {
-    @include brandBorderBottom;
-    padding: 1em 3em;
+    grid-column: span 24;
+    background: #20263d;
+    color: white;
+    padding: 0.5em 1em;
+    text-align: center;
     span {
       @include brandBorderRight;
       white-space: nowrap;
@@ -1259,6 +1274,10 @@ a.control_prev {
       margin-right: 0.5em;
       &:last-of-type {
         border-right: none;
+      }
+      &.title {
+        color: $brand-primary;
+        border: none;
       }
     }
   }
@@ -1677,9 +1696,9 @@ main form.wpcf7-form {
     }
   }
   svg {
-    height: 30vh;
+    height: 15em;
     margin-top: -2em;
-    filter: drop-shadow(2px 4px 30px black);
+    filter: drop-shadow(2px 4px 5px rgba(0, 0, 0, 0.5));
     text {
       font-size: 5em;
       fill: $brand-secondary;
@@ -1745,9 +1764,13 @@ main form.wpcf7-form {
   position: sticky;
   top: 8em;
   margin-top: -20vh;
-  padding: 3em 2em 0;
+  padding: 2em 2em 0;
   background: $brand-secondary;
   z-index: 999;
+  .info-panel {
+    display: block;
+    margin-bottom: 1rem;
+  }
 }
 
 .detail-wrapper {

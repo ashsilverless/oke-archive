@@ -12,7 +12,8 @@ while ( have_posts() ): the_post(); ?>
     <div class="container grid-gap cols-8-16">
         <div class="col">
             <div class="sidebar">
-                <h4 class="heading heading__md heading__light heading__caps align-center">At A Glance</h4>
+                <i class="fas fa-info info-panel"></i>
+                <h4 class="heading heading__md heading__light heading__caps align-center"><?php the_title();?></h4>
                 <div class="detail-wrapper">
                     <ul>
                         <li><span class="title">Duration</span><span class="detail">
@@ -31,6 +32,7 @@ while ( have_posts() ): the_post(); ?>
                     </div>
                     <?php endwhile; endif;?>
                 </div>
+                <p class="heading__light heading__caps align-center mb1">Featured Properties</p>
                 <div class="camp-summary">
                     <?php if( have_rows('daily_activity') ): while( have_rows('daily_activity') ): the_row(); $post_object = get_sub_field('daily_camp');
                     if( $post_object ):
