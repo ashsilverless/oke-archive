@@ -1869,6 +1869,17 @@ main form.wpcf7-form {
   top: 100px;
 }
 
+.sidebar-leader {
+  @include brandBorder;
+  @include backgroundCover;
+  margin-bottom: 3em;
+  padding: 3em;
+  text-align: center;
+  color: white;
+  .button {
+  }
+}
+
 .detail-wrapper {
   @include brandBorder;
   margin-top: 2em;
