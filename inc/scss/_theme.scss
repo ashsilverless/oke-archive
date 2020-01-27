@@ -1869,6 +1869,13 @@ main form.wpcf7-form {
   top: 100px;
 }
 
+.adviceMenu a {
+  margin-bottom: 1em;
+  padding: 0.5em 1em;
+  background: $brand-primary;
+  color: white;
+}
+
 .sidebar-leader {
   @include brandBorder;
   @include backgroundCover;
