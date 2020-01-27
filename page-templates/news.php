@@ -8,7 +8,7 @@ get_header();
 $term = get_queried_object();?>
 
 <!-- ******************* Hero ******************* -->
-<?php get_template_part("template-parts/standard-hero"); ?>
+<?php get_template_part("template-parts/left-hero"); ?>
 <div class="outer-wrapper mt3">
     <div class="container cols-16-8 grid-gap">
         <div class="col">

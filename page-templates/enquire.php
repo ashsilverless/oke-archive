@@ -8,8 +8,9 @@ get_header();
 $term = get_queried_object();?>
 
 <!-- ******************* Hero ******************* -->
-<?php get_template_part("template-parts/standard-hero"); ?>
+<?php get_template_part("template-parts/left-hero"); ?>
 <div class="outer-wrapper">
+    <?php get_template_part("template-parts/floating-heading"); ?>
     <div class="container grid-gap cols-8-16">
         <div class="col">
             <div class="sidebar mb5">

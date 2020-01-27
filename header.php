@@ -8,9 +8,7 @@
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="description" content=" ">
 <meta name="keywords" content=" ">
@@ -97,6 +95,9 @@
                          <a href="mailto:<?php the_sub_field("email"); ?>"><?php the_sub_field("email"); ?></a>
                          <a href="tel:<?php the_sub_field("phone"); ?>"><?php the_sub_field("phone"); ?></a>
                          <?php endwhile; endif;?>
+                         <div class="enquire-button">
+                             <a href="/enquire" class="button button__enquire">Enquire</a>
+                         </div>
                     </div>
                  </div>
 

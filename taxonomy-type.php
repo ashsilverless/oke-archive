@@ -68,25 +68,27 @@ $term = get_queried_object();?>
                             <div class="item"><i class="fas fa-moon"></i><?php the_field('number_of_nights');?> Nights</div>
                             <div class="item"><i class="fas fa-credit-card"></i>From $<?php the_field('cost');?></div>
                         </div>
-                        <div class="camps">
-                            <?php if( have_rows('daily_activity') ): while( have_rows('daily_activity') ): the_row();
-                               $dailycamp = get_sub_field('daily_camp');?>
-                               <span><?php echo $dailycamp->post_title;?></span>
-                            <?php endwhile; endif;?>
-                        </div>
+
                         <div class="description"><?php the_field('short_description');?></div>
                         <a href="<?php the_permalink(); ?>" class="button">Learn More</a>
+                    </div>
+                    <div class="camps">
+                        <?php if( have_rows('daily_activity') ): while( have_rows('daily_activity') ): the_row();
+                           $dailycamp = get_sub_field('daily_camp');?>
+                           <span><?php echo $dailycamp->post_title;?></span>
+                        <?php endwhile; endif;?>
                     </div>
                 </div>
             </div>
         </div>
         <?php endwhile; endif;?>
     </div>
+
 </div>
 
 <h3 class="heading heading__md heading__caps mt2 mb2 align-center">Other Safari Types</h3>
 
-<div class="container grid-gap cols-auto mb5">
+<div class="container grid-gap cols-6 cols-md-12 cols-sm-24 mb5">
 
     <?php
     $typeterms = get_terms( array(

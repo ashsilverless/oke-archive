@@ -10,6 +10,7 @@ while ( have_posts() ): the_post(); ?>
 <!--HERO-->
 <?php get_template_part("template-parts/carousel-hero"); ?>
 <div class="outer-wrapper">
+<?php get_template_part("template-parts/floating-heading"); ?>
 <div class="container grid-gap cols-8-16">
     <div class="col">
         <div class="sidebar mb5">

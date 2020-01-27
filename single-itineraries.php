@@ -9,10 +9,10 @@ while ( have_posts() ): the_post(); ?>
 <!--HERO-->
 <?php get_template_part("template-parts/carousel-hero"); ?>
 <div class="outer-wrapper">
+<?php get_template_part("template-parts/floating-heading"); ?>
     <div class="container grid-gap cols-8-16">
         <div class="col">
             <div class="sidebar">
-                <i class="fas fa-info info-panel"></i>
                 <h4 class="heading heading__md heading__light heading__caps align-center"><?php the_title();?></h4>
                 <div class="detail-wrapper">
                     <ul>
@@ -77,6 +77,9 @@ while ( have_posts() ): the_post(); ?>
                         <?php get_template_part("template-parts/arrow-large"); ?>
                     </p>
                     <div class="content">
+                        <?php if (get_sub_field('image')):?>
+                            <img src="<?php the_sub_field('image');?>"/>
+                            <?endif;?>
                         <?php the_sub_field('description');?>
                     </div>
                 </div>

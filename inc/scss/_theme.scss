@@ -38,6 +38,7 @@
   }
 }
 .outer-wrapper {
+  position: relative;
   padding: 0 2em;
 }
 .container.fullwidth {
@@ -133,6 +134,28 @@
   }
 }
 /*===========HEADER==========*/
+
+.contact {
+  .enquire-button {
+    display: none;
+  }
+}
+
+.scrolled .contact {
+  a {
+    display: none;
+  }
+  .enquire-button {
+    display: block;
+  }
+  .enquire-button a {
+    display: block;
+    padding: 0.5em 3em;
+    font-family: $body-font;
+    text-transform: uppercase;
+    text-align: center;
+  }
+}
 
 /*===========BODY==========*/
 .boxed-content {
@@ -301,9 +324,18 @@
 }
 
 .cta {
+  position: relative;
   &--fullwidth {
     @include backgroundCover;
+    &:before {
+      @include childOverlay;
+      @include blackGrad;
+      opacity: 0.5;
+      z-index: 1;
+    }
     .content {
+      position: relative;
+      z-index: 10;
       p {
         color: white;
       }
@@ -556,6 +588,52 @@ a.control_prev {
   }
 }
 
+.hero.home {
+  display: grid;
+}
+
+.hero-carousel {
+  position: relative;
+  .carousel_module {
+    .owl-item {
+      position: relative;
+      height: 75vh;
+      &:before {
+        @include childOverlay;
+        @include blackGrad;
+        z-index: 10;
+        top: initial;
+        bottom: 0;
+        opacity: 0.3;
+        height: 50%;
+      }
+    }
+  }
+  .content-wrapper {
+    position: absolute;
+    bottom: 8em;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+  }
+}
+
+.left-hero {
+  align-content: flex-end;
+  height: 75vh;
+}
+
+.floating-heading {
+  position: absolute;
+  z-index: 999;
+  top: -20vh;
+  left: 0;
+  width: 100%;
+  a {
+    color: white;
+  }
+}
+
 .hero-leader {
   &__item {
     @include brandBorder;
@@ -583,11 +661,24 @@ a.control_prev {
 }
 
 .hero__section-lead {
+  display: grid;
   .above-leader {
     max-width: 60em;
     margin: 0 auto;
     align-self: flex-end;
     text-align: center;
+  }
+}
+
+.lower-grad {
+  position: relative;
+  &:before {
+    @include childOverlay;
+    @include blackGrad;
+    top: initial;
+    bottom: 0;
+    height: 50%;
+    opacity: 0.4;
   }
 }
 
@@ -1879,16 +1970,28 @@ main form.wpcf7-form {
     @include brandBorder;
     overflow: hidden;
     margin-bottom: 2em;
-
-    /*a {
+    background: white;
+    > a {
       display: block;
-  }*/
+    }
     .image {
       @include backgroundCover;
+      position: relative;
       display: grid;
-      align-content: center;
+      align-content: flex-end;
       height: 10em;
+      padding-bottom: 3em;
       text-align: center;
+      &:before {
+        @include childOverlay;
+        @include blackGrad;
+        z-index: 1;
+        opacity: 0.4;
+      }
+      .heading {
+        position: relative;
+        z-index: 10;
+      }
     }
     .see-more {
       padding: 1em;
@@ -1984,6 +2087,26 @@ main form.wpcf7-form {
       padding: 1em 2em;
     }
   }
+  .camps {
+    grid-column: span 24;
+    background: #20263d;
+    color: white;
+    padding: 0.5em 1em;
+    text-align: center;
+    span {
+      @include brandBorderRight;
+      white-space: nowrap;
+      padding-right: 0.5em;
+      margin-right: 0.5em;
+      &:last-of-type {
+        border-right: none;
+      }
+      &.title {
+        color: $brand-primary;
+        border: none;
+      }
+    }
+  }
 }
 
 .safari-itinerary,
@@ -2016,11 +2139,15 @@ main form.wpcf7-form {
     }
     .content {
       margin-top: -1px;
-      padding: 0 3em;
       max-height: 0;
       transition: all 0.5s ease;
+      img {
+        min-width: 100%;
+        height: auto;
+      }
       p {
         margin: 0;
+        padding: 0 3em;
       }
     }
     &.open {
@@ -2036,9 +2163,10 @@ main form.wpcf7-form {
       }
       .content {
         max-height: 100vh;
-        padding-top: 1em;
+        padding-top: 0;
         padding-bottom: 1em;
         p {
+          margin-top: 1em;
           margin-bottom: 1em;
         }
       }

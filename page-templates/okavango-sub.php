@@ -8,7 +8,7 @@ get_header();
 $term = get_queried_object();?>
 
 <!-- ******************* Hero ******************* -->
-<?php get_template_part("template-parts/standard-hero"); ?>
+<?php get_template_part("template-parts/left-hero"); ?>
 <div class="outer-wrapper mt3">
     <div class="container cols-16-8 grid-gap">
         <div class="col">
@@ -50,18 +50,6 @@ $term = get_queried_object();?>
                         </div>
                     <?php endwhile; endif;?>
                 </div>
-
-
-
-
-
-
-
-
-
-
-
-
 
             <?php elseif( get_row_layout() == 'carousel_module' ):?>
                 <div class="carousel_module owl-carousel owl-theme mb3">
@@ -108,6 +96,15 @@ $term = get_queried_object();?>
         </div><!--col-->
 
         <div class="col">
+<?php if (is_page('land')) {?>
+<h2 class="heading heading__md heading__caps mb1">Concessions in The Okavango Delta</h2>
+
+
+
+<?php } else {?>
+
+
+
             <h2 class="heading heading__md heading__caps mb1">Featured Property</h2>
             <?php $post_object = get_field('featured_property');
             if( $post_object ):
@@ -150,8 +147,10 @@ $term = get_queried_object();?>
 
                 </div>
             <?php endif;?>
-
+<?}?>
         </div>
+
+
     </div>
 </div><!--outer-wrapper-->
 

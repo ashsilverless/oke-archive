@@ -8,9 +8,9 @@ get_header();
 $term = get_queried_object();?>
 
 <!--HERO-->
-<?php get_template_part("template-parts/carousel-hero"); ?>
-
+<?php get_template_part("template-parts/left-hero"); ?>
 <!--BODY-->
+
 <div class="container cols-offset3-18">
     <div class="col">
         <h2 class="heading heading__md heading__caps align-center mt2 mb2"><?php echo $term->name;?> Camps In the Okavango Delta</h2>
@@ -149,21 +149,28 @@ $the_query = new WP_Query( $args );?>
         </div>
         <div class="col">
             <div class="content">
-                <div class="camps">
-                    <?php $safari_id = get_the_ID();
-                    if( get_field('daily_activity', $safari_id) ) { while(has_sub_field('daily_activity', $safari_id)) {
-                        $post_objects = get_sub_field('daily_camp', $safari_id);
-                        if( $post_objects ):
-                            $post = $post_objects;
-                            setup_postdata( $post ); ?>
-                            <p class="destinations list"><i class="fas fa-map-marker-alt"></i><?php the_title(); ?></p>
-                        <?php wp_reset_postdata();
-                    endif; }} ?>
-                </div>
                 <div class="description"><?php the_field('short_description',  $safari_id);?></div>
                 <a href="<?php the_permalink($safari_id); ?>" class="button">Learn More</a>
             </div>
+
         </div>
+        <div class="camps">
+            <span class="title">Includes:</span>
+            <?php $safari_id = get_the_ID();
+            if( get_field('daily_activity', $safari_id) ) { while(has_sub_field('daily_activity', $safari_id)) {
+                $post_objects = get_sub_field('daily_camp', $safari_id);
+                if( $post_objects ):
+                    $post = $post_objects;
+                    setup_postdata( $post ); ?>
+                    <span><?php the_title(); ?></span>
+                <?php wp_reset_postdata();
+            endif; }} ?>
+        </div>
+
+
+
+
+
     </div>
 </div><!--camp-summary-item-->
 <?php endwhile; endif;

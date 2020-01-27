@@ -8,7 +8,7 @@ $heroImage = get_field('hero_background_image');?>
         </div>
     </div>
 </div>
-<div class="hero h75" style="background-image: url(<?php echo $heroImage['url']; ?>); background-color: <?php echo $heroColor; ?>;">
+<div class="hero hero__find h75" style="background-image: url(<?php echo $heroImage['url']; ?>); background-color: <?php echo $heroColor; ?>;">
     <div class="container cols-offset3-18">
 		<div class="col">
 		    <div class="hero__content">

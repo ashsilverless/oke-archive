@@ -137,7 +137,7 @@ jQuery(document).ready(function($) {
   // GLOBAL OWL CAROUSEL SETTINGS
 
   $(".carousel_module").owlCarousel({
-    loop: true,
+    loop: false,
     nav: true,
     navClass: ["owl-prev", "owl-next"],
     dots: false,

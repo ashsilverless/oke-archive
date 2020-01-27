@@ -10,7 +10,7 @@ if( get_field('hero_type') !== 'slider'):
 
 ?>
 
-<div class="hero <?php the_field('hero_height');?>" style="background-image: url(<?php echo $heroImage['url']; ?>); background-color: <?php echo $heroColor; ?>;">
+<div class="hero home <?php the_field('hero_height');?>" style="background-image: url(<?php echo $heroImage['url']; ?>); background-color: <?php echo $heroColor; ?>;">
 
     <div class="container cols-3-12-6-3">
         <div class="col"></div>

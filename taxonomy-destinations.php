@@ -8,25 +8,9 @@ get_header();
 $term = get_queried_object();?>
 
 <!-- ******************* Hero ******************* -->
-<?php $heroImage = get_field('banner_image', $term);?>
-
-<div class="hero standard h75" style="background-image: url(<?php echo $heroImage['url']; ?>);">
-    <div class="container align-center">
-		<div class="col lg-narrow">
-		    <div class="hero__content">
-                <h1 class="heading heading__lg heading__caps heading__light slow-fade">
-                    <?php echo $term->name;?>
-                </h1>
-				<p class="heading__light heading__sm">
-					<?php the_field('sub_heading', $term);?>
-				</p>
-		    </div>
-		</div>
-	</div>
-</div><!--hero standard-->
+<?php get_template_part("template-parts/left-hero"); ?>
 
 <div class="outer-wrapper mt3">
-
     <div class="container cols-16-8 grid-gap">
         <div class="col">
             <div class="description camp">
