@@ -52,6 +52,10 @@ function oke_custom_menu() {
 	register_nav_menus(array(
 		'secondary-menu' => __( 'Secondary Menu' )
 	));
+
+	register_nav_menus(array(
+		'travel-advice-menu' => __( 'Travel Advice Menu' )
+	));
 }
 
 function oke_dashboard_widget() {

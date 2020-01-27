@@ -13,10 +13,10 @@ $sides: (top, bottom, left, right); // Sides var
 @each $amount in $distance {
   @each $side in $sides {
     html body .m#{str-slice($side, 0, 1)}#{$amount} {
-      margin-#{$side}: #{$amount}em;
+      margin-#{$side}: #{$amount}rem;
     }
     html body .p#{str-slice($side, 0, 1)}#{$amount} {
-      padding-#{$side}: #{$amount}em;
+      padding-#{$side}: #{$amount}rem;
     }
   }
 }

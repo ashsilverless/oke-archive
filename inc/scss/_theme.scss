@@ -1864,6 +1864,11 @@ main form.wpcf7-form {
   }
 }
 
+.sub-menu-sticky {
+  position: sticky;
+  top: 100px;
+}
+
 .detail-wrapper {
   @include brandBorder;
   margin-top: 2em;
