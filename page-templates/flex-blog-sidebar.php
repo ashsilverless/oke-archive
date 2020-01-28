@@ -77,6 +77,28 @@ $term = get_queried_object();?>
                 </div>
                 <?php endif;
             endwhile; endif;?>
+
+            <?php if( have_rows('call_to_action') ):
+            while( have_rows('call_to_action') ): the_row();
+            $ctaImage = get_sub_field('background_image');?>
+
+            <?php if (get_sub_field('background_image')):?>
+
+            <div class="cta mt5" style="background-image: url(<?php echo $ctaImage['url']; ?>);">
+                <div class="container align-center pt5 pb3">
+                    <div class="col">
+                        <div class="content lg-narrow">
+                            <h3 class="heading heading__md heading__caps heading__light"><?php the_sub_field('heading');?></h3>
+                            <p><?php the_sub_field('content');?></p>
+                            <a href="<?php the_sub_field('button_target');?>" class="button button__ghost"><?php the_sub_field('button_text');?></a>
+                        </div>
+                    </div>
+                </div>
+            </div><!--cta fullwidth-->
+            <?php endif;?>
+            <?php endwhile; endif;?>
+
+
         </div><!--col-->
 
         <div class="col">
@@ -87,9 +109,9 @@ $term = get_queried_object();?>
                         <?php
                     $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
                     $query = new WP_Query( array(
-                        'posts_per_page' => 5,
+                        'posts_per_page' => 3,
                         'paged' => $paged,
-                        'category_name' => $category
+                        'category_name' => 'news'
                     ) );
                     if ( $query->have_posts() ): while ( $query->have_posts() ) : $query->the_post(); ?>
                         <?php $image = get_field('banner_image');?>
@@ -132,25 +154,5 @@ $term = get_queried_object();?>
         </div>
     </div>
 </div><!--outer-wrapper-->
-
-<?php if( have_rows('call_to_action') ):
-while( have_rows('call_to_action') ): the_row();
-$ctaImage = get_sub_field('background_image');?>
-
-<?php if (get_sub_field('background_image')):?>
-
-<div class="cta cta--fullwidth" style="background-image: url(<?php echo $ctaImage['url']; ?>);">
-    <div class="container align-center pt5 pb3">
-        <div class="col">
-            <div class="content lg-narrow">
-                <h3 class="heading heading__md heading__caps heading__light"><?php the_sub_field('heading');?></h3>
-                <p><?php the_sub_field('content');?></p>
-                <a href="<?php the_sub_field('button_target');?>" class="button button__ghost"><?php the_sub_field('button_text');?></a>
-            </div>
-        </div>
-    </div>
-</div><!--cta fullwidth-->
-<?php endif;?>
-<?php endwhile; endif;?>
 
 <?php get_footer();?>

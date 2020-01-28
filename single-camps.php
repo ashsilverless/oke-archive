@@ -156,11 +156,6 @@ $the_query = new WP_Query( $args );?>
                 <h2 id="full-descr" class="heading heading__md heading__caps mt2">About <?php the_title(); ?></h4>
                     <?php the_field('description');?>
 
-
-
-
-
-
             <?php if( get_field('combines_well_with') ): ?>
             <h4 class="heading heading__md heading__caps mt2 mb1">Combines Well With</h4>
         <?php endif;?>
