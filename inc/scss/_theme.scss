@@ -154,6 +154,8 @@
     font-family: $body-font;
     text-transform: uppercase;
     text-align: center;
+    background: $brand-primary;
+    color: white;
   }
 }
 
@@ -339,6 +341,17 @@
       background: transparent;
       color: white;
     }
+  }
+  &.bottom {
+    background-position: center bottom !important;
+  }
+  &.top {
+    background-position: center top !important;
+  }
+  &.fixed {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
   }
   &--fullwidth {
     @include backgroundCover;
@@ -1544,7 +1557,7 @@ main form.wpcf7-form {
   align-items: center;
   .image {
     @include backgroundCover;
-    height: 25em;
+    min-height: 35em;
   }
   .content {
     padding: 1em 5em;
