@@ -641,9 +641,25 @@ a.control_prev {
   z-index: 999;
   top: -20vh;
   left: 0;
+  opacity: 1;
+  transition: opacity 0.5s ease;
   width: 100%;
   a {
     color: white;
+  }
+  &.fade-out {
+    opacity: 0;
+  }
+}
+
+.sidebar {
+  > .heading {
+    max-height: 0;
+    transition: max-height 0.5s ease;
+    overflow: hidden;
+  }
+  &.enabled > .heading {
+    max-height: 10em;
   }
 }
 
@@ -698,6 +714,61 @@ a.control_prev {
 .map-outer-wrapper {
   position: relative;
   overflow: hidden;
+}
+
+.wrapper {
+  position: relative;
+  height: 25vh;
+  width: 100%;
+  background: grey;
+}
+
+.point {
+  content: "";
+  position: absolute;
+  z-index: 999;
+  span {
+    content: "";
+    display: block;
+    border-radius: 50em;
+    width: 1em;
+    height: 1em;
+    background: blue;
+    margin: 0.5em 0 0 0.5em;
+    left: 0.25em;
+    top: 0.25em;
+    position: absolute;
+  }
+  &#one {
+    top: 10%;
+    left: 50%;
+  }
+
+  &#two {
+    top: 50%;
+    left: 10%;
+  }
+
+  &#three {
+    top: 80%;
+    left: 30%;
+  }
+
+  &#four {
+    top: 10%;
+    left: 80%;
+  }
+}
+
+#svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#line {
+  stroke-width: 2px;
+  stroke: rgb(0, 0, 0);
 }
 
 .camp-map {

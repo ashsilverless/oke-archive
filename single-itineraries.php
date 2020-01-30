@@ -13,7 +13,7 @@ while ( have_posts() ): the_post(); ?>
     <div class="container grid-gap cols-8-16">
         <div class="col">
             <div class="sidebar">
-                <h4 class="heading heading__md heading__light heading__caps align-center"><?php the_title();?></h4>
+                <h2 class="heading heading__md heading__light heading__caps align-center"><i class="fas fa-info info-panel"></i><?php the_title();?></h4>
                 <div class="detail-wrapper">
                     <ul>
                         <li><span class="title">Duration</span><span class="detail">
@@ -87,39 +87,7 @@ while ( have_posts() ): the_post(); ?>
             endif;
                 endwhile; endif;?>
                 <h3 class="heading heading__md heading__caps mt3 mb1">Map View</h3>
-                <div class="map-outer-wrapper">
-                    <?php get_template_part('template-parts/map-features');?>
-                    <div class="camp-map">
-                        <div class="positioning-wrapper">
-                            <img src="<?php echo get_template_directory_uri(); ?>/inc/img/master-mapv1.jpg" />
-                            <div id="wipe" class="wipe"></div>
-                            <?php get_template_part('template-parts/water-overlayv1');?>
-                            <?php get_template_part('template-parts/labels-overlayv1');?>
-                            <div id="Container" class="marker-wrapper">
-                                <?php $mapImage = get_field('banner_image');?>
-                                <!--<?php if( have_rows('map_marker') ):
-                            while ( have_rows('map_marker') ) : the_row();
-                            $markerPositionVert = get_sub_field('distance_from_top');
-                            $markerPositionHoriz = get_sub_field('distance_from_left');?>-->
-                                <div class="marker" style="top:<?php the_sub_field('distance_from_top');?>.000001%; left: <?php the_sub_field('distance_from_left');?>.000001%;">
-                                    <!--<div class="camp-map__card <?php if ( $markerPositionVert < 35 ) {echo 'high';};?> <?php if ( $markerPositionHoriz < 10 ) {echo 'left';};?> <?php if ( $markerPositionHoriz > 89 ) {echo 'right';};?>">
-                                    <div class="inner">
-                                        <?php echo $markerHigh;?>
-                                        <div class="image" style="background-image: url(<?php echo $mapImage['url']; ?>);"></div>
-                                        <h2 class="heading heading__sm"><?php the_title();?></h2>
-                                    </div>
-                                </div><!--card-->-->
-                                </div>
-                                <!--marker-->
-                                <?php endwhile; endif;?>
-                            </div>
-                            <!--marker-wrapper-->
-                        </div>
-                        <!--posn-wrapper-->
-                    </div>
-                    <!--camp-map-->
-                </div>
-                <!--outer-wrapper-->
+                <?php get_template_part("template-parts/itinerary-map"); ?>
             </div>
             <!--main-->
             <div class="enquire-cta mt5">

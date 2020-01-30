@@ -59,7 +59,7 @@
     </div><!--search-wrapper-->
 	<div id="page" class="site-wrapper">
 
-        <header>
+        <header id="intersectTest">
 
             <div class="container cols-3-12-6-3">
 

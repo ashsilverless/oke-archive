@@ -1,5 +1,5 @@
-<svg version="1.1" id="logo-full" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 186.6 97.7" style="enable-background:new 0 0 186.6 97.7;" xml:space="preserve">
+<svg version="1.1" id="logo-full" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="200px" y="400px"
+	  xml:space="preserve">
 <style type="text/css">
 	.st0{fill:#C9AC6B;}
 </style>

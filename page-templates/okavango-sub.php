@@ -10,7 +10,7 @@ $term = get_queried_object();?>
 <!-- ******************* Hero ******************* -->
 <?php get_template_part("template-parts/left-hero"); ?>
 <div class="outer-wrapper mt3">
-    <div class="container cols-16-8 grid-gap">
+    <div class="container cols-15-9 border-split">
         <div class="col">
             <?php
             if( have_rows('flexible_layout') ):
@@ -97,14 +97,29 @@ $term = get_queried_object();?>
 
         <div class="col">
 <?php if (is_page('land')) {?>
-<h2 class="heading heading__md heading__caps mb1">Concessions in The Okavango Delta</h2>
+    <div class="sticky">
+        <h2 class="heading heading__md heading__caps mb1">Concessions in The Okavango Delta</h2>
+        <?php
+        $terms = get_terms( array(
+            'taxonomy' => 'destinations'
+        ) );
+        $number = 1;
+        foreach ($terms as $term):
+        $destinationImage = get_field('banner_image', $term);
+        ?>
+        <div class="destination-summary__item">
+        <a href="<?php echo $term_link = get_term_link( $term ); ?>">
+                    <h2 class="heading heading__sm heading__caps heading__body"><?php echo $term->name;?></h2>
 
-
-
+                <div class="image" style="background:url(<?php echo $companyImage['url']; ?>);"></div>
+                <?php the_field('short_description', $term);?>
+        </a>
+        </div>
+        <?php
+        $number++;
+        endforeach;?>
+    </div>
 <?php } else {?>
-
-
-
             <h2 class="heading heading__md heading__caps mb1">Featured Property</h2>
             <?php $post_object = get_field('featured_property');
             if( $post_object ):
@@ -142,18 +157,12 @@ $term = get_queried_object();?>
                     </div>
                     <a href="<?php the_field('side_button_target');?>" class="button button__standard"><?php the_field('side_button_text');?></a>
                     <a href="" class="button button__standard button__standard--alt"><?php the_field('side_button_text');?></a>
-
-
-
                 </div>
             <?php endif;?>
-<?}?>
+            <?}?>
         </div>
-
-
     </div>
 </div><!--outer-wrapper-->
-
 <?php if( have_rows('call_to_action') ):
 while( have_rows('call_to_action') ): the_row();
 $ctaImage = get_sub_field('background_image');?>
@@ -169,5 +178,4 @@ $ctaImage = get_sub_field('background_image');?>
     </div>
 </div><!--cta fullwidth-->
 <?php endwhile; endif;?>
-
 <?php get_footer();?>
