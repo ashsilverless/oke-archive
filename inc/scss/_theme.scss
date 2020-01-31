@@ -764,13 +764,13 @@ a.control_prev {
   position: absolute;
   top: 0;
   left: 0;
-}
 
-#line {
-  stroke-width: 2px;
-  stroke: rgb(0, 0, 0);
+  polyline {
+    stroke-width: 0.2px;
+    stroke-dasharray: 1px;
+    stroke: #515544;
+  }
 }
-
 .camp-map {
   position: relative;
   .positioning-wrapper {
@@ -807,6 +807,7 @@ a.control_prev {
     content: "";
     position: absolute;
     left: 50%;
+    margin-top: -0.75em;
     margin-left: -0.75em;
     bottom: calc(-12px - 1.5em);
     height: 1.5em;

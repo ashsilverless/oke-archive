@@ -2,10 +2,39 @@
     <?php get_template_part('template-parts/map-features');?>
     <div class="camp-map">
         <div class="positioning-wrapper">
+
             <img src="<?php echo get_template_directory_uri(); ?>/inc/img/master-mapv1.jpg" />
             <?php get_template_part('template-parts/water-overlayv1');?>
             <?php get_template_part('template-parts/labels-overlayv1');?>
+<svg id="svg" width='100%' height='100%' viewBox="0 0 100 100" preserveAspectRatio="none">
+
+    <polyline points="
+    <?php if( have_rows('daily_activity') ): while( have_rows('daily_activity') ): the_row(); $post_object = get_sub_field('daily_camp'); if( $post_object ):
+        // override $post
+        $post = $post_object;
+        setup_postdata( $post );
+         ?>
+
+             <?php foreach ($post as $post):?>
+                 <?php if( have_rows('map_marker', $post) ):
+                 while ( have_rows('map_marker', $post) ) : the_row();
+                 $linePositionVert = get_sub_field('distance_from_top');
+                 $linePositionHoriz =  get_sub_field('distance_from_left');?>
+                 <?php echo $linePositionHoriz;?>,
+                 <?php echo $linePositionVert;?>
+             <?php endwhile; endif;?>
+
+             <?php endforeach;?>
+
+            <?php wp_reset_postdata();
+        endif;
+    endwhile;endif;?> "fill="none" stroke="black" stroke-width="1px"/>
+</svg>
+
             <div id="Container" class="marker-wrapper">
+
+
+
 
                 <?php if( have_rows('daily_activity') ): while( have_rows('daily_activity') ): the_row(); $post_object = get_sub_field('daily_camp');
                 if( $post_object ):
@@ -14,6 +43,7 @@
                     setup_postdata( $post );
                      ?>
                      <?php $mapImage = get_field('banner_image', $post);?>
+
                      <?php if( have_rows('map_marker', $post) ):
 
                      while ( have_rows('map_marker', $post) ) : the_row();
