@@ -981,6 +981,22 @@ a.control_prev {
 }
 
 .map-outer-wrapper {
+  &.has-overlay {
+    &:before {
+      @include childOverlay;
+      @include blackGrad;
+      height: 40%;
+      opacity: 0.5;
+      transform: rotate(180deg);
+    }
+  }
+  .overlay-text {
+    position: absolute;
+    z-index: 99;
+    top: 8em;
+    margin-left: 25%;
+    width: 50%;
+  }
   .overlay-filter {
     position: absolute;
     z-index: 99;

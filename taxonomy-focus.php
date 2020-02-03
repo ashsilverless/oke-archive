@@ -20,7 +20,11 @@ $term = get_queried_object();?>
 $query = new WP_Query( $args );?>
 <!-- ******************* Map Component ******************* -->
 <!--=========== global =============-->
-<div  id="map-outer-wrapper" class="map-outer-wrapper">
+<div  id="map-outer-wrapper" class="map-outer-wrapper has-overlay">
+<div class="overlay-text">
+    <h1 class="heading heading__xl heading__light"><?php echo $term->name;?> Focused Properties</h1>
+    <h2 class="heading heading__sm heading__light"><?php the_field('sub_heading', $term);?></h2>
+</div>
 	<?php get_template_part('template-parts/map-features');?>
 	<div class="camp-map">
 		<div class="positioning-wrapper">
