@@ -818,6 +818,7 @@ a.control_prev {
     background: $brand-secondary;
     transition: background 0.5s 0.2s ease;
     animation: shadow-pulse 3s infinite;
+    z-index: 500;
     &:hover {
       cursor: pointer;
     }
