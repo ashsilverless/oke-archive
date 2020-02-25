@@ -610,7 +610,7 @@ a.control_prev {
   .carousel_module {
     .owl-item {
       position: relative;
-      height: 75vh;
+      height: 85vh;
       &:before {
         @include childOverlay;
         @include blackGrad;

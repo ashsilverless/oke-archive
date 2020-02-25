@@ -133,7 +133,8 @@ ul {
     font-weight: 300;
     color: $brand-primary;
 
-    &__body {
+    &__body,
+    &__alt {
         font-family: $body-font;
     }
 

@@ -14,6 +14,7 @@ jQuery(document).ready(function($) {
   //Offset to header height
 
   var navHeight = $("header").height();
+  var screenHeight = $(window).height();
   var shadowHeight = navHeight + 10;
   var negHeight = "-10px";
   $("#map-outer-wrapper").css({
@@ -670,6 +671,17 @@ jQuery(document).ready(function($) {
   ) {
     toggle.checked = true;
   });
+  $(".hero-carousel").css({
+    paddingTop: navHeight + 'px'
+    });
+
+var slideHeight = screenHeight * 0.85 - navHeight;
+
+$(".hero-carousel .carousel_module .owl-item").css({
+  height: slideHeight
+  });
+
+
 }); //Don't remove ---- end of jQuery wrapper
 
 //Intersection Observer
