@@ -101,9 +101,10 @@ $term = get_queried_object();?>
         <h2 class="heading heading__md heading__caps mb1">Concessions in The Okavango Delta</h2>
         <?php
         $terms = get_terms( array(
-            'taxonomy' => 'destinations'
+            'taxonomy' => 'destinations',
+            'hide_empty' => false,
         ) );
-        $number = 1;
+        //$number = 1;
         foreach ($terms as $term):
         $destinationImage = get_field('banner_image', $term);
         ?>
@@ -116,7 +117,7 @@ $term = get_queried_object();?>
         </a>
         </div>
         <?php
-        $number++;
+        //$number++;
         endforeach;?>
     </div>
 <?php } else {?>
