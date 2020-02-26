@@ -87,7 +87,9 @@ while ( have_posts() ): the_post(); ?>
             endif;
                 endwhile; endif;?>
                 <h3 class="heading heading__md heading__caps mt3 mb1">Map View</h3>
-                <?php get_template_part("template-parts/itinerary-map"); ?>
+                <div class="itinerary-map">
+                	<?php get_template_part("template-parts/itinerary-map"); ?>
+                </div>
             </div>
             <!--main-->
             <div class="enquire-cta mt5">

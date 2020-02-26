@@ -818,7 +818,6 @@ a.control_prev {
     background: $brand-secondary;
     transition: background 0.5s 0.2s ease;
     animation: shadow-pulse 3s infinite;
-    z-index: 500;
     &:hover {
       cursor: pointer;
     }
@@ -2303,6 +2302,53 @@ main form.wpcf7-form {
       }
     }
   }
+}
+
+.itinerary-map {
+	.map-outer-wrapper {
+		overflow: visible;
+	}
+	.overlay-filter {
+		display: grid;
+		grid-template-rows:1fr;
+		grid-template-columns: 1fr 1fr 1fr 2fr;
+		align-items: center;
+		width:calc(100% - 2em);
+		bottom:-4em;
+		img, .heading {
+			grid-row:1/2;
+			grid-column:1/2;
+		}
+		img {
+			margin-top:-2em;
+		}
+		.heading {
+			margin-top:2em;
+		}
+		.layer-buttons {
+			grid-row:1/2;
+			grid-column:2/4;
+			display: grid;
+			grid-template-rows: 1fr;
+			grid-template-columns: 1fr 1fr 1fr;
+			grid-gap: 2em;
+			margin-top:0;
+			&__item {
+				display: flex;
+				justify-content: center;
+				flex-grow: 1;
+				height:100%;
+				margin:0;
+				align-self: center;
+			}
+		}
+		.button {
+			grid-row:1/2;
+			grid-column:4/5;
+			margin-left: 2em;
+			margin-top:0;
+		}
+	}
 }
 
 .toggle {
