@@ -403,9 +403,13 @@ nav {
             margin-right: 3em;
 
             a {
+                line-height: 1.5;
                 font-weight: 100;
                 text-transform: none;
                 letter-spacing: 0;
+                i {
+                    font-size: 1.5em;
+                }
             }
         }
     }
