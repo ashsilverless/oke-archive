@@ -71,6 +71,16 @@ function oke_custom_fonts() {
 	echo '<style type="text/css">' . file_get_contents(__DIR__ . "/admin-settings/style-admin.css") . '</style>';
 }
 
+// Enter custom JS TO ADMIN AREA
+add_action( 'admin_print_scripts-post-new.php', 'banner_admin_script', 11 );
+add_action( 'admin_print_scripts-post.php', 'banner_admin_script', 11 );
+
+function banner_admin_script() {
+    global $post_type;
+    if ( $post_type == 'camps' )
+        wp_enqueue_script( 'camps-script', get_template_directory_uri().'/admin-settings/admin.js', '', '', true ); // "TRUE" - ADDS JS TO FOOTER
+}
+
 if(function_exists('acf_add_options_page')) {
 	acf_add_options_page(array(
 		'page_title' 	=> 'Theme Settings',
