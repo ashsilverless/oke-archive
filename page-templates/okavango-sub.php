@@ -102,7 +102,7 @@ $term = get_queried_object();?>
         <?php
         $terms = get_terms( array(
             'taxonomy' => 'destinations',
-            //'hide_empty' => false,
+            'hide_empty' => false,
         ) );
         //$number = 1;
         foreach ($terms as $term):

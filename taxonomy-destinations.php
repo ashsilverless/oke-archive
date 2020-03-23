@@ -16,7 +16,6 @@ $term = get_queried_object();?>
             <div class="description camp">
                 <?php the_field('description', $term);?>
             </div>
-            <h3 class="heading heading__md heading__caps mt2 mb1">Accommodation in this Area</h3>
 
          <div class="camp-summary full-width mb5">
             <?php
@@ -32,7 +31,10 @@ $term = get_queried_object();?>
                     )
                 );
                 $query = new WP_Query( $args );
-                if ( $query->have_posts() ): while ( $query->have_posts() ):
+                if ( $query->have_posts() ):?>
+                    <h3 class="heading heading__md heading__caps mt2 mb1">Accommodation in this Area</h3>
+
+                <?php while ( $query->have_posts() ):
                 $query->the_post();
                 $campImage = get_field('banner_image');?>
                     <div class="camp-summary__item">
