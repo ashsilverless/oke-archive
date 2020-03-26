@@ -692,6 +692,20 @@ a.control_prev {
 
 .hero__section-lead {
   display: grid;
+  position:relative;
+  &:after{
+    @include blackGrad;
+    content: '';
+    position:absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom:0;
+    z-index: 1
+  }
+  > div{
+    z-index: 2;
+  }
   .above-leader {
     max-width: 60em;
     margin: 0 auto;

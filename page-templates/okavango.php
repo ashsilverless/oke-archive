@@ -19,7 +19,7 @@ get_header();?>
         </h2>
     </div>
     <div class="hero-leader mb2">
-        <div class="container grid-gap cols-8">
+        <div class="container grid-gap cols-offset-3-6">
             <?php if( have_rows('leader') ):
             while( have_rows('leader') ): the_row();
             $leaderImage = get_sub_field('image');?>
