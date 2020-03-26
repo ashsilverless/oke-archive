@@ -11,7 +11,7 @@
     <div class="container cols-offset3-18">
         <div class="col">
             <div class="container cols-12">
-                <div class="col">
+                <div class="col pl3">
                     <div class="footer-logo">
                         <a href="https://x.com">
                             <?php get_template_part('inc/img/ode', 'logo-top');?>
@@ -21,7 +21,7 @@
                 </div>
             </div>
             <div class="container cols-16-8">
-                <div class="col">
+                <div class="col pl3">
                     <?php if( have_rows('contact_info', 'options') ): 
                     while( have_rows('contact_info', 'options') ): the_row(); ?>
                     <p class="mb2"><?php the_sub_field('address');?></p>
@@ -37,14 +37,14 @@
                         <?php endwhile; endif; ?>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col pl2 pr2">
                     <h3 class="heading heading__sm heading__caps heading__light mb0">Stay In Touch</h3>
                     <p class="mt0">for the latest news and specials</p>
                     <?php echo do_shortcode('[contact-form-7 id="11" title="Contact form 1"]');?>
                 </div>
             </div>
             <div class="container cols-12">
-                <div class="col colophon">
+                <div class="col colophon pl3">
                     &copy; Okavango Delta Explorations <?php echo date ('Y');?>
                     <div class="mandatory">
     				    <a href="<?php echo home_url() . '/terms-conditions'; ?>">Terms & Conditions</a>
@@ -52,7 +52,7 @@
                         <a href="<?php echo home_url() . '/privacy-policy'; ?>">Privacy</a>
     			    </div>
     			</div>
-    			<div class="col oke">
+    			<div class="col oke pr2">
     				<a href="https://silverless.co.uk">
         				<?php get_template_part('inc/img/silverless', 'logo');?>
                     </a>
