@@ -10,7 +10,7 @@ get_header();?>
 <?php get_template_part("template-parts/map-component"); ?>
 
 <div class="outer-wrapper">
-<div class="container grid-gap cols-16-8 pt3">
+<div class="container grid-gap cols-offset3-13-8 pt3">
 	<div class="col">
 		<div class="leading-copy">
 			<?php the_field('leading_copy_paragraph');?>
