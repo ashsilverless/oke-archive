@@ -196,6 +196,25 @@
     }
   }
 
+  &.cols-offset-3-12-6{
+    > .col:nth-of-type(2n -1) {
+      grid-column-start: 4;
+      grid-column-end: 16;
+    }
+    > .col:nth-of-type(2n) {
+      grid-column: span 6;
+    }
+    &.border-split {
+      > .col:nth-of-type(1) {
+        padding-right: 2em;
+      }
+      > .col:nth-of-type(2) {
+        @include brandBorderLeft;
+        padding-left: 2em;
+      }
+    }
+  }
+
   &.cols-14-10 {
     > .col:nth-of-type(2n -1) {
       grid-column: span 14;
