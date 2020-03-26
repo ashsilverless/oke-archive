@@ -13,7 +13,7 @@ get_header();?>
 <div class="outer-wrapper">
 <div id="Container" class="filter-wrapper">
   <div class="fail-message"><span>No items were found matching the selected filters</span></div>
-<div class="container">
+<div class="container cols-offset3-18">
   <?php
       $args = array(
           'post_type' => 'itineraries',
