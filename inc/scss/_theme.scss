@@ -341,6 +341,21 @@
       background: transparent;
       color: white;
     }
+    .button__dark-ghost {
+      display: inline-block;
+      padding: 1em 5em;
+      font-style: italic;
+      border: 1px solid $brand-primary;
+      background: transparent;
+      color: $brand-primary;
+    }
+  }
+  &__dark-text{
+    .content {
+      p {
+        color: $brand-mid-grey;
+      }
+    }
   }
   &.bottom {
     background-position: center bottom !important;
@@ -693,19 +708,6 @@ a.control_prev {
 .hero__section-lead {
   display: grid;
   position:relative;
-  &:after{
-    @include blackGrad;
-    content: '';
-    position:absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom:0;
-    z-index: 1
-  }
-  > div{
-    z-index: 2;
-  }
   .above-leader {
     margin: 0 auto;
     align-self: flex-start;

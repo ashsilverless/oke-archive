@@ -24,6 +24,25 @@ get_header();?>
 <?php endwhile; endif;?>
 
 
+<?php if( have_rows('call_to_action') ):
+while( have_rows('call_to_action') ): the_row();
+$ctaImage = get_sub_field('background_image');?>
+<div class="cta cta__dark-text">
+    <div class="container cols-offset3-12 pt5 pb3">
+        <div class="col">
+            <div class="content">
+                <h3 class="heading heading__md heading__caps"><?php the_sub_field('heading');?></h3>
+                <p><?php the_sub_field('content');?></p>
+                <a href="<?php the_sub_field('button_target');?>" class="button button__dark-ghost"><?php the_sub_field('button_text');?></a>
+            </div>
+        </div>
+    </div>
+</div><!--cta fullwidth-->
+<?php endwhile; endif;?>
+
+
+
+
 <div class="hero-leader mb2">
     <div class="container grid-gap cols-offset-3-6">
         <?php if( have_rows('leader') ):
@@ -50,24 +69,6 @@ get_header();?>
         <?php endwhile; endif;?>
     </div>
 </div>
-
-
-<?php if( have_rows('call_to_action') ):
-while( have_rows('call_to_action') ): the_row();
-$ctaImage = get_sub_field('background_image');?>
-<div class="cta cta--fullwidth <?php the_sub_field('background_align');?>" style="background-image: url(<?php echo $ctaImage['url']; ?>);">
-    <div class="container align-center pt5 pb3">
-        <div class="col">
-            <div class="content lg-narrow">
-                <h3 class="heading heading__md heading__caps heading__light"><?php the_sub_field('heading');?></h3>
-                <p><?php the_sub_field('content');?></p>
-                <a href="<?php the_sub_field('button_target');?>" class="button button__ghost"><?php the_sub_field('button_text');?></a>
-            </div>
-        </div>
-    </div>
-</div><!--cta fullwidth-->
-<?php endwhile; endif;?>
-
 <?php if( have_rows('image_panels') ):
 while( have_rows('image_panels') ): the_row();
 $panelImage = get_sub_field('image');?>
