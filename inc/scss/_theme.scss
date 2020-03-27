@@ -1176,6 +1176,21 @@ a.info-link i {
   }
 }
 
+.leader{
+  border:1px solid $brand-primary;
+  background-color:white;
+  &__image{
+    width: 100%;
+    padding-bottom:75%;
+    @include backgroundCover;
+  }
+  &__heading{
+    sup{
+      display: block;
+    }
+  }
+}
+
 .filter-wrapper {
   position: relative;
   .mix {

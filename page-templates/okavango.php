@@ -28,7 +28,7 @@ get_header();?>
 while( have_rows('call_to_action') ): the_row();
 $ctaImage = get_sub_field('background_image');?>
 <div class="cta cta__dark-text">
-    <div class="container cols-offset3-12 pt5 pb3">
+    <div class="container cols-offset3-12 pt5 pb5">
         <div class="col">
             <div class="content">
                 <h3 class="heading heading__md heading__caps"><?php the_sub_field('heading');?></h3>
@@ -40,57 +40,23 @@ $ctaImage = get_sub_field('background_image');?>
 </div><!--cta fullwidth-->
 <?php endwhile; endif;?>
 
-
-
-
-<div class="hero-leader mb2">
-    <div class="container grid-gap cols-offset-3-6">
-        <?php if( have_rows('leader') ):
-        while( have_rows('leader') ): the_row();
-        $leaderImage = get_sub_field('image');?>
-            <div class="col">
-            <div class="hero-leader__item">
-                <div class="image" style="background-image: url(<?php echo $leaderImage['url']; ?>);"></div>
-                <div class="content">
-                     <h3 class="heading heading__lg inline-icon">
-                       <sup>The</sup>
-                       <?php the_sub_field('heading');?>
-                       <?php $thisicon = get_sub_field( 'icon')["url"];
-                       $thisicon   = explode("/wp-content/", $thisicon)[1];?>
-                       <?php echo file_get_contents("./wp-content/" . $thisicon, FILE_USE_INCLUDE_PATH); ?>
-                    </h3>
-                   <p><?php the_sub_field('copy');?></p>
-                   <a href="<?php the_sub_field('button_target');?>" class="button button__standard">
-                       Read More
-                   </a>
-                </div>
-            </div>
-        </div>
-        <?php endwhile; endif;?>
-    </div>
-</div>
-<?php if( have_rows('image_panels') ):
+<div class="container grid-gap cols-offset-3-6">
+    <?php if( have_rows('image_panels') ):
 while( have_rows('image_panels') ): the_row();
 $panelImage = get_sub_field('image');?>
-<div class="container fullwidth cols-12 image-panels <?php the_sub_field('align_panel');?>">
-    <div class="col">
-        <div class="image" style="background-image: url(<?php echo $panelImage['url']; ?>);"></div>
-    </div>
-    <div class="col">
-        <div class="content">
-            <h3 class="heading heading__md inline-icon">
-                <!--<sup>The</sup>-->
-                <?php the_sub_field('heading');?>
-                <?php $thisicon = get_sub_field( 'icon')["url"];
-                $thisicon   = explode("/wp-content/", $thisicon)[1];?>
-                <?php echo file_get_contents("./wp-content/" . $thisicon, FILE_USE_INCLUDE_PATH); ?>
-            </h3>
-            <p><?php the_sub_field('copy');?></p>
-            <a href="<?php the_sub_field('target_link');?>" class="">Read More</a>
+        <div class="col leader mb5">
+            <div class="leader__image" style="background-image: url(<?php echo $panelImage['url']; ?>);"></div>
+            <div class="content pb1 pt1 pl2 pr2">
+                <h3 class="heading heading__md inline-icon leader__heading">
+                    <sup>The</sup>
+                    <span class="heading__caps"><?php the_sub_field('heading');?></span>
+                </h3>
+                <p><?php the_sub_field('copy');?></p>
+                <a href="<?php the_sub_field('target_link');?>" class="button button__standard">Read More</a>
+            </div>
         </div>
-    </div>
+    <?php endwhile; endif;?>
 </div>
-<?php endwhile; endif;?>
 
 <?php if( have_rows('lower_call_to_action') ):
 while( have_rows('lower_call_to_action') ): the_row();
