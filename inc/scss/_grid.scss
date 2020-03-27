@@ -88,6 +88,9 @@
   &.cols-14 > .col {
     grid-column: span 14;
   }
+  &.cols-21 > .col {
+    grid-column: span 21;
+  }
 }
 
 .container {
@@ -212,6 +215,28 @@
         @include brandBorderLeft;
         padding-left: 2em;
       }
+    }
+  }
+
+  &.cols-offset3-9-9{
+    > .col:nth-of-type(2n -1) {
+      grid-column-start: 4;
+      grid-column-end: 13;
+    }
+    > .col:nth-of-type(2n) {
+      grid-column: span 9;
+    }
+  }
+
+  &.cols-3-12-6{
+    > .col:nth-of-type(3n - 2) {
+      grid-column: span 3;
+    }
+    > .col:nth-of-type(3n - 1) {
+      grid-column: span 12;
+    }
+    > .col:nth-of-type(3n) {
+      grid-column: span 6;
     }
   }
 
