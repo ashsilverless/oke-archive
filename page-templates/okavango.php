@@ -9,43 +9,48 @@ get_header();?>
 <!-- ******************* Hero ******************* -->
 <?php if( have_rows('hero') ): while( have_rows('hero') ): the_row();
  $heroImage = get_sub_field('background_image');?>
-<div class="hero hero__section-lead h100" style="background-image: url(<?php echo $heroImage['url']; ?>);">
-    <div class="above-leader">
-        <h3 class="heading heading__lg heading__caps heading__light">
-            <?php the_sub_field('heading');?>
-        </h3>
-        <h2 class="heading heading__sm heading__light heading__alt">
-            <?php the_sub_field('sub_heading');?>
-        </h2>
-    </div>
-    <div class="hero-leader mb2">
-        <div class="container grid-gap cols-offset-3-6">
-            <?php if( have_rows('leader') ):
-            while( have_rows('leader') ): the_row();
-            $leaderImage = get_sub_field('image');?>
-                <div class="col">
-                <div class="hero-leader__item">
-                    <div class="image" style="background-image: url(<?php echo $leaderImage['url']; ?>);"></div>
-                    <div class="content">
-                         <h3 class="heading heading__lg inline-icon">
-                           <sup>The</sup>
-                           <?php the_sub_field('heading');?>
-                           <?php $thisicon = get_sub_field( 'icon')["url"];
-                           $thisicon   = explode("/wp-content/", $thisicon)[1];?>
-                           <?php echo file_get_contents("./wp-content/" . $thisicon, FILE_USE_INCLUDE_PATH); ?>
-                        </h3>
-                       <p><?php the_sub_field('copy');?></p>
-                       <a href="<?php the_sub_field('button_target');?>" class="button button__standard">
-                           Read More
-                       </a>
-                    </div>
-                </div>
-            </div>
-            <?php endwhile; endif;?>
+<div class="hero hero__section-lead h75" style="background-image: url(<?php echo $heroImage['url']; ?>);">
+    <div class="above-leader container cols-offset-3-16">
+        <div class="col">
+            <h3 class="heading heading__lg heading__caps heading__light">
+                <?php the_sub_field('heading');?>
+            </h3>
+            <h2 class="heading heading__sm heading__light heading__alt">
+                <?php the_sub_field('sub_heading');?>
+            </h2>
         </div>
     </div>
 </div>
 <?php endwhile; endif;?>
+
+
+<div class="hero-leader mb2">
+    <div class="container grid-gap cols-offset-3-6">
+        <?php if( have_rows('leader') ):
+        while( have_rows('leader') ): the_row();
+        $leaderImage = get_sub_field('image');?>
+            <div class="col">
+            <div class="hero-leader__item">
+                <div class="image" style="background-image: url(<?php echo $leaderImage['url']; ?>);"></div>
+                <div class="content">
+                     <h3 class="heading heading__lg inline-icon">
+                       <sup>The</sup>
+                       <?php the_sub_field('heading');?>
+                       <?php $thisicon = get_sub_field( 'icon')["url"];
+                       $thisicon   = explode("/wp-content/", $thisicon)[1];?>
+                       <?php echo file_get_contents("./wp-content/" . $thisicon, FILE_USE_INCLUDE_PATH); ?>
+                    </h3>
+                   <p><?php the_sub_field('copy');?></p>
+                   <a href="<?php the_sub_field('button_target');?>" class="button button__standard">
+                       Read More
+                   </a>
+                </div>
+            </div>
+        </div>
+        <?php endwhile; endif;?>
+    </div>
+</div>
+
 
 <?php if( have_rows('call_to_action') ):
 while( have_rows('call_to_action') ): the_row();

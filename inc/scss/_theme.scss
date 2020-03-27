@@ -707,10 +707,13 @@ a.control_prev {
     z-index: 2;
   }
   .above-leader {
-    max-width: 60em;
     margin: 0 auto;
-    align-self: flex-end;
-    text-align: center;
+    align-self: flex-start;
+    align-content: flex-start;
+    .col{
+      position:relative;
+      top: 15vh;
+    }
   }
 }
 
