@@ -58,6 +58,8 @@ $panelImage = get_sub_field('image');?>
     <?php endwhile; endif;?>
 </div>
 
+<?php get_template_part('template-parts/fullwidth-info-block');?>
+
 <?php if( have_rows('lower_call_to_action') ):
 while( have_rows('lower_call_to_action') ): the_row();
 $ctaImage = get_sub_field('background_image');?>
