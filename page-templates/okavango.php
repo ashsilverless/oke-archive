@@ -63,10 +63,10 @@ $panelImage = get_sub_field('image');?>
 <?php if( have_rows('lower_call_to_action') ):
 while( have_rows('lower_call_to_action') ): the_row();
 $ctaImage = get_sub_field('background_image');?>
-<div class="cta cta--fullwidth <?php the_sub_field('background_align');?>" style="background-image: url(<?php echo $ctaImage['url']; ?>);">
-    <div class="container align-center pt5 pb3">
+<div class="cta cta--fullwidth cta__dark-overlay <?php the_sub_field('background_align');?>" style="background-image: url(<?php echo $ctaImage['url']; ?>);">
+    <div class="container cols-offset3-12 pt5 pb3">
         <div class="col">
-            <div class="content lg-narrow">
+            <div class="content">
                 <h3 class="heading heading__md heading__caps heading__light"><?php the_sub_field('heading');?></h3>
                 <p><?php the_sub_field('content');?></p>
                 <a href="<?php the_sub_field('button_target');?>" class="button button__ghost"><?php the_sub_field('button_text');?></a>
