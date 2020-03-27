@@ -648,8 +648,10 @@ a.control_prev {
 }
 
 .left-hero {
-  align-content: flex-end;
   height: 85vh;
+  &__container{
+    align-content:center !important;
+  }
 }
 
 .floating-heading {
