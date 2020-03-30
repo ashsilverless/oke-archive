@@ -10,8 +10,8 @@ get_header();?>
 <?php get_template_part("template-parts/map-component"); ?>
 
 <div class="outer-wrapper">
-<div class="container cols-offset3-13-8 pt3">
-	<div class="col">
+<div class="container cols-offset3-13-8 pt3 grid-gap">
+	<div class="col pl2 pr2">
 		<div class="leading-copy">
 			<?php the_field('leading_copy_paragraph');?>
 		</div>
@@ -29,7 +29,7 @@ get_header();?>
 				</div>
 			</div><!--cta focus-->
 	</div>
-	<div class="col ml2">
+	<div class="col">
 		<h4 class="heading heading__md heading__caps heading__body mb1">Our Travel Partners</h4>
 		<div class="company-summary toggle-wrapper">
 			<?php
