@@ -2448,15 +2448,23 @@ main form.wpcf7-form {
     font-size: 0.85em;
   }
   &__item {
-    @include brandBorder;
+    position:relative;
     border-bottom: none;
     grid-column-start: 2;
     grid-column: span 1;
     grid-column-end: 3;
-    padding: 0.5em 1em;
-    background: white;
-    &:last-of-type {
-      @include brandBorderBottom;
+    padding: 0.5em 2em 0.5em 1em;
+    background: $brand-primary;
+    &:before {
+      background: url("inc/img/slider-arrow-white.svg");
+      content: '';
+      height: 1em;
+      width: 0.5em;
+      @include backgroundContain;
+      position:absolute;
+      right: 1em;
+      top: 50%;
+      transform: translateY(-50%);
     }
   }
 }
