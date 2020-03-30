@@ -68,14 +68,13 @@ $term = get_queried_object();?>
                 'exclude' => $catID
             ) );
             foreach ($destterms as $destterm):?>
-            <div class="col mb2">
-                <?php $destImage = get_field('banner_image', $destterm);?>
-                <a href="<?php echo get_term_link($destterm->slug, $destterm->taxonomy);?>" class="image-leader">
-                    <div class="image" style="background:url(<?php echo $destImage['url']; ?>);">
-                        <h2 class="heading heading__md heading__light heading__emphasis">
-                            <?php echo $destterm->name;?>
-                        </h2>
-                    </div>
+
+            <div class="destination-summary__item mb1">
+                <a href="<?php echo get_term_link($destterm->slug, $destterm->taxonomy);?>">
+                    <h2 class="heading heading__xs heading__caps heading__body heading__light"><?php echo $destterm->name;?></h2>
+
+                    <div class="image" style="background:url(<?php echo $companyImage['url']; ?>);"></div>
+                    
                 </a>
             </div>
             <?php endforeach;?>
