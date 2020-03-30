@@ -164,6 +164,10 @@ $term = get_queried_object();?>
         </div>
     </div>
 </div><!--outer-wrapper-->
+
+<?php get_template_part('template-parts/fullwidth-info-block');?>
+
+
 <?php if( have_rows('call_to_action') ):
 while( have_rows('call_to_action') ): the_row();
 $ctaImage = get_sub_field('background_image');?>
