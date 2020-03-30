@@ -11,8 +11,8 @@ $term = get_queried_object();?>
 <?php get_template_part("template-parts/left-hero"); ?>
 
 <div class="outer-wrapper mt3">
-    <div class="container cols-15-9 border-split">
-        <div class="col">
+    <div class="container cols-offset-3-12-6 border-split">
+        <div class="col pl3">
             <?php
             if( have_rows('flexible_layout') ):
             while ( have_rows('flexible_layout') ) : the_row();

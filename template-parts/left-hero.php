@@ -11,7 +11,7 @@ if ( is_tax('company')) {
 
 <div class="hero left-hero lower-grad" style="background-image: url(<?php echo $heroImage['url']; ?>);">
     <div class="container cols-offset-3-16 left-hero__container">
-		<div class="col pb5">
+		<div class="col pb5 pl3">
                 <h1 class="heading heading__lg heading__caps heading__light slow-fade mb0">
                     <?php if ( is_tax('company') ) {
                         echo $term->name;
