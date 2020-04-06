@@ -1516,6 +1516,7 @@ a.info-link i {
     color: white;
     padding: 0.5em 1em;
     text-align: center;
+    font-size: 95%;
     span {
       @include brandBorderRight;
       white-space: nowrap;
@@ -1527,6 +1528,7 @@ a.info-link i {
       &.title {
         color: $brand-primary;
         border: none;
+        text-transform: uppercase;
       }
     }
   }
