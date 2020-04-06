@@ -202,7 +202,22 @@
 
 .panel-icon {
   position: absolute;
-  left: -5em;
+  left: -7.5em;
+  top: -1px;
+  background-color:white;
+  height: calc(100% + 2px);
+  width: calc(7.5em - 1px);
+  border-left:1px solid $brand-primary;
+  border-top:1px solid $brand-primary;
+  border-bottom:1px solid $brand-primary;
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  svg{
+    path{
+      fill:$brand-primary;
+    }
+  }
 }
 
 .button-icon {
