@@ -20,19 +20,45 @@ while ( have_posts() ): the_post(); ?>
             <?php the_title();?></h2>
         <div class="detail-wrapper">
             <ul>
-                <li><span class="title">Location</span><span class="detail"><?php the_terms( $post->ID, 'destinations', '<div>','', '</div>'); ?></span></li>
-                <li><span class="title">Parent Company</span><span class="detail"><?php the_terms( $post->ID, 'company'); ?></span></li>
-                <li><span class="title">Cost</span><span class="detail">From $<?php the_field('cost');?></span></li>
-                <li><span class="title">Rooms</span><span class="detail"><?php the_field('number_of_rooms');?></span></li>
+                <li><span class="title">Location</span>
+                    <span class="detail container cols-offset4-20">
+                        <div class="col">
+                            <?php the_terms( $post->ID, 'destinations', '<div>','', '</div>'); ?>
+                        </div>                
+                    </span></li>
+                <li><span class="title">Parent Company</span>
+                    <span class="detail container cols-offset4-20">
+                        <div class="col">
+                            <?php the_terms( $post->ID, 'company'); ?>
+                        </div>
+                    </span>
+                </li>
+                <li><span class="title">Cost</span>
+                    <span class="detail container cols-offset4-20">
+                        <div class="col">
+                            From $<?php the_field('cost');?>        
+                        </div>
+                    </span>
+                </li>
+                <li><span class="title">Rooms</span><span class="detail container cols-offset4-20">
+                        <div class="col">
+                            <?php the_field('number_of_rooms');?>
+                        </div>
+                    </span>
+                </li>
                 <li><span class="title">Activities</span><span class="detail activities">
                     <ul>
                         <?php $campActivities = get_terms( 'activity' );
                         foreach ( $campActivities as $campActivity ) {?>
-                          <li>
-                            <?php $activityicon = get_field( 'icon', $campActivity)["url"];
-                            $activityicon   = explode("/wp-content/", $activityicon)[1];?>
-                            <?php echo file_get_contents("./wp-content/" . $activityicon, FILE_USE_INCLUDE_PATH); ?>
-                            <?php echo $campActivity->name;?>
+                          <li class="container cols-4-20">
+                            <div class="col">
+                                <?php $activityicon = get_field( 'icon', $campActivity)["url"];
+                                $activityicon   = explode("/wp-content/", $activityicon)[1];?>
+                                <?php echo file_get_contents("./wp-content/" . $activityicon, FILE_USE_INCLUDE_PATH); ?>
+                            </div>
+                            <div class="col">
+                                <?php echo $campActivity->name;?>
+                            </div>
                           </li>
                         <?php }?>
                     </ul>
