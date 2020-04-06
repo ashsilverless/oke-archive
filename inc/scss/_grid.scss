@@ -162,6 +162,13 @@
     }
   }
 
+  &.cols-offset-3-12 {
+    > .col {
+      grid-column-start: 4;
+      grid-column-end: 16;
+    }
+  }
+
   &.cols-offset3-18 {
     > .col {
       grid-column-start: 4;

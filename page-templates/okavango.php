@@ -10,8 +10,8 @@ get_header();?>
 <?php if( have_rows('hero') ): while( have_rows('hero') ): the_row();
  $heroImage = get_sub_field('background_image');?>
 <div class="hero hero__section-lead h75" style="background-image: url(<?php echo $heroImage['url']; ?>);">
-    <div class="above-leader container cols-offset-3-16">
-        <div class="col">
+    <div class="above-leader container cols-offset-3-12">
+        <div class="col pl3">
             <h3 class="heading heading__lg heading__caps heading__light">
                 <?php the_sub_field('heading');?>
             </h3>
@@ -30,7 +30,7 @@ $ctaImage = get_sub_field('background_image');?>
 <div class="cta cta__dark-text">
     <div class="container cols-offset3-12 pt5 pb5">
         <div class="col">
-            <div class="content">
+            <div class="content pl3">
                 <h3 class="heading heading__md heading__caps"><?php the_sub_field('heading');?></h3>
                 <p><?php the_sub_field('content');?></p>
                 <a href="<?php the_sub_field('button_target');?>" class="button button__dark-ghost"><?php the_sub_field('button_text');?></a>
