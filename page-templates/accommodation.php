@@ -15,7 +15,7 @@ get_header();?>
 		<div class="leading-copy">
 			<?php the_field('leading_copy_paragraph');?>
 		</div>
-		<div class="two-columns mb3">
+		<div class="mb3">
 			<?php the_field('page_copy');?>
 		</div>
 		<?php $ctaImage = get_field('background_image');?>
