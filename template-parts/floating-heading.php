@@ -1,9 +1,9 @@
 <?php $term = get_queried_object();?>
 <div class="floating-heading">
-    <div class="container grid-gap cols-8-16">
+    <div class="container grid-gap cols-8-13">
         <div class="col">
         </div>
-        <div class="col">
+        <div class="col pl2">
             <h1 class="heading heading__lg heading__light heading__caps">            <?php if ( is_tax('company', $term) ) {
                             echo $term->name;
                         } else {
