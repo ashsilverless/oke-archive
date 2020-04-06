@@ -2078,7 +2078,7 @@ main form.wpcf7-form {
         li {
           margin-bottom: 3px;
           border: none;
-          grid-template-columns: 3em auto;
+          grid-template-columns: repeat(24, 1fr);
         }
       }
     }
