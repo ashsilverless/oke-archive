@@ -1575,32 +1575,12 @@ main form.wpcf7-form {
   display: grid;
   grid-template-columns: 1fr;
   text-align: left;
-  span:first-of-type {
-    text-transform: uppercase;
-    background: $brand-primary;
-    color: white;
-    padding: 1em 3em;
-    border: none;
-  }
   .form-field {
-    @include brandBorder;
-    border-bottom: none;
-    border-color: white;
-    display: grid;
-    grid-template-columns: 40% 60%;
+    margin-bottom:1em;
     &.text-area {
-      grid-template-columns: 1fr;
-      border: none;
-      span {
-        @include brandBorder;
-        border-bottom: none;
-        border-color: white;
-      }
+
     }
     &.name {
-      span:last-of-type {
-        border-bottom: 1px solid $brand-primary;
-      }
     }
   }
   input,
@@ -1610,6 +1590,8 @@ main form.wpcf7-form {
     height: 100%;
     padding: 1em 2em;
     font-size: 1em;
+    background-color: rgba(white, .8);
+    text-transform: uppercase;
     &:focus {
       outline: none;
     }
@@ -1618,16 +1600,13 @@ main form.wpcf7-form {
     height: 10em;
   }
   .form-button {
-    @include brandBorder;
-    border-color: white;
-    margin-top: 1em;
-    background: transparent;
+    background: $brand-primary;
     input {
       background-color: transparent;
-      font-family: $brand-font;
-      font-style: italic;
-      font-size: 1.2em;
+      font-family: $body-font;
+      font-size: 1em;
       color: white;
+      text-align: left;
     }
   }
   .ajax-loader {
