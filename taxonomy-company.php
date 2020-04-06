@@ -46,9 +46,27 @@ $term = get_queried_object();?>
                     </div>
                     <div class="col">
                         <div class="content">
-                            <p class="cost"><i class="fas fa-credit-card"></i> From $<?php the_field('cost');?></p>
-                            <p class="destinations"><i class="fas fa-map-marker-alt"></i><?php the_terms( $post->ID, 'destinations'); ?></p>
-                            <div class="description"><?php the_field('short_description');?></div>
+                            <div class="cost container cols-2-22">
+                                <div class="col">
+                                    <i class="fas fa-credit-card"></i>
+                                </div>
+                                <div class="col">
+                                     From $<?php the_field('cost');?>
+                                 </div>
+                            </div>
+                            <div class="destinations container cols-2-22">
+                                <div class="col">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="col">
+                                    <?php the_terms( $post->ID, 'destinations'); ?>
+                                </div>
+                            </div>
+                            <div class="container cols-offset2-22 pl2_8">
+                                <div class="col">
+                                    <?php the_field('short_description');?>
+                                </div>
+                            </div>
                             <a href="<?php the_permalink(); ?>" class="button">View <?php the_title(); ?></a>
                         </div>
                     </div>
