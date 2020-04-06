@@ -44,7 +44,7 @@ get_header();?>
 					<input class="toggle" id="id-<?php echo $number;?>" type="checkbox"/>
 					<div class="header">
   					<label class="group" for="id-<?php echo $number;?>">
-						<h2 class="heading heading__sm heading__caps heading__body"><?php echo $term->name;?></h2>
+						<h2 class="heading heading__xs heading__caps heading__body"><?php echo $term->name;?></h2>
 						<?php get_template_part("template-parts/arrow-large"); ?>
 					</label>
 				</div>

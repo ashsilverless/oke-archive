@@ -2462,6 +2462,9 @@ main form.wpcf7-form {
       margin-bottom: 1em;
       padding: 0.5em 2em;
       background: white;
+      h2{
+        max-width: calc(100% - 3em);
+      }
       svg {
         position: absolute;
         right: 3em;
