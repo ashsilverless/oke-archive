@@ -128,7 +128,7 @@ $term = get_queried_object();?>
                         </div>
                         <!--item-->
                         <?php endwhile;?>
-                        <div class="pagination">
+                        <div class="pagination pb2">
                             <?php echo paginate_links( array(
                                 'base'         => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
                                 'total'        => $query->max_num_pages,
