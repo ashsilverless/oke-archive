@@ -2437,9 +2437,10 @@ main form.wpcf7-form {
     grid-column: span 1;
     grid-column-end: 3;
     padding: 0.5em 2em 0.5em 1em;
-    background: $brand-primary;
+    background: white;
+    @include brandBorderTop;
     &:before {
-      background: url("inc/img/slider-arrow-white.svg");
+      background: url("inc/img/slider-arrow-green.svg");
       content: '';
       height: 1em;
       width: 0.5em;
