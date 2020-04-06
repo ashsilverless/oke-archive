@@ -675,7 +675,7 @@ jQuery(document).ready(function($) {
     paddingTop: navHeight + 'px'
     });
 
-var slideHeight = screenHeight * 0.85 - navHeight;
+var slideHeight = screenHeight * 0.75 - navHeight;
 
 $(".hero-carousel .carousel_module .owl-item").css({
   height: slideHeight
