@@ -19,7 +19,7 @@
                         </a>
                     </div>                    
                 </div>
-                <div class="col">
+                <div class="col pl2">
                     <?php if( have_rows('contact_info', 'options') ): 
                     while( have_rows('contact_info', 'options') ): the_row(); ?>
                     <p class="mb2 mt0"><?php the_sub_field('address');?></p>
@@ -42,7 +42,7 @@
                 </div>
             </div>
             <div class="container cols-offset3-9-9">
-                <div class="col colophon">
+                <div class="col colophon pl2">
                     &copy; Okavango Delta Explorations <?php echo date ('Y');?>
                     <div class="mandatory">
     				    <a href="<?php echo home_url() . '/terms-conditions'; ?>">Terms & Conditions</a>
