@@ -11,7 +11,7 @@ while ( have_posts() ): the_post(); ?>
 <?php get_template_part("template-parts/carousel-hero"); ?>
 <div class="outer-wrapper">
 <?php get_template_part("template-parts/floating-heading"); ?>
-<div class="container grid-gap cols-8-16">
+<div class="container grid-gap cols-8-13">
     <div class="col">
         <div class="sidebar mb5">
             <?php $custom_terms = wp_get_post_terms($post->ID, 'company');?>
@@ -164,7 +164,7 @@ $the_query = new WP_Query( $args );?>
         <?php $post_objects = get_field('combines_well_with');
 
         if( $post_objects ): ?>
-            <div class="container grid-gap equal-height cols-12 mb5">
+            <div class="container grid-gap equal-height cols-12 mb5 pl2">
             <?php foreach( $post_objects as $post): // variable must be called $post (IMPORTANT) ?>
                 <?php setup_postdata($post);
 
