@@ -262,7 +262,7 @@ header {
         a {
             height: 100%;
             width: 100%;
-            padding: 1em 1.5em 1em 0;
+            padding: 1em 3em 1em 0;
         }
     }
 
@@ -305,7 +305,6 @@ header {
 
         a:nth-of-type(2) {
             align-self: flex-end;
-            padding-bottom: 0.25em;
             font-weight: 600;
         }
     }
@@ -394,13 +393,14 @@ nav {
 }
 
 .secondaryMenu {
-    padding-top: 0.75em;
+    padding-top: 0.5em;
 
     ul {
         justify-content: flex-start;
 
         li {
             margin-right: 3em;
+            font-size:13px;
 
             a {
                 line-height: 1.5;
@@ -434,6 +434,7 @@ nav {
     text-align: center;
     z-index: 50;
     transition: all 0.5s ease;
+    font-size:13px;
 }
 
 .pagination {
