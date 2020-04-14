@@ -110,7 +110,7 @@ $term = get_queried_object();?>
         ?>
         <div class="destination-summary__item mb1">
         <a href="<?php echo $term_link = get_term_link( $term ); ?>">
-                    <h2 class="heading heading__xs heading__caps heading__body heading__light"><?php echo $term->name;?></h2>
+                    <h2 class="heading heading__xs heading__caps heading__body"><?php echo $term->name;?></h2>
 
                 <div class="image" style="background:url(<?php echo $companyImage['url']; ?>);"></div>
                 <?php the_field('short_description', $term);?>

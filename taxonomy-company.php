@@ -62,12 +62,16 @@ $term = get_queried_object();?>
                                     <?php the_terms( $post->ID, 'destinations'); ?>
                                 </div>
                             </div>
-                            <div class="container cols-offset2-22 pl2_8">
+                            <div class="container cols-offset2-22 pl2_8 pr3">
                                 <div class="col">
                                     <?php the_field('short_description');?>
                                 </div>
                             </div>
-                            <a href="<?php the_permalink(); ?>" class="button">View <?php the_title(); ?></a>
+                            <div class="container cols-offset2-22 pl2_8 pr3 pb2">
+                                <div class="col">
+                                    <a href="<?php the_permalink(); ?>" class="button">View <?php the_title(); ?></a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
