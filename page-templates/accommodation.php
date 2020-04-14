@@ -11,7 +11,7 @@ get_header();?>
 
 <div class="outer-wrapper">
 <div class="container cols-offset3-13-8 pt3 grid-gap">
-	<div class="col pl2 pr2">
+	<div class="col pl2_8 pr2">
 		<div class="leading-copy">
 			<?php the_field('leading_copy_paragraph');?>
 		</div>
