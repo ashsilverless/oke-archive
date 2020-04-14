@@ -143,6 +143,14 @@
       grid-column: span 22;
     }
   }
+  &.cols-3-21{
+    > .col:nth-of-type(2n -1) {
+      grid-column: span 3;
+    }
+    > .col:nth-of-type(2n) {
+      grid-column: span 21;
+    }
+  }
   &.cols-8-13{
     > .col:nth-of-type(2n -1) {
       grid-column: span 8;

@@ -1499,14 +1499,13 @@ a.info-link i {
     display: grid;
     height: 100%;
     align-items: center;
-    text-align: center;
   }
   .meta {
     display: flex;
     .item {
       @include brandBorderBottom;
       width: 50%;
-      padding: 1em 3em;
+      padding: 1em 2em;
       &:first-of-type {
         @include brandBorderRight;
       }
@@ -1520,14 +1519,14 @@ a.info-link i {
     grid-column: span 24;
     background: #20263d;
     color: white;
-    padding: 0.5em 1em;
-    text-align: center;
+    padding: 0.5em 4em;
     font-size: 95%;
+    width: 100%;
     span {
       @include brandBorderRight;
-      white-space: nowrap;
       padding-right: 0.5em;
       margin-right: 0.5em;
+      display: inline-block;
       &:last-of-type {
         border-right: none;
       }

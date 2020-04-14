@@ -58,7 +58,7 @@ get_header();?>
                 <div class="container cols-12">
                     <div class="col">
                         <div class="image" style="background:url(<?php echo $safariImage['url']; ?>);">
-                            <h2 class="heading heading__md heading__light heading__emphasis"><?php the_title(); ?></h2>
+                            <h2 class="heading heading__md heading__light heading__emphasis pl10 pr1"><?php the_title(); ?></h2>
                         </div>
                     </div>
                     <div class="col">
@@ -75,12 +75,14 @@ get_header();?>
 
 
 
-                    <div class="camps">
-                        <span class="title">Includes:</span>
-                        <?php if( have_rows('daily_activity') ): while( have_rows('daily_activity') ): the_row();
-                           $dailycamp = get_sub_field('daily_camp');?>
-                           <span><?php echo $dailycamp->post_title;?></span>
-                        <?php endwhile; endif;?>
+                    <div class="camps container cols-3-21">
+                        <span class="title col">Includes:</span>
+                        <span class="col">
+                          <?php if( have_rows('daily_activity') ): while( have_rows('daily_activity') ): the_row();
+                             $dailycamp = get_sub_field('daily_camp');?>
+                             <span><?php echo $dailycamp->post_title;?></span>
+                          <?php endwhile; endif;?>
+                        </span>
                     </div>
 
 
