@@ -71,7 +71,7 @@ $term = get_queried_object();?>
 
             <div class="destination-summary__item mb1">
                 <a href="<?php echo get_term_link($destterm->slug, $destterm->taxonomy);?>">
-                    <h2 class="heading heading__xs heading__caps heading__body heading__light"><?php echo $destterm->name;?></h2>
+                    <h2 class="heading heading__xs heading__caps heading__body"><?php echo $destterm->name;?></h2>
 
                     <div class="image" style="background:url(<?php echo $companyImage['url']; ?>);"></div>
                     
