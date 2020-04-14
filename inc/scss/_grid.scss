@@ -283,6 +283,25 @@
     }
   }
 
+  &.cols-offset-3-12-9{
+    > .col:nth-of-type(2n -1) {
+      grid-column-start: 4;
+      grid-column-end: 16;
+    }
+    > .col:nth-of-type(2n) {
+      grid-column: span 9;
+    }
+    &.border-split {
+      > .col:nth-of-type(1) {
+        padding-right: 3rem;
+      }
+      > .col:nth-of-type(2) {
+        @include brandBorderLeft;
+        padding-left: 2rem;
+      }
+    }
+  }
+
   &.cols-offset3-9-9{
     > .col:nth-of-type(2n -1) {
       grid-column-start: 4;

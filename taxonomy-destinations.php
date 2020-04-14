@@ -11,8 +11,8 @@ $term = get_queried_object();?>
 <?php get_template_part("template-parts/left-hero"); ?>
 
 <div class="outer-wrapper mt3">
-    <div class="container cols-16-8 grid-gap">
-        <div class="col">
+    <div class="container cols-offset-3-12-9 grid-gap">
+        <div class="col pl2_8 pr2">
             <div class="description camp">
                 <?php the_field('description', $term);?>
             </div>
@@ -49,7 +49,9 @@ $term = get_queried_object();?>
                                 <p class="cost"><i class="fas fa-credit-card"></i> From $<?php the_field('cost');?></p>
                                 <p class="destinations"><i class="fas fa-map-marker-alt"></i><?php the_terms( $post->ID, 'destinations'); ?></p>
                                 <div class="description"><?php the_field('short_description');?></div>
-                                <a href="<?php the_permalink(); ?>" class="button">View <?php the_title(); ?></a>
+                                <div class="pb1 pl2 pr2">
+                                    <a href="<?php the_permalink(); ?>" class="button">View <?php the_title(); ?></a>
+                                </div>
                             </div>
                         </div>
                     </div>
